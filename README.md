@@ -23,11 +23,11 @@ Built with **Streamlit** (UI) and the **Anthropic API** (Claude, for grounded pe
 See [APP_README.md](APP_README.md) for full setup, run instructions, and architecture details.
 
 ## Project Documentation
-- [Product Canvas](Project%20Docs/AI%20Product%20Canvas.pdf)
-- [PRD](Project%20Docs/AI_PRD.pdf)
-- [Problem Discovery & User Research](Project%20Docs/Problem_Discovery_User_Research.pdf)
-- [Cost Estimation (Excel)](Project%20Docs/Cost_Estimation.xlsx)
-- [Cost Estimation (PDF)](Project%20Docs/Cost_Estimation.pdf)
+- [AI Product Canvas.pdf](Project%20Docs/AI%20Product%20Canvas.pdf)
+- [AI_PRD.pdf](Project%20Docs/AI_PRD.pdf)
+- [Problem_Discovery_User_Research.pdf](Project%20Docs/Problem_Discovery_User_Research.pdf)
+- [Cost_Estimation.xlsx](Project%20Docs/Cost_Estimation.xlsx)
+- [Cost_Estimation.pdf](Project%20Docs/Cost_Estimation.pdf)
 
 ## Dataset
 
