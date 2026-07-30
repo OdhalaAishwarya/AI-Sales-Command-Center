@@ -65,7 +65,13 @@ def _crm_block(crm_row: dict) -> str:
 
 def build_prompt(item: CaseFile | OrphanLead) -> str:
     parts = [f"Today's date: {TODAY}", ""]
-    if isinstance(item, CaseFile):
+    # Duck-typed (hasattr), not isinstance(item, CaseFile) - see the matching
+    # comment in cache.py's get_or_analyze for why isinstance is unreliable
+    # here (st.cache_resource can hold instances from a stale module reload).
+    # This is the fresh-analysis path (called from analyze_lead below on a
+    # cache miss), so this exact line is what was still crashing after the
+    # cache.py/app.py fix - it was the one isinstance check missed.
+    if hasattr(item, "lead_id"):
         parts.append(_crm_block(item.crm_row))
     else:
         parts.append(
@@ -112,7 +118,8 @@ def _filter_findings(raw: dict, docs: list[Document]) -> tuple[dict, list[dict]]
 
 
 def analyze_lead(client: Anthropic, item: CaseFile | OrphanLead, model: str | None = None) -> LeadAnalysis:
-    if isinstance(item, CaseFile):
+    # Duck-typed (hasattr) - same reasoning as build_prompt above.
+    if hasattr(item, "lead_id"):
         key = item.lead_id
         lead_id = item.lead_id
         company = item.crm_row.get("company", "")

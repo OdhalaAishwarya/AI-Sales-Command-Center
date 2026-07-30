@@ -1,188 +1,4 @@
 {
-  "1f6520ccfc01405dd5e14746ad42b6eb39737ae1ed38586e41ea6a3a1df955e0": {
-    "key": "L-1002",
-    "lead_id": "L-1002",
-    "company": "FinServe Capital",
-    "is_orphan": false,
-    "mismatches": [],
-    "missing_info_flags": [
-      {
-        "summary": "CRM has no next follow-up date even though the note specifies a concrete time to re-engage.",
-        "missing_field": "next_followup_date",
-        "evidence_quote": "arjun travelling first 2 wks of july, said ping him after 15th",
-        "source_file": "2026-06-30_finserve_intro_call.md"
-      }
-    ],
-    "timing_signals": [
-      {
-        "summary": "Arjun asked to be contacted after July 15th since he's traveling the first two weeks of July.",
-        "evidence_quote": "arjun travelling first 2 wks of july, said ping him after 15th",
-        "source_file": "2026-06-30_finserve_intro_call.md",
-        "urgency": "due_this_month",
-        "estimated_date_or_window": "2026-07-15 onward"
-      }
-    ],
-    "open_questions_or_dropped_commitments": [
-      {
-        "summary": "Budget was not discussed during the intro call and there's no record of follow-up to establish it.",
-        "kind": "unanswered_question",
-        "evidence_quote": "budget not discussed",
-        "source_file": "2026-06-30_finserve_intro_call.md"
-      }
-    ],
-    "deprioritize_signals": [],
-    "suggested_crm_update": "Set next_followup_date to 2026-07-15",
-    "suggested_next_action": "Reach out to Arjun after July 15th as he requested, following up on the ML credit-scoring use case for thin-file customers and the regulator explainability requirement discussed on the intro call.",
-    "dropped_findings": []
-  },
-  "cd89d4be5ff6956b4cb7bc9a748870fc1104e0cfb4554db7bead7d74338590eb": {
-    "key": "L-1001",
-    "lead_id": "L-1001",
-    "company": "Acme Retail Group",
-    "is_orphan": false,
-    "mismatches": [
-      {
-        "summary": "CRM last contact date is listed as 2026-02-20, but there was an email exchange on 2026-06-18/19 and a QBR meeting on 2026-06-24.",
-        "crm_says": "Last contact date (per CRM): 2026-02-20",
-        "evidence_quote": "**Date:** 2026-06-24 \u00b7 **Attendees:** Priya Raman, Vikas (Acme analytics lead), Dhaval, Ayush",
-        "source_file": "2026-06-24_acme_quarterly_review.md",
-        "severity": "high"
-      }
-    ],
-    "missing_info_flags": [
-      {
-        "summary": "Next follow-up date is blank in CRM despite an explicit action item (scope note) that was due 27 Jun and is now overdue, plus other unassigned action items from the QBR.",
-        "missing_field": "next_followup_date",
-        "evidence_quote": "Scope note for report automation \u2014 Ayush \u2014 by 27 Jun  *(not done)*",
-        "source_file": "2026-06-24_acme_quarterly_review.md"
-      }
-    ],
-    "timing_signals": [
-      {
-        "summary": "Scope note for report automation was promised 'this week' on 2026-06-19 and formally due 27 Jun, but ground truth confirms it was never sent as of today.",
-        "evidence_quote": "we'll send you a short scope note this week",
-        "source_file": "2026-06-18_acme_retail_monthly_reports.md",
-        "urgency": "due_now",
-        "estimated_date_or_window": "2026-06-27 (already overdue)"
-      },
-      {
-        "summary": "Support contract renewal is due in September 2026.",
-        "evidence_quote": "Renewal of support contract due September. Priya signalled no issues.",
-        "source_file": "2026-06-24_acme_quarterly_review.md",
-        "urgency": "later",
-        "estimated_date_or_window": "2026-09"
-      }
-    ],
-    "open_questions_or_dropped_commitments": [
-      {
-        "summary": "Priya directly asked if AtliQ could automate the manual board reporting pack assembly; Dhaval said yes and promised a scope note, which per ground truth was never sent.",
-        "kind": "dropped_commitment",
-        "evidence_quote": "we'll send you a short scope note this week",
-        "source_file": "2026-06-18_acme_retail_monthly_reports.md"
-      },
-      {
-        "summary": "QBR notes confirm the scope note action item was not completed by its deadline.",
-        "kind": "dropped_commitment",
-        "evidence_quote": "Scope note for report automation \u2014 Ayush \u2014 by 27 Jun  *(not done)*",
-        "source_file": "2026-06-24_acme_quarterly_review.md"
-      },
-      {
-        "summary": "New inventory forecasting opportunity raised by Vikas has no owner or follow-up logged.",
-        "kind": "unanswered_question",
-        "evidence_quote": "Vikas mentioned ops side struggles with seasonal inventory forecasting \u2014 overstock on festive SKUs, stockouts on staples. Worth a separate conversation with their COO. New opportunity, not logged anywhere.",
-        "source_file": "2026-06-24_acme_quarterly_review.md"
-      },
-      {
-        "summary": "Priya referred Ananya Desai at FreshCart and confirmed Ananya is expecting a call, but no owner/date is set for this action.",
-        "kind": "dropped_commitment",
-        "evidence_quote": "Call Ananya @ FreshCart \u2014 ?",
-        "source_file": "2026-06-24_acme_quarterly_review.md"
-      }
-    ],
-    "deprioritize_signals": [],
-    "suggested_crm_update": "Update CRM status from 'Won' to reflect active post-sale engagement, set last contact date to 2026-06-24, and set next_followup_date to send the overdue scope note.",
-    "suggested_next_action": "Have Ayush send the overdue report-automation scope note promised to Priya (due 27 Jun per the QBR action item, still not sent as of 2026-07-10), and separately follow up on the FreshCart intro call with Ananya Desai and the inventory forecasting conversation with Acme's COO raised by Vikas.",
-    "dropped_findings": [
-      {
-        "category": "mismatches",
-        "summary": "CRM status is 'Won' with no next steps, but recent docs show active ongoing engagement, unfulfilled commitments, and new open opportunities.",
-        "crm_says": "CRM status: Won",
-        "evidence_quote": "GROUND TRUTH (confirmed fact about what actually happened): No scope note sent as of 2026-07-10.",
-        "source_file": "2026-06-18_acme_retail_monthly_reports.md",
-        "severity": "medium"
-      }
-    ]
-  },
-  "b45cc05d63e6f5b0e796b26f8f26301456d99406cb8e713311a5a2ec26f60ccd": {
-    "key": "L-1003",
-    "lead_id": "L-1003",
-    "company": "Meridian Healthcare",
-    "is_orphan": false,
-    "mismatches": [
-      {
-        "summary": "CRM shows lead as merely 'Contacted' with no notes, but Sanjay sent detailed proposal questions on 2026-06-16 that were never answered - a much more advanced and urgent stage than the CRM reflects.",
-        "crm_says": "CRM status: Contacted; CRM notes field: (blank)",
-        "evidence_quote": "No reply from AtliQ as of 2026-07-10. CRM status for lead L-1003 still says \"Contacted\".",
-        "source_file": "2026-06-16_meridian_proposal_questions.md",
-        "severity": "high"
-      },
-      {
-        "summary": "Meridian is duplicated in CRM as two separate leads (L-1003 and L-1027) for the same contact/company, causing confusion at a conference booth.",
-        "crm_says": "Lead ID: L-1003 (single record for Meridian Healthcare)",
-        "evidence_quote": "Now sitting in CRM twice: L-1003 and L-1027.",
-        "source_file": "2026-06-14_techsummit_debrief.md",
-        "severity": "medium"
-      }
-    ],
-    "missing_info_flags": [
-      {
-        "summary": "Next follow-up date is blank despite clear engagement (unanswered proposal questions and a looming budget review deadline).",
-        "missing_field": "next_followup_date",
-        "evidence_quote": "Meridian (L-1003) \u2014 Sanjay's proposal questions from 16 Jun still unanswered. Their budget review is mid-July.",
-        "source_file": "2026-07-07_internal_prioritization.md"
-      }
-    ],
-    "timing_signals": [
-      {
-        "summary": "Sanjay wants to close before Meridian's Q2 budget review in mid-July, and this deadline is fast approaching with no reply sent yet.",
-        "evidence_quote": "We'd like to close this out before our Q2 budget review in mid-July.",
-        "source_file": "2026-06-16_meridian_proposal_questions.md",
-        "urgency": "due_now",
-        "estimated_date_or_window": "2026-07 (mid-July)"
-      },
-      {
-        "summary": "Internal team explicitly flagged Meridian's mid-July budget review deadline as a pending risk during prioritization discussion.",
-        "evidence_quote": "Meridian (L-1003) \u2014 Sanjay's proposal questions from 16 Jun still unanswered. Their budget review is mid-July.",
-        "source_file": "2026-07-07_internal_prioritization.md",
-        "urgency": "due_now",
-        "estimated_date_or_window": "2026-07 (mid-July)"
-      }
-    ],
-    "open_questions_or_dropped_commitments": [
-      {
-        "summary": "Sanjay's technical question about whether the ingestion layer supports HL7 feeds from older lab systems (vs only FHIR APIs) has not been answered.",
-        "kind": "unanswered_question",
-        "evidence_quote": "Can the ingestion layer handle HL7 feeds from our older lab systems, or only the FHIR APIs mentioned in section 3?",
-        "source_file": "2026-06-16_meridian_proposal_questions.md"
-      },
-      {
-        "summary": "Sanjay's question about whether the 14-week timeline includes UAT with clinicians or is additional has not been answered.",
-        "kind": "unanswered_question",
-        "evidence_quote": "The proposal quotes a 14-week timeline \u2014 does that include UAT with our clinicians, or is that on top?",
-        "source_file": "2026-06-16_meridian_proposal_questions.md"
-      },
-      {
-        "summary": "Internal notes confirm the team is aware the proposal Q&A was never responded to, and this dropped commitment to reply has persisted for weeks.",
-        "kind": "dropped_commitment",
-        "evidence_quote": "Jay spent ~2 hours before this meeting reconciling CRM against inboxes and still found gaps (Meridian proposal Q&A sitting unanswered, the Harbor & Finch intro from Suresh, TechSummit leads only half-entered).",
-        "source_file": "2026-07-02_internal_pipeline_review.md"
-      }
-    ],
-    "deprioritize_signals": [],
-    "suggested_crm_update": "Update CRM notes to reflect Sanjay's unanswered 6/16 proposal questions and set next_followup_date given the mid-July budget review deadline; also flag/merge duplicate lead L-1027.",
-    "suggested_next_action": "Have Bhavin reply directly to Sanjay's 2026-06-16 email answering the HL7/FHIR ingestion question and the UAT timeline question before Meridian's stated mid-July budget review, since no response has been sent in over three weeks.",
-    "dropped_findings": []
-  },
   "fc7133db5c503be441deb864790ff1e52d512a57c6abdf5bc554215c32e850be": {
     "key": "L-1004",
     "lead_id": "L-1004",
@@ -2244,6 +2060,197 @@
         "source_file": "2026-07-03_ridgeline_scribble.md",
         "urgency": "unclear",
         "estimated_date_or_window": "2026-07-03 (call date), no follow-up since"
+      }
+    ]
+  },
+  "1f6520ccfc01405dd5e14746ad42b6eb39737ae1ed38586e41ea6a3a1df955e0": {
+    "key": "L-1002",
+    "lead_id": "L-1002",
+    "company": "FinServe Capital",
+    "is_orphan": false,
+    "mismatches": [],
+    "missing_info_flags": [
+      {
+        "summary": "CRM has no next follow-up date even though the note indicates a specific time to re-engage.",
+        "missing_field": "next_followup_date",
+        "evidence_quote": "arjun travelling first 2 wks of july, said ping him after 15th",
+        "source_file": "2026-06-30_finserve_intro_call.md"
+      }
+    ],
+    "timing_signals": [
+      {
+        "summary": "Arjun asked to be contacted after July 15th since he's traveling until then.",
+        "evidence_quote": "arjun travelling first 2 wks of july, said ping him after 15th",
+        "source_file": "2026-06-30_finserve_intro_call.md",
+        "urgency": "due_this_month",
+        "estimated_date_or_window": "2026-07-15 or shortly after"
+      }
+    ],
+    "open_questions_or_dropped_commitments": [
+      {
+        "summary": "Budget for the project was not discussed during the intro call, leaving an open gap in qualification.",
+        "kind": "unanswered_question",
+        "evidence_quote": "budget not discussed",
+        "source_file": "2026-06-30_finserve_intro_call.md"
+      }
+    ],
+    "deprioritize_signals": [],
+    "suggested_crm_update": "Set next_followup_date to 2026-07-16 (per Arjun's request to be contacted after the 15th)",
+    "suggested_next_action": "Have Karandeep reach out to Arjun shortly after July 15th (once he's back from travel) to continue the credit-scoring ML discussion and address the still-undiscussed budget.",
+    "dropped_findings": []
+  },
+  "cd89d4be5ff6956b4cb7bc9a748870fc1104e0cfb4554db7bead7d74338590eb": {
+    "key": "L-1001",
+    "lead_id": "L-1001",
+    "company": "Acme Retail Group",
+    "is_orphan": false,
+    "mismatches": [
+      {
+        "summary": "CRM shows last contact date as 2026-02-20, but there was an email exchange on 2026-06-18/19 and a QBR meeting on 2026-06-24.",
+        "crm_says": "Last contact date (per CRM): 2026-02-20",
+        "evidence_quote": "**Date:** 2026-06-18",
+        "source_file": "2026-06-18_acme_retail_monthly_reports.md",
+        "severity": "high"
+      },
+      {
+        "summary": "CRM status is 'Won' with note 'Great client' but documents show an open unresolved action item (scope note never sent) and unlogged new opportunities, suggesting the account is still active/in-progress, not simply closed-won and settled.",
+        "crm_says": "CRM status: Won",
+        "evidence_quote": "Scope note for report automation \u2014 Ayush \u2014 by 27 Jun  *(not done)*",
+        "source_file": "2026-06-24_acme_quarterly_review.md",
+        "severity": "medium"
+      }
+    ],
+    "missing_info_flags": [
+      {
+        "summary": "Next follow-up date is blank despite an outstanding commitment (scope note) and a renewal due in September, both requiring active follow-up.",
+        "missing_field": "next_followup_date",
+        "evidence_quote": "Renewal of support contract due September. Priya signalled no issues.",
+        "source_file": "2026-06-24_acme_quarterly_review.md"
+      }
+    ],
+    "timing_signals": [
+      {
+        "summary": "Scope note for report automation was promised by 27 Jun 2026 but not sent as of today.",
+        "urgency": "due_now",
+        "evidence_quote": "Scope note for report automation \u2014 Ayush \u2014 by 27 Jun  *(not done)*",
+        "source_file": "2026-06-24_acme_quarterly_review.md",
+        "estimated_date_or_window": "2026-06-27 (overdue)"
+      },
+      {
+        "summary": "Support contract renewal is due in September 2026.",
+        "urgency": "later",
+        "evidence_quote": "Renewal of support contract due September. Priya signalled no issues.",
+        "source_file": "2026-06-24_acme_quarterly_review.md",
+        "estimated_date_or_window": "2026-09"
+      }
+    ],
+    "open_questions_or_dropped_commitments": [
+      {
+        "summary": "Dhaval promised a short scope note for report automation 'this week' after the 2026-06-19 email, but it was never sent as of 2026-07-10.",
+        "kind": "dropped_commitment",
+        "evidence_quote": "we'll send you a short scope note this week",
+        "source_file": "2026-06-18_acme_retail_monthly_reports.md"
+      },
+      {
+        "summary": "Priya directly asked if AtliQ could automate the monthly board reporting pack; this request has not been resolved.",
+        "kind": "unanswered_question",
+        "evidence_quote": "Is that something you folks could automate?",
+        "source_file": "2026-06-18_acme_retail_monthly_reports.md"
+      },
+      {
+        "summary": "Action item to call Ananya at FreshCart has no owner assigned and unclear completion status.",
+        "kind": "dropped_commitment",
+        "evidence_quote": "- [ ] Call Ananya @ FreshCart \u2014 ?",
+        "source_file": "2026-06-24_acme_quarterly_review.md"
+      },
+      {
+        "summary": "Action item for an intro conversation about inventory forecasting with Acme's COO has no owner assigned.",
+        "kind": "dropped_commitment",
+        "evidence_quote": "- [ ] Intro convo re: forecasting with Acme COO \u2014 ?",
+        "source_file": "2026-06-24_acme_quarterly_review.md"
+      }
+    ],
+    "deprioritize_signals": [],
+    "suggested_crm_update": "Update last_contact_date to 2026-06-24 and set next_followup_date to reflect the overdue scope note and September renewal.",
+    "suggested_next_action": "Have Ayush send the overdue scope note for report automation (promised by 27 Jun per the QBR action item and the 2026-06-19 email) to Priya, and follow up on the unlogged inventory forecasting opportunity with Acme's COO.",
+    "dropped_findings": [
+      {
+        "category": "open_questions_or_dropped_commitments",
+        "summary": "Ground truth confirms no scope note was ever sent, directly contradicting the commitment made.",
+        "kind": "dropped_commitment",
+        "evidence_quote": "GROUND TRUTH (confirmed fact about what actually happened): No scope note sent as of 2026-07-10.",
+        "source_file": "2026-06-18_acme_retail_monthly_reports.md"
+      }
+    ]
+  },
+  "b45cc05d63e6f5b0e796b26f8f26301456d99406cb8e713311a5a2ec26f60ccd": {
+    "key": "L-1003",
+    "lead_id": "L-1003",
+    "company": "Meridian Healthcare",
+    "is_orphan": false,
+    "mismatches": [
+      {
+        "summary": "CRM status shows 'Contacted' but the client sent proposal questions on 6/16 that were never answered, meaning the lead is stalled awaiting AtliQ response, not actively progressing.",
+        "crm_says": "CRM status: Contacted",
+        "evidence_quote": "No reply from AtliQ as of 2026-07-10. CRM status for lead L-1003 still says \"Contacted\".",
+        "source_file": "2026-06-16_meridian_proposal_questions.md",
+        "severity": "high"
+      },
+      {
+        "summary": "The same Meridian/Sanjay lead appears to be duplicated in the CRM as two separate lead records (L-1003 and L-1027), causing confusion at a conference booth.",
+        "crm_says": "Lead ID: L-1003",
+        "evidence_quote": "Meridian booth conversation \u2014 SAME hospital group we already have an open deal with?? Sanjay was at the booth, talked to Jay who didn't realise Bhavin already has a proposal with him. Awkward. (Now sitting in CRM twice: L-1003 and L-1027.)",
+        "source_file": "2026-06-14_techsummit_debrief.md",
+        "severity": "medium"
+      }
+    ],
+    "missing_info_flags": [],
+    "timing_signals": [
+      {
+        "summary": "Client explicitly wants to close out proposal questions before their Q2 budget review in mid-July.",
+        "evidence_quote": "We'd like to close this out before our Q2 budget review in mid-July.",
+        "source_file": "2026-06-16_meridian_proposal_questions.md",
+        "urgency": "due_now",
+        "estimated_date_or_window": "2026-07 (mid-July)"
+      },
+      {
+        "summary": "Internal prioritization note confirms Meridian's budget review is mid-July and questions remain unanswered as of 7/7.",
+        "evidence_quote": "Meridian (L-1003) \u2014 Sanjay's proposal questions from 16 Jun still unanswered. Their budget review is mid-July.",
+        "source_file": "2026-07-07_internal_prioritization.md",
+        "urgency": "due_now",
+        "estimated_date_or_window": "2026-07 (mid-July)"
+      }
+    ],
+    "open_questions_or_dropped_commitments": [
+      {
+        "summary": "Client's IT director asked whether ingestion layer supports HL7 feeds from older lab systems vs only FHIR APIs \u2014 no evidence of a reply.",
+        "kind": "unanswered_question",
+        "evidence_quote": "Can the ingestion layer handle HL7 feeds from our older lab systems, or only the FHIR APIs mentioned in section 3?",
+        "source_file": "2026-06-16_meridian_proposal_questions.md"
+      },
+      {
+        "summary": "Client asked whether the quoted 14-week timeline includes UAT with clinicians or is additional \u2014 no evidence of a reply.",
+        "kind": "unanswered_question",
+        "evidence_quote": "The proposal quotes a 14-week timeline \u2014 does that include UAT with our clinicians, or is that on top?",
+        "source_file": "2026-06-16_meridian_proposal_questions.md"
+      },
+      {
+        "summary": "Internal team confirmed as of 7/6 that nobody was sure whether Sanjay's questions had been answered, indicating a dropped commitment to respond.",
+        "kind": "dropped_commitment",
+        "evidence_quote": "Nobody sure if we replied to Sanjay's proposal questions from 16 Jun. Check inbox.",
+        "source_file": "2026-07-06_meridian_check.md"
+      }
+    ],
+    "deprioritize_signals": [],
+    "suggested_crm_update": "Set next_followup_date to reflect urgent response needed before Meridian's mid-July budget review, and flag/merge duplicate lead L-1027 with L-1003.",
+    "suggested_next_action": "Have Bhavin reply to Sanjay's 6/16 email answering the two open questions (HL7 feed support vs FHIR-only, and whether the 14-week timeline includes clinician UAT) before Meridian's stated mid-July Q2 budget review deadline.",
+    "dropped_findings": [
+      {
+        "category": "missing_info_flags",
+        "summary": "CRM has no next follow-up date despite an unanswered client question and an approaching client budget deadline.",
+        "missing_field": "next_followup_date",
+        "evidence_quote": "Next follow-up date (per CRM): (blank)",
+        "source_file": "CRM_RECORD"
       }
     ]
   }
