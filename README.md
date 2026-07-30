@@ -24,8 +24,8 @@ See [APP_README.md](APP_README.md) for full setup, run instructions, and archite
 
 ## Project Documentation
 - [Product Canvas](Project%20Docs/AI%20Product%20Canvas.pdf)
-- [PRD](Project%20Docs/AI_PRD.docx)
-- [Problem Discovery & User Research](Project%20Docs/Problem_Discovery_User_Research.docx)
+- [PRD](Project%20Docs/AI_PRD.pdf)
+- [Problem Discovery & User Research](Project%20Docs/Problem_Discovery_User_Research.pdf)
 
 ## Dataset
 
