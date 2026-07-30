@@ -6,7 +6,7 @@ inconsistent, missing, or time-sensitive — in plain language, with evidence. I
 a single-purpose analysis tool, not a chatbot, and it never writes back to the CRM,
 the emails, or the notes, and never sends anything.
 
-(The original data dictionary lives in `README.md`; this file documents the app.)
+(The original data dictionary lives in `DATA_DICTIONARY.md`; this file documents the app.)
 
 ## Setup
 
