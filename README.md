@@ -4,7 +4,7 @@
 
 A read-only AI memory layer that keeps AtliQ's CRM aligned with what's actually happening in every email thread and meeting note — surfacing mismatches, missing info, and time-sensitive follow-ups in plain language, with evidence.
 
-🔗 **Live Demo:** _[link coming soon]_
+🔗 **Live Demo:** [AI Sales Command Center](https://ai-sales-command-center-5srun5kqnywjo2wb4dfy3u.streamlit.app/)
 
 ## The Problem
 
