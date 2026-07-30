@@ -1249,7 +1249,16 @@ if run_clicked:
                         done = 0
                         for fut in as_completed(futures):
                             item = futures[fut]
-                            label = item.lead_id if isinstance(item, CaseFile) else item.company_guess
+                            # Duck-typed, not isinstance(item, CaseFile) - st.cache_resource
+                            # (load_everything, above) can hold CaseFile/OrphanLead instances
+                            # across a Streamlit redeploy's in-process module reload, which
+                            # leaves them as a *different* CaseFile class object than the one
+                            # just re-imported here - isinstance then wrongly returns False for
+                            # a real CaseFile and this line crashes trying item.company_guess
+                            # (which only OrphanLead has). hasattr sidesteps class identity
+                            # entirely, so it's correct regardless of which reload generation
+                            # the object came from.
+                            label = item.lead_id if hasattr(item, "lead_id") else item.company_guess
                             try:
                                 analysis, from_cache = fut.result()
                                 results[analysis.key] = analysis
@@ -1420,7 +1429,8 @@ FINDING_CATEGORIES = ["mismatches", "missing_info_flags", "timing_signals", "ope
 if selected_tab == "overview":
     with st.expander("Debug: analysis pipeline internals", expanded=False):
         eligible_items = analyzable_items()
-        eligible_keys = {(item.lead_id if isinstance(item, CaseFile) else "ORPHAN::" + item.company_guess) for item in eligible_items}
+        # Duck-typed - see the matching comment at the label-computation line above.
+        eligible_keys = {(item.lead_id if hasattr(item, "lead_id") else "ORPHAN::" + item.company_guess) for item in eligible_items}
         analyzed_keys = set(analyses.keys())
 
         st.markdown(

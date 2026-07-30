@@ -100,13 +100,21 @@ def get_or_analyze(
     actually hit the API or was served from disk, so a caller can report how many
     of a run's items were real (rate-limit-relevant) calls vs. free cache hits.
     """
-    key = item.lead_id if isinstance(item, CaseFile) else "ORPHAN::" + item.company_guess
-    crm_row = item.crm_row if isinstance(item, CaseFile) else None
+    # Duck-typed (hasattr), not isinstance(item, CaseFile): st.cache_resource in
+    # app.py's load_everything() can hold CaseFile/OrphanLead instances across a
+    # redeploy's in-process module reload, leaving them as a different CaseFile
+    # class object than the one just re-imported here - isinstance then wrongly
+    # returns False for a real CaseFile, and item.company_guess (OrphanLead-only)
+    # raises AttributeError. hasattr sidesteps class identity entirely. The
+    # actual key/crm_row/is_orphan VALUES produced are unchanged - only the
+    # branch-selection mechanism is more robust.
+    key = item.lead_id if hasattr(item, "lead_id") else "ORPHAN::" + item.company_guess
+    crm_row = item.crm_row if hasattr(item, "lead_id") else None
 
     if not item.docs:
-        empty = LeadAnalysis(key=key, lead_id=item.lead_id if isinstance(item, CaseFile) else None,
+        empty = LeadAnalysis(key=key, lead_id=item.lead_id if hasattr(item, "lead_id") else None,
                               company=(crm_row or {}).get("company", getattr(item, "company_guess", "")),
-                              is_orphan=not isinstance(item, CaseFile), crm_row=crm_row, docs=[])
+                              is_orphan=not hasattr(item, "lead_id"), crm_row=crm_row, docs=[])
         return empty, True
 
     owns_cache = cache is None
