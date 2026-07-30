@@ -28,6 +28,7 @@ See [APP_README.md](APP_README.md) for full setup, run instructions, and archite
 - [Problem_Discovery_User_Research.pdf](Project%20Docs/Problem_Discovery_User_Research.pdf)
 - [Cost_Estimation.xlsx](Project%20Docs/Cost_Estimation.xlsx)
 - [Cost_Estimation.pdf](Project%20Docs/Cost_Estimation.pdf)
+- [Feature_Guide.pdf](Project%20Docs/Feature_Guide.pdf)
 
 ## Dataset
 
