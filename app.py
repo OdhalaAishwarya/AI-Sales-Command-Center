@@ -552,7 +552,13 @@ section[data-testid="stSidebar"] hr {
    icon-size tweak. */
 [class*="st-key-coach_launcher_wrap"] {
     position: fixed !important;
-    bottom: 22px;
+    /* Raised from 22px so Streamlit Cloud's own "Manage app" toolbar
+       (bottom-right, platform-level, can't be removed/edited) never
+       overlaps this icon - every other fixed-position launcher/panel
+       below is shifted up by this same +56px so their relative spacing
+       to each other is unchanged, only their clearance from the bottom
+       edge changed. */
+    bottom: 78px;
     right: 22px;
     z-index: 999999;
     width: 58px;
@@ -583,7 +589,7 @@ section[data-testid="stSidebar"] hr {
    CSS/SVG animation, no video/gif asset. */
 [class*="st-key-workplan_toggle_btn"] {
     position: fixed !important;
-    bottom: 88px;
+    bottom: 144px;
     right: 22px;
     z-index: 999999;
     width: 58px;
@@ -610,7 +616,7 @@ section[data-testid="stSidebar"] hr {
 :root { --icon-gradient-start: #8B5CF6; --icon-gradient-end: #EC4899; }
 .hourglass-icon-wrap {
     position: fixed;
-    bottom: 88px;
+    bottom: 144px;
     right: 22px;
     width: 58px;
     height: 58px;
@@ -650,7 +656,7 @@ section[data-testid="stSidebar"] hr {
 
 [class*="st-key-workplan_panel_container"] {
     position: fixed !important;
-    bottom: 158px;
+    bottom: 214px;
     right: 22px;
     z-index: 999997;
     width: 380px;
@@ -712,7 +718,7 @@ section[data-testid="stSidebar"] hr {
 }
 [class*="st-key-coach_panel_container"] {
     position: fixed !important;
-    bottom: 92px;
+    bottom: 148px;
     right: 22px;
     z-index: 999998;
     width: 380px;
