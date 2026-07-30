@@ -1,0 +1,9 @@
+{
+  "3062166c328924efa7cde0e9907fc3a01d81aeadd14174c03f4279b57e72b2f4": "Out of 43 leads analyzed, 27 have CRM mismatches and 33 are missing key info, with 42 open follow-up questions, 2 duplicates, 5 not yet in CRM, and 6 flagged for deprioritization. The most urgent issues are CRM records lagging well behind real deal progress - notably DataNest, GreenGrid Solar, FinEdge Bank, Meridian Healthcare, Kaveri Textiles, Trustline NBFC, and Meridian Health LLC all show stale or incorrect statuses despite active client engagement, plus NovaPharma has a real, unresolved deadline. Bhavin's pipeline stands out as needing the most attention, owning three of the top eight highest-urgency leads (NovaPharma, FinEdge Bank, and Meridian Healthcare), while Jay also has multiple high-urgency mismatches (GreenGrid Solar, Kaveri Textiles, Meridian Health LLC). Overall, the dominant problem is CRM data falling out of sync with real client conversations, which risks stalling advanced deals that actually need immediate action.",
+  "b58fe4d246d8da89fdde45b27cf15f06fa2eddc25cf83baf32e084f522487668": [
+    "Out of 43 leads reviewed, there are 27 CRM mismatches, 33 with missing info, 42 open follow-up questions, 2 duplicates, 5 not in CRM, and 6 flagged to deprioritize.",
+    "The most urgent leads needing immediate action are DataNest, NovaPharma, GreenGrid Solar, FinEdge Bank, Meridian Healthcare, Kaveri Textiles, Meridian Health LLC, and Trustline NBFC.",
+    "Bhavin's pipeline needs the most attention, with three high-urgency mismatches (NovaPharma, FinEdge Bank, Meridian Healthcare) all showing stale or unanswered CRM updates.",
+    "Overall, the CRM is significantly out of sync with real client activity, and several deals are more advanced or urgent than the system shows, risking lost momentum if not corrected soon."
+  ]
+}

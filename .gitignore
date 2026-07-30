@@ -1,0 +1,16 @@
+# Secrets - never commit
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Editor/IDE
+.vscode/
+.idea/
+
+# NOTE: .cache/ (analysis_cache.json, findings_history.json,
+# insights_cache.json) is intentionally NOT excluded - committed on purpose
+# so a fresh clone shows a fully populated demo with zero fresh API calls.

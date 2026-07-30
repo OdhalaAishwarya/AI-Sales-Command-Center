@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}\\\\n\" http://localhost:8501 --max-time 5)",
+      "Bash(\"/c/Users/ODHALA AISHWARYA/AppData/Local/Python/pythoncore-3.14-64/python.exe\" \"/c/Users/ODHALA~1/AppData/Local/Temp/claude/C--AtliQ-Sales-and-CRM-Assistant-Dataset/2cf25186-245f-4dfd-8a73-429e06f520b2/scratchpad/test_app.py\")",
+      "Bash(pip install *)",
+      "Bash(\"/c/Users/ODHALA AISHWARYA/AppData/Local/Python/pythoncore-3.14-64/python.exe\" \"/c/Users/ODHALA~1/AppData/Local/Temp/claude/C--AtliQ-Sales-and-CRM-Assistant-Dataset/2cf25186-245f-4dfd-8a73-429e06f520b2/scratchpad/test_correction2.py\")",
+      "Bash(\"/c/Users/ODHALA AISHWARYA/AppData/Local/Python/pythoncore-3.14-64/python.exe\" \"/c/Users/ODHALA~1/AppData/Local/Temp/claude/C--AtliQ-Sales-and-CRM-Assistant-Dataset/2cf25186-245f-4dfd-8a73-429e06f520b2/scratchpad/test_correction.py\")",
+      "Bash('/c/Users/ODHALA AISHWARYA/AppData/Local/Python/pythoncore-3.14-64/python.exe' -c ' *)",
+      "Bash(awk '{print $6, $7, $NF}')",
+      "Bash(echo \"exit: $?\")",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}\\\\n\" http://localhost:8501)",
+      "PowerShell(Start-Process \"http://localhost:8501\")"
+    ]
+  }
+}

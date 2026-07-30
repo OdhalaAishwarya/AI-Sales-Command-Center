@@ -1,0 +1,40 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(printenv)",
+      "Bash(\"/c/Users/ODHALA AISHWARYA/AppData/Local/Python/pythoncore-3.14-64/python.exe\" \"/c/Users/ODHALA~1/AppData/Local/Temp/claude/C--AtliQ-Sales-and-CRM-Assistant-Dataset/2cf25186-245f-4dfd-8a73-429e06f520b2/scratchpad/test_app2.py\")",
+      "Bash(\"/c/Users/ODHALA AISHWARYA/AppData/Local/Python/pythoncore-3.14-64/python.exe\" \"/c/Users/ODHALA~1/AppData/Local/Temp/claude/C--AtliQ-Sales-and-CRM-Assistant-Dataset/2cf25186-245f-4dfd-8a73-429e06f520b2/scratchpad/test_app3.py\")",
+      "Bash(netstat -ano)",
+      "Bash(\"/c/Users/ODHALA AISHWARYA/AppData/Local/Python/pythoncore-3.14-64/python.exe\" \"/c/Users/ODHALA~1/AppData/Local/Temp/claude/C--AtliQ-Sales-and-CRM-Assistant-Dataset/2cf25186-245f-4dfd-8a73-429e06f520b2/scratchpad/test_grounding.py\")",
+      "Bash(\"/c/Users/ODHALA AISHWARYA/AppData/Local/Python/pythoncore-3.14-64/python.exe\" \"/c/Users/ODHALA~1/AppData/Local/Temp/claude/C--AtliQ-Sales-and-CRM-Assistant-Dataset/2cf25186-245f-4dfd-8a73-429e06f520b2/scratchpad/test_app4.py\")",
+      "Bash(\"/c/Users/ODHALA AISHWARYA/AppData/Local/Python/pythoncore-3.14-64/python.exe\" \"/c/Users/ODHALA~1/AppData/Local/Temp/claude/C--AtliQ-Sales-and-CRM-Assistant-Dataset/2cf25186-245f-4dfd-8a73-429e06f520b2/scratchpad/check_env_key.py\")",
+      "Bash(\"/c/Users/ODHALA AISHWARYA/AppData/Local/Python/pythoncore-3.14-64/python.exe\" \"/c/Users/ODHALA~1/AppData/Local/Temp/claude/C--AtliQ-Sales-and-CRM-Assistant-Dataset/2cf25186-245f-4dfd-8a73-429e06f520b2/scratchpad/test_app_env_key.py\")",
+      "Bash(pip install *)",
+      "Read(//c/Users/ODHALA AISHWARYA/AppData/Local/Python/pythoncore-3.14-64/Lib/site-packages/groq/**)",
+      "Bash(\"/c/Users/ODHALA AISHWARYA/AppData/Local/Python/pythoncore-3.14-64/python.exe\" \"/c/Users/ODHALA~1/AppData/Local/Temp/claude/C--AtliQ-Sales-and-CRM-Assistant-Dataset/2cf25186-245f-4dfd-8a73-429e06f520b2/scratchpad/test_groq_swap.py\")",
+      "Bash(\"/c/Users/ODHALA AISHWARYA/AppData/Local/Python/pythoncore-3.14-64/python.exe\" \"/c/Users/ODHALA~1/AppData/Local/Temp/claude/C--AtliQ-Sales-and-CRM-Assistant-Dataset/2cf25186-245f-4dfd-8a73-429e06f520b2/scratchpad/test_groq_swap2.py\")",
+      "Bash(\"/c/Users/ODHALA AISHWARYA/AppData/Local/Python/pythoncore-3.14-64/python.exe\" \"/c/Users/ODHALA~1/AppData/Local/Temp/claude/C--AtliQ-Sales-and-CRM-Assistant-Dataset/2cf25186-245f-4dfd-8a73-429e06f520b2/scratchpad/check_groq_key.py\")",
+      "Bash('/c/Users/ODHALA AISHWARYA/AppData/Local/Python/pythoncore-3.14-64/python.exe' -c ' *)",
+      "Bash(\"/c/Users/ODHALA AISHWARYA/AppData/Local/Python/pythoncore-3.14-64/python.exe\" \"/c/Users/ODHALA~1/AppData/Local/Temp/claude/C--AtliQ-Sales-and-CRM-Assistant-Dataset/2cf25186-245f-4dfd-8a73-429e06f520b2/scratchpad/test_retry_cache.py\")",
+      "Bash(\"/c/Users/ODHALA AISHWARYA/AppData/Local/Python/pythoncore-3.14-64/python.exe\" \"/c/Users/ODHALA~1/AppData/Local/Temp/claude/C--AtliQ-Sales-and-CRM-Assistant-Dataset/2cf25186-245f-4dfd-8a73-429e06f520b2/scratchpad/test_backoff.py\")",
+      "Bash(grep -rl \"Material Symbols\" \"/c/Users/ODHALA AISHWARYA/AppData/Local/Python/pythoncore-3.14-64/Lib/site-packages/streamlit/static/\" 2>&1 | head -5)",
+      "Read(//c/Users/ODHALA AISHWARYA/AppData/Local/Python/pythoncore-3.14-64/Lib/site-packages/streamlit/static//**)",
+      "Bash(grep -o \"@font-face{[^}]*Material Symbols[^}]*}\" \"/c/Users/ODHALA AISHWARYA/AppData/Local/Python/pythoncore-3.14-64/Lib/site-packages/streamlit/static/static/css/index.M0-f_CLq.css\" 2>&1 | head -3 *)",
+      "Read(//c/Users/ODHALA AISHWARYA/AppData/Local/Python/pythoncore-3.14-64/Lib/site-packages/streamlit/static/static/css/**)",
+      "Bash(rm -f emoji_report.txt emoji_report2.txt emoji_report3.txt)",
+      "Bash(\"/c/Users/ODHALA AISHWARYA/AppData/Local/Python/pythoncore-3.14-64/python.exe\" \"/c/Users/ODHALA~1/AppData/Local/Temp/claude/C--AtliQ-Sales-and-CRM-Assistant-Dataset/2cf25186-245f-4dfd-8a73-429e06f520b2/scratchpad/test_dashboard.py\")",
+      "Bash(\"/c/Users/ODHALA AISHWARYA/AppData/Local/Python/pythoncore-3.14-64/python.exe\" \"/c/Users/ODHALA~1/AppData/Local/Temp/claude/C--AtliQ-Sales-and-CRM-Assistant-Dataset/2cf25186-245f-4dfd-8a73-429e06f520b2/scratchpad/test_dashboard2.py\")",
+      "Bash(\"/c/Users/ODHALA AISHWARYA/AppData/Local/Python/pythoncore-3.14-64/python.exe\" \"/c/Users/ODHALA~1/AppData/Local/Temp/claude/C--AtliQ-Sales-and-CRM-Assistant-Dataset/2cf25186-245f-4dfd-8a73-429e06f520b2/scratchpad/test_dashboard3.py\")",
+      "Bash(pip show *)",
+      "Bash(\"/c/Users/ODHALA AISHWARYA/AppData/Local/Python/pythoncore-3.14-64/python.exe\" \"/c/Users/ODHALA~1/AppData/Local/Temp/claude/C--AtliQ-Sales-and-CRM-Assistant-Dataset/2cf25186-245f-4dfd-8a73-429e06f520b2/scratchpad/check_anthropic_key.py\")",
+      "Bash(\"/c/Users/ODHALA AISHWARYA/AppData/Local/Python/pythoncore-3.14-64/python.exe\" \"/c/Users/ODHALA~1/AppData/Local/Temp/claude/C--AtliQ-Sales-and-CRM-Assistant-Dataset/2cf25186-245f-4dfd-8a73-429e06f520b2/scratchpad/test_app_env_key2.py\")",
+      "Bash(\"/c/Users/ODHALA AISHWARYA/AppData/Local/Python/pythoncore-3.14-64/python.exe\" \"/c/Users/ODHALA~1/AppData/Local/Temp/claude/C--AtliQ-Sales-and-CRM-Assistant-Dataset/2cf25186-245f-4dfd-8a73-429e06f520b2/scratchpad/test_scoring.py\")",
+      "Bash(\"/c/Users/ODHALA AISHWARYA/AppData/Local/Python/pythoncore-3.14-64/python.exe\" \"/c/Users/ODHALA~1/AppData/Local/Temp/claude/C--AtliQ-Sales-and-CRM-Assistant-Dataset/2cf25186-245f-4dfd-8a73-429e06f520b2/scratchpad/test_new_features.py\")",
+      "Bash(node scripts/validate_palette.js \"#2a78d6,#008300,#e87ba4,#eda100\" --mode light --pairs all)",
+      "Bash(node scripts/validate_palette.js \"#3987e5,#008300,#d55181,#c98500\" --mode dark --pairs all --surface \"#1a1a19\")",
+      "Bash(\"/c/Users/ODHALA AISHWARYA/AppData/Local/Python/pythoncore-3.14-64/python.exe\" \"/c/Users/ODHALA~1/AppData/Local/Temp/claude/C--AtliQ-Sales-and-CRM-Assistant-Dataset/2cf25186-245f-4dfd-8a73-429e06f520b2/scratchpad/test_chart.py\")",
+      "Bash(\"/c/Users/ODHALA AISHWARYA/AppData/Local/Python/pythoncore-3.14-64/python.exe\" \"/c/Users/ODHALA~1/AppData/Local/Temp/claude/C--AtliQ-Sales-and-CRM-Assistant-Dataset/2cf25186-245f-4dfd-8a73-429e06f520b2/scratchpad/test_grounding2.py\")",
+      "Bash(curl -s http://localhost:8501 --max-time 5)"
+    ]
+  }
+}

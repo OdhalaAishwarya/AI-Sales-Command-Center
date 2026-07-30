@@ -1,0 +1,41 @@
+lead_id,company,contact_name,contact_email,source,service_interest,status,est_value_usd,owner,created_date,last_contact_date,next_followup_date,notes
+L-1001,Acme Retail Group,Priya Raman,priya.raman@acmeretail.com,Referral,Power BI Dashboards,Won,38000,Dhaval,2025-03-12,2026-02-20,,Phase 1 delivered Feb 2026. Great client.
+L-1002,FinServe Capital,Arjun Mehta,arjun@finservecapital.in,LinkedIn,AI/ML Solutions,Contacted,,Karandeep,2026-05-28,2026-06-30,,intro call done
+L-1003,Meridian Healthcare,Dr. Sanjay Kulkarni,sanjay.k@meridianhealth.com,Website,Data Engineering,Contacted,45000,Bhavin,2026-04-02,2026-06-15,,
+L-1004,GlobalMart,Neha Shah,neha.shah@globalmart.com,Conference,Custom Web App,Proposal Sent,62000,Karandeep,2026-03-18,2026-05-19,,"demo went ok, sent proposal"
+L-1005,Northwind Logistics,Tom Beckett,tbeckett@northwindlog.com,Referral,Data Engineering,Won,54000,Dhaval,2025-06-05,2026-01-10,,Data pipeline live since Nov 2025
+L-1006,BlueOrchid Hotels,Farah Sayed,,Conference,,New,,Jay,2026-06-12,,,"met at TechSummit Mumbai, wants something with reviews?"
+L-1007,Kaveri Textiles,R. Subramaniam,subbu@kaveritextiles.in,Cold Outreach,Power BI Dashboards,Lost,15000,Jay,2025-11-20,2026-01-08,,went with local vendor
+L-1008,Zenlytics,Maya Fernandes,maya@zenlytics.io,LinkedIn,Staff Augmentation,Contacted,,Bhavin,2026-06-01,2026-06-05,,
+L-1009,HealthFirst Clinics,Dr. Anita Rao,anita.rao@healthfirst.in,Referral,Custom Web App,Proposal Sent,30000,Karandeep,2026-02-14,2026-04-22,,waiting on their board approval
+L-1010,EduSpark,Vikram Joshi,vikram@eduspark.com,Website,AI/ML Solutions,New,,,2026-06-25,,,chatbot for student queries maybe
+L-1011,AgroLink,Harpreet Gill,harpreet@agrolink.in,Conference,Data Engineering,,,Dhaval,2026-06-12,,,TechSummit. good conversation about mandi price data
+L-1012,UrbanNest Realty,Kunal Kapoor,kunal@urbannest.com,LinkedIn,Custom Web App,Contacted,,Jay,2026-04-30,2026-05-02,,
+L-1013,PayTrack,Shreya Iyer,shreya@paytrack.io,Referral,AI/ML Solutions,Won,71000,Bhavin,2025-01-22,2025-12-18,,fraud detection POC then full build
+L-1014,VoltEnergy,Marcus Chen,m.chen@voltenergy.com,Website,Power BI Dashboards,Proposal Sent,28000,Karandeep,2026-05-10,2026-06-17,,
+L-1015,ClearPath Insurance,Deepa Nair,deepa.nair@clearpathins.com,Cold Outreach,Data Engineering,Lost,40000,Dhaval,2025-09-15,2025-12-02,,budget freeze. said check back later
+L-1016,MEDTRACK LABS,Rohit Bansal,rohit@medtracklabs.in,Conference,,New,,Jay,2026-06-13,,,techsummit
+L-1017,ShopSwift,Elena Petrova,elena@shopswift.com,LinkedIn,AI/ML Solutions,Contacted,55000,Bhavin,2026-03-25,2026-06-28,,recommendation engine discussion
+L-1018,DataNest,Sameer Kulkarni,sameer@datanest.io,Referral,Staff Augmentation,Won,26000,Karandeep,2025-08-11,2026-03-05,,2 engineers placed
+L-1019,CargoLine,J. Fernandez,,Website,Data Engineering,New,,,2026-07-01,,,
+L-1020,FreshCart,Ananya Desai,ananya@freshcart.in,Referral,Custom Web App,Contacted,,Dhaval,2026-05-15,2026-05-20,,referred by Priya at Acme
+L-1021,SteelCore Industries,B.K. Verma,bkverma@steelcore.in,Cold Outreach,Power BI Dashboards,Contacted,,Jay,2026-01-30,2026-02-14,,
+L-1022,TravelHub,Nadia Rahman,nadia@travelhub.com,Conference,AI/ML Solutions,New,,Karandeep,2026-06-12,,,"itinerary personalization idea, TechSummit"
+L-1023,FinEdge Bank,Suresh Menon,suresh.menon@finedge.com,Referral,Data Engineering,Proposal Sent,95000,Bhavin,2026-01-08,2026-03-30,,big one. compliance review ongoing on their side
+L-1024,RetailOne,Grace Okafor,grace@retailone.com,LinkedIn,Power BI Dashboards,Lost,22000,Jay,2025-10-05,2025-11-28,,chose PowerBI partner from their region
+L-1025,CloudNine SaaS,Dev Malhotra,dev@cloudnine.io,Website,Staff Augmentation,Contacted,,Karandeep,2026-06-20,2026-06-22,,
+L-1026,Sunrise Foods,Meera Pillai,meera@sunrisefoods.in,Referral,Custom Web App,Won,33000,Dhaval,2025-04-18,2025-10-30,,distributor portal delivered
+L-1027,Meridian Health LLC,Sanjay Kulkarni,sanjayk@meridianhealth.com,Conference,Data Engineering,New,,Jay,2026-06-13,,,"met at techsummit booth, hospital data warehouse"
+L-1028,ApexAuto Parts,Ravi Shankar,ravi@apexauto.in,Cold Outreach,,New,,,2026-03-02,,,
+L-1029,NovaPharma,Dr. Lisa Wong,lwong@novapharma.com,LinkedIn,AI/ML Solutions,Contacted,80000,Bhavin,2026-04-15,2026-06-25,,document processing for trials. NDA signed
+L-1030,GreenGrid Solar,Aditya Kulkarni,aditya@greengrid.in,Website,Power BI Dashboards,New,,Jay,2026-07-03,,,
+L-1031,ByteBridge,Fatima Al-Rashid,fatima@bytebridge.com,Referral,Staff Augmentation,Contacted,,Karandeep,2026-05-08,2026-05-12,,
+L-1032,Trustline NBFC,Mohan Krishnan,mohan.k@trustline.in,Conference,AI/ML Solutions,Proposal Sent,48000,Dhaval,2026-02-20,2026-04-10,,loan doc automation
+L-1033,OceanFreight,Karl Nilsen,karl@oceanfreight.no,Website,Data Engineering,New,,,2026-06-28,,,"timezone tricky, Norway"
+L-1034,SmartServe Hospitality,Pooja Reddy,pooja@smartserve.in,LinkedIn,Custom Web App,Contacted,25000,Jay,2026-04-05,2026-04-08,,
+L-1035,Quantia Analytics,James Whitfield,james@quantia.co.uk,Referral,AI/ML Solutions,Lost,60000,Bhavin,2025-07-14,2025-09-30,,timing wrong per client
+L-1036,LoopMart,Sania Sheikh,sania@loopmart.com,Conference,Power BI Dashboards,New,,Karandeep,2026-06-13,,,"techsummit, retail analytics"
+L-1037,Vertex Constructions,P. Naidu,naidu@vertexcon.in,Cold Outreach,Custom Web App,Contacted,,Jay,2025-12-10,2026-01-20,,
+L-1038,MiraHealth,Sophie Turner,sophie@mirahealth.com,Website,AI/ML Solutions,Contacted,35000,Dhaval,2026-06-08,2026-07-06,,patient triage assistant idea. second call done
+L-1039,Citywide Diagnostics,Rakesh Gupta,rakesh@citywidediag.in,Referral,Data Engineering,New,,,2026-07-05,,,Anita from HealthFirst referred
+L-1040,GlobalMart,Neha Shah,neha.shah@globalmart.com,Conference,Power BI Dashboards,New,,Jay,2026-06-13,,,talked at techsummit about dashboards
