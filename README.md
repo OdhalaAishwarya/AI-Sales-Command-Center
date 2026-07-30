@@ -1,4 +1,4 @@
-![AtliQ AI Sales Command Center](Assets/hero-solution.png)
+![AtliQ AI Sales Command Center](assets/hero-solution.png)
 
 # AtliQ AI Sales Command Center
 
@@ -10,7 +10,7 @@ A read-only AI memory layer that keeps AtliQ's CRM aligned with what's actually 
 
 Sales conversations move fast, but CRM updates don't — founders and reps spend their time talking to customers, not manually logging every follow-up, so important details get scattered across emails and meeting notes instead of the CRM.
 
-![Sales conversations move fast, CRM updates don't](Assets/problem-statement.png)
+![Sales conversations move fast, CRM updates don't](assets/problem-statement.png)
 
 ## The Solution
 
