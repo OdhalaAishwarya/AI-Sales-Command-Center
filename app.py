@@ -1469,7 +1469,33 @@ if selected_tab == "overview":
                 )
             )
             st.markdown("**Per-lead breakdown:**")
-            st.dataframe(pd.DataFrame(rows), use_container_width=True)
+            _debug_df = pd.DataFrame(rows)
+            _passed_raw_cols = [c for c in _debug_df.columns if c != "lead"]
+
+            def _row_band(row):
+                bg = "rgba(255,255,255,0.03)" if row.name % 2 == 1 else ""
+                return [f"background-color: {bg};" if bg else "" for _ in row]
+
+            def _passed_raw_style(val: str) -> str:
+                # Reuses EVIDENCE_LEVEL_COLORS (already used for the
+                # urgent/check badges and the memory-trail "resolved" green)
+                # instead of introducing a new color set.
+                if not isinstance(val, str) or "/" not in val:
+                    return "text-align: right;"
+                try:
+                    passed, raw = (int(x) for x in val.split("/"))
+                except ValueError:
+                    return "text-align: right;"
+                if raw == 0:
+                    return "text-align: right;"
+                level = "success" if passed == raw else "warning"
+                color, bg = EVIDENCE_LEVEL_COLORS[level]
+                return f"text-align: right; color: {color}; background-color: {bg}; font-weight: 600;"
+
+            st.dataframe(
+                _debug_df.style.apply(_row_band, axis=1).map(_passed_raw_style, subset=_passed_raw_cols),
+                use_container_width=True,
+            )
 
 
 def visible_case_file(cf: CaseFile) -> bool:
@@ -2470,7 +2496,7 @@ if selected_tab == "effort_payoff":
 
             table_df = quad_df[["company", "lead_id", "owner", "status", "value", "days_stale", "quadrant"]].sort_values("value", ascending=False)
             st.dataframe(
-                table_df.style.map(_quadrant_cell_style, subset=["quadrant"]),
+                table_df.style.map(_quadrant_cell_style, subset=["quadrant"]).format({"value": "${:,.0f}"}),
                 use_container_width=True,
             )
 
