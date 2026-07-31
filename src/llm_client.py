@@ -106,13 +106,23 @@ FINDINGS_TOOL = {
             },
             "competitor_mentioned": {
                 "type": "object",
-                "description": "Only include this key at all if a competitor is explicitly named in the provided text (e.g. 'we're also evaluating Rival Corp' or 'they went with Acme Rival instead') - omit the key entirely if no competitor is named anywhere in the linked documents. Never infer a competitor from vague phrases like 'other vendors' or 'another option'.",
+                "description": "Only include this key if the text suggests the client might use a DIFFERENT COMPANY OR PERSON to do this work instead of AtliQ - e.g. 'we're also evaluating a Tableau consultancy for this' (a competing consultancy) or 'they went with Acme Rival instead'. Do NOT use this for a named software tool/technology mentioned only as a stack preference or existing setup (e.g. 'we use Tableau internally', 'we'd want this built in Power BI') - that has no indication AtliQ might lose the work to someone else, so it belongs in tool_preference_mentioned instead. The test: does the text suggest a different COMPANY/PERSON might do the work, or are they just naming a technology they want the work done in? Only the former counts here. Omit this key entirely if no competing vendor is named.",
                 "properties": {
-                    "competitor_name": {"type": "string", "description": "The competitor's name, exactly as it appears in the source text."},
-                    "evidence_quote": {"type": "string", "description": "A verbatim quote (exact substring) from the source document naming the competitor."},
+                    "competitor_name": {"type": "string", "description": "The competing company/person's name, exactly as it appears in the source text."},
+                    "evidence_quote": {"type": "string", "description": "A verbatim quote (exact substring) from the source document naming the competing vendor."},
                     "source_file": {"type": "string"},
                 },
                 "required": ["competitor_name", "evidence_quote", "source_file"],
+            },
+            "tool_preference_mentioned": {
+                "type": "object",
+                "description": "Only include this key if a named software tool or technology is mentioned as a stack preference or existing setup, with no indication the client is going elsewhere for the service - e.g. 'we use Tableau internally', 'we'd want this built in Power BI', 'our team already knows Python'. This is informational context for the lead's notes, NOT a competitive signal. Omit this key entirely if no specific tool/technology preference is named, or if the mention actually belongs in competitor_mentioned instead (a different company doing the work, not just a different tool).",
+                "properties": {
+                    "tool_name": {"type": "string", "description": "The tool/technology name, exactly as it appears in the source text."},
+                    "evidence_quote": {"type": "string", "description": "A verbatim quote (exact substring) from the source document naming the tool."},
+                    "source_file": {"type": "string"},
+                },
+                "required": ["tool_name", "evidence_quote", "source_file"],
             },
             "suggested_crm_update": {
                 "type": "string",
@@ -154,9 +164,13 @@ scope/phase this to fit budget" is normal negotiation and must not be reported o
 but it must still reference something concrete and real from the documents, not generic advice.
 - Never suggest or imply that any file should be edited or sent automatically - suggested_crm_update and \
 suggested_next_action are both just notes for a human to review.
-- Only include competitor_mentioned if a competitor is explicitly named in the provided text, with a verbatim, \
-quotable mention - omit the key entirely otherwise. Do not infer a competitor from vague phrases like "other \
-vendors" or "another option" with no name given."""
+- competitor_mentioned vs. tool_preference_mentioned: the test is whether the text suggests a DIFFERENT COMPANY OR \
+PERSON might do this work instead of AtliQ (competitor_mentioned - a real competitive threat), versus the client \
+just naming a technology/tool they want the work done in or already use internally (tool_preference_mentioned - \
+informational, not competitive). "We're also talking to a Tableau consultancy" is competitor_mentioned. "We use \
+Tableau internally" or "build this in Power BI" is tool_preference_mentioned. Never infer either from vague phrases \
+like "other vendors" or "another option" with no name given - both require a verbatim, quotable mention, and both \
+are omitted entirely (not reported as empty) when nothing qualifies."""
 
 
 def get_client(api_key: str | None = None) -> Anthropic:

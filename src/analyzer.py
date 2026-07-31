@@ -45,6 +45,7 @@ class LeadAnalysis:
     suggested_crm_update: str = ""
     suggested_next_action: str = ""
     competitor_mentioned: dict | None = None
+    tool_preference_mentioned: dict | None = None
     dropped_findings: list[dict] = field(default_factory=list)
 
 
@@ -116,17 +117,21 @@ def _filter_findings(raw: dict, docs: list[Document]) -> tuple[dict, list[dict]]
             else:
                 dropped.append({"category": key, **finding})
 
-    # Single optional object, not a list - same verbatim-quote grounding rule
-    # as every other finding; the model is instructed to omit this key
-    # entirely when no competitor is named, so a missing key is expected and
-    # not an error.
-    competitor = raw.get("competitor_mentioned")
-    if competitor and _grounded(competitor.get("evidence_quote", ""), docs):
-        clean["competitor_mentioned"] = competitor
-    else:
-        clean["competitor_mentioned"] = None
-        if competitor:
-            dropped.append({"category": "competitor_mentioned", **competitor})
+    # Single optional objects, not lists - same verbatim-quote grounding rule
+    # as every other finding; the model is instructed to omit these keys
+    # entirely when nothing qualifies, so a missing key is expected and not
+    # an error. competitor_mentioned (a different company/person might do
+    # the work) and tool_preference_mentioned (just a named tool/stack
+    # preference, informational only) are mutually exclusive by construction
+    # in the prompt - see llm_client.py's schema descriptions.
+    for raw_key in ("competitor_mentioned", "tool_preference_mentioned"):
+        finding = raw.get(raw_key)
+        if finding and _grounded(finding.get("evidence_quote", ""), docs):
+            clean[raw_key] = finding
+        else:
+            clean[raw_key] = None
+            if finding:
+                dropped.append({"category": raw_key, **finding})
 
     return clean, dropped
 
@@ -168,5 +173,6 @@ def analyze_lead(client: Anthropic, item: CaseFile | OrphanLead, model: str | No
         suggested_crm_update=clean.get("suggested_crm_update", ""),
         suggested_next_action=clean.get("suggested_next_action", ""),
         competitor_mentioned=clean.get("competitor_mentioned"),
+        tool_preference_mentioned=clean.get("tool_preference_mentioned"),
         dropped_findings=dropped,
     )

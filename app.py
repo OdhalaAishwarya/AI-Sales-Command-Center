@@ -2525,7 +2525,8 @@ if selected_tab == "portfolio_insights":
     _pi_grid_color = "rgba(255,255,255,0.08)" if _pi_is_dark else "rgba(15,23,42,0.08)"
     _pi_label_color = "#CBD5E1" if _pi_is_dark else "#334155"
     _pi_font = "Inter"
-    _pi_donut_width = 320
+    _pi_donut_width = 460
+    _pi_donut_height = 260
     # Vega expression (not Python) - formats an axis tick value as "$440K" /
     # "$1.2M" instead of Vega-Lite's default lowercase SI suffix ("$440k").
     _pi_usd_axis_expr = (
@@ -2539,6 +2540,21 @@ if selected_tab == "portfolio_insights":
         if v >= 1_000:
             return f"${v / 1_000:.0f}K"
         return f"${v:,.0f}"
+
+    def _lead_preview(names: list[str], limit: int = 3) -> str:
+        """One-line 'top N leads, +M more' summary for a hover tooltip -
+        Vega-Lite tooltips are declarative fields (no Plotly-style
+        hovertemplate/customdata in this stack), so the detail text is
+        pre-composed in Python and passed as a plain tooltip field."""
+        if not names:
+            return "—"
+        shown = ", ".join(names[:limit])
+        extra = len(names) - limit
+        return f"{shown} +{extra} more" if extra > 0 else shown
+
+    def _truncate(text: str, limit: int = 100) -> str:
+        text = (text or "").strip()
+        return text if len(text) <= limit else text[: limit - 1].rstrip() + "…"
 
     def _bar_width(n_categories: int) -> int:
         """Scales a bar chart's own width to its category count (~100px/bar,
@@ -2575,8 +2591,6 @@ if selected_tab == "portfolio_insights":
         )
 
     _row1_left, _row1_right = st.columns(2, gap="large")
-    _row2_left, _row2_right = st.columns(2, gap="large")
-    _row3_left, _row3_right = st.columns(2, gap="large")
 
     # ---- Chart 1: Pipeline Health (Effort vs. Payoff quadrant counts) -----
     with _row1_left:
@@ -2588,17 +2602,21 @@ if selected_tab == "portfolio_insights":
         else:
             _quad_counts = pd.DataFrame(_pi_quad_rows)["quadrant"].value_counts().reindex(QUADRANT_ORDER, fill_value=0).reset_index()
             _quad_counts.columns = ["quadrant", "count"]
+            _quad_leads: dict[str, list[str]] = {}
+            for _r in _pi_quad_rows:
+                _quad_leads.setdefault(_r["quadrant"], []).append(_r["company"])
+            _quad_counts["leads_preview"] = _quad_counts["quadrant"].map(lambda q: _lead_preview(_quad_leads.get(q, [])))
             _quad_color_scale = alt.Scale(domain=QUADRANT_ORDER, range=[QUADRANT_COLORS[q] for q in QUADRANT_ORDER])
             _bars1 = alt.Chart(_quad_counts).mark_bar(size=48).encode(
-                x=alt.X("quadrant:N", title=None, sort=QUADRANT_ORDER, axis=alt.Axis(labelAngle=0)),
+                x=alt.X("quadrant:N", title=None, sort=QUADRANT_ORDER, axis=alt.Axis(labelAngle=-30, labelAlign="right", labelOverlap=False)),
                 y=_int_y("count", "Leads", _quad_counts["count"].max()),
                 color=alt.Color("quadrant:N", scale=_quad_color_scale, legend=None),
-                tooltip=[alt.Tooltip("quadrant:N", title="Quadrant"), alt.Tooltip("count:Q", title="Leads", format="d")],
+                tooltip=[alt.Tooltip("quadrant:N", title="Quadrant"), alt.Tooltip("count:Q", title="Leads", format="d"), alt.Tooltip("leads_preview:N", title="Leads")],
             )
             _labels1 = alt.Chart(_quad_counts).mark_text(dy=-10, fontWeight="bold", color=_pi_label_color).encode(
                 x=alt.X("quadrant:N", sort=QUADRANT_ORDER), y=alt.Y("count:Q"), text=alt.Text("count:Q", format="d"),
             )
-            _chart1 = (_bars1 + _labels1).properties(width=_bar_width(len(_quad_counts)), height=260)
+            _chart1 = (_bars1 + _labels1).properties(width=_bar_width(len(_quad_counts)), height=260, padding={"top": 24, "bottom": 5, "left": 5, "right": 5})
             st.altair_chart(_style_chart(_chart1), use_container_width=False, theme="streamlit")
 
     # ---- Chart 2: What Clients Are Asking For (service_interest) ----------
@@ -2606,17 +2624,20 @@ if selected_tab == "portfolio_insights":
         st.markdown("##### What Clients Are Asking For")
         st.caption("Leads grouped by SERVICE_INTEREST from the CRM export — a raw CRM field, not AI-generated.")
         _service_rows = []
+        _service_leads: dict[str, list[str]] = {}
         for cf in case_files:
             if cf.lead_id not in visible_lead_ids:
                 continue
-            val = (cf.crm_row.get("service_interest") or "").strip()
-            _service_rows.append(val if val else "Not specified")
+            val = (cf.crm_row.get("service_interest") or "").strip() or "Not specified"
+            _service_rows.append(val)
+            _service_leads.setdefault(val, []).append(cf.crm_row.get("company", cf.lead_id))
         if not _service_rows:
             st.caption("No visible leads to summarize.")
         else:
             _service_counts = pd.Series(_service_rows).value_counts().reset_index()
             _service_counts.columns = ["service_interest", "count"]
             _service_counts["pct"] = _service_counts["count"] / _service_counts["count"].sum()
+            _service_counts["leads_preview"] = _service_counts["service_interest"].map(lambda s: _lead_preview(_service_leads.get(s, [])))
             _service_palette = ["#8B5CF6", "#EC4899", "#34D399", "#F59E0B", "#60A5FA", "#7C6A9C"]
             _service_domain = list(_service_counts["service_interest"])
             _service_colors = [_service_palette[i % len(_service_palette)] for i in range(len(_service_domain))]
@@ -2625,15 +2646,21 @@ if selected_tab == "portfolio_insights":
                 color=alt.Color(
                     "service_interest:N", title="Service interest",
                     scale=alt.Scale(domain=_service_domain, range=_service_colors),
-                    legend=alt.Legend(orient="bottom", direction="horizontal", columns=2, labelLimit=130, titleLimit=200),
+                    legend=alt.Legend(orient="right", labelLimit=160, titleLimit=160),
                 ),
-                tooltip=[alt.Tooltip("service_interest:N", title="Service interest"), alt.Tooltip("count:Q", title="Leads", format="d"), alt.Tooltip("pct:Q", title="Share", format=".0%")],
+                tooltip=[
+                    alt.Tooltip("service_interest:N", title="Service interest"), alt.Tooltip("count:Q", title="Leads", format="d"),
+                    alt.Tooltip("pct:Q", title="Share", format=".0%"), alt.Tooltip("leads_preview:N", title="Leads"),
+                ],
             )
             _pct_labels2 = alt.Chart(_service_counts).mark_text(radius=88, fontWeight="bold", color="white").encode(
                 theta=alt.Theta("count:Q", stack=True), text=alt.Text("pct:Q", format=".0%"),
             )
-            _chart2 = (_donut2 + _pct_labels2).properties(width=_pi_donut_width, height=_pi_donut_width)
+            _chart2 = (_donut2 + _pct_labels2).properties(width=_pi_donut_width, height=_pi_donut_height, padding={"top": 30, "bottom": 5, "left": 5, "right": 5})
             st.altair_chart(_style_chart(_chart2), use_container_width=False, theme="streamlit")
+
+    st.divider()
+    _row2_left, _row2_right = st.columns(2, gap="large")
 
     # ---- Chart 3: Revenue at Risk from Pricing Pushback --------------------
     with _row2_left:
@@ -2644,6 +2671,7 @@ if selected_tab == "portfolio_insights":
         else:
             _total_pipeline_value = 0.0
             _at_risk_value = 0.0
+            _at_risk_leads: list[tuple[str, float]] = []
             for cf in case_files:
                 if cf.lead_id not in visible_lead_ids:
                     continue
@@ -2655,14 +2683,17 @@ if selected_tab == "portfolio_insights":
                 a = analyses.get(cf.lead_id)
                 if a and any(d["signal_type"] == "pricing_pushback" for d in a.deprioritize_signals):
                     _at_risk_value += val
+                    _at_risk_leads.append((cf.crm_row.get("company", cf.lead_id), val))
             if _total_pipeline_value <= 0:
                 st.caption("No visible leads with a deal value to plot.")
             else:
                 _pct_at_risk = _at_risk_value / _total_pipeline_value
                 _rest_value = max(_total_pipeline_value - _at_risk_value, 0.0)
+                _at_risk_leads.sort(key=lambda x: x[1], reverse=True)
+                _at_risk_preview = _lead_preview([n for n, _ in _at_risk_leads])
                 _risk_df = pd.DataFrame([
-                    {"label": "At risk (pricing pushback)", "value": _at_risk_value},
-                    {"label": "Rest of pipeline", "value": _rest_value},
+                    {"label": "At risk (pricing pushback)", "value": _at_risk_value, "leads_preview": _at_risk_preview},
+                    {"label": "Rest of pipeline", "value": _rest_value, "leads_preview": "—"},
                 ])
                 _rest_color = "#3F3350" if _pi_is_dark else "#E5E0EE"
                 _donut3 = alt.Chart(_risk_df).mark_arc(innerRadius=70, outerRadius=115).encode(
@@ -2670,14 +2701,14 @@ if selected_tab == "portfolio_insights":
                     color=alt.Color(
                         "label:N", title=None,
                         scale=alt.Scale(domain=["At risk (pricing pushback)", "Rest of pipeline"], range=["#EC4899", _rest_color]),
-                        legend=alt.Legend(orient="bottom", direction="horizontal", labelLimit=180),
+                        legend=alt.Legend(orient="right", labelLimit=180),
                     ),
-                    tooltip=[alt.Tooltip("label:N", title=""), alt.Tooltip("value:Q", title="Deal value", format="$,.0f")],
+                    tooltip=[alt.Tooltip("label:N", title=""), alt.Tooltip("value:Q", title="Deal value", format="$,.0f"), alt.Tooltip("leads_preview:N", title="Top leads")],
                 )
                 _center_text3 = alt.Chart(pd.DataFrame({"text": [f"{_pct_at_risk:.0%}\nat risk"]})).mark_text(
                     fontSize=20, fontWeight="bold", color=_pi_label_color, lineBreak="\n",
                 ).encode(text="text:N")
-                _chart3 = (_donut3 + _center_text3).properties(width=_pi_donut_width, height=_pi_donut_width)
+                _chart3 = (_donut3 + _center_text3).properties(width=_pi_donut_width, height=_pi_donut_height, padding={"top": 30, "bottom": 5, "left": 5, "right": 5})
                 st.altair_chart(_style_chart(_chart3), use_container_width=False, theme="streamlit")
                 st.caption(f"{_pct_at_risk:.0%} of visible pipeline value is on leads showing unresolved pricing pushback.")
 
@@ -2686,6 +2717,7 @@ if selected_tab == "portfolio_insights":
         st.markdown("##### Lead Source Effectiveness")
         st.caption("Total deal value by lead source — no AI calls, this uses only the CRM export.")
         _source_rows = []
+        _source_leads: dict[str, list[tuple[str, float]]] = {}
         for cf in case_files:
             if cf.lead_id not in visible_lead_ids:
                 continue
@@ -2693,24 +2725,37 @@ if selected_tab == "portfolio_insights":
             val = float(val) if val is not None and val == val else 0.0
             source = (cf.crm_row.get("source") or "").strip() or "Not specified"
             _source_rows.append({"source": source, "value": val})
+            _source_leads.setdefault(source, []).append((cf.crm_row.get("company", cf.lead_id), val))
         if not _source_rows:
             st.caption("No visible leads to summarize.")
         else:
             _source_df = pd.DataFrame(_source_rows).groupby("source", as_index=False).agg(value=("value", "sum"), count=("value", "size"))
             _source_df = _source_df.sort_values("value", ascending=False)
             _source_df["label"] = _source_df["value"].apply(_fmt_usd_short)
+
+            def _top_leads_preview(source: str) -> str:
+                leads = sorted(_source_leads.get(source, []), key=lambda x: x[1], reverse=True)
+                return _lead_preview([n for n, _ in leads])
+
+            _source_df["leads_preview"] = _source_df["source"].map(_top_leads_preview)
             _max_source_val = max(_source_df["value"].max(), 1.0)
             _source_tick_vals = list(range(0, int(_max_source_val // 100_000 + 2) * 100_000, 100_000))
             _bars4 = alt.Chart(_source_df).mark_bar(color="#34D399", size=48).encode(
-                x=alt.X("source:N", title=None, sort="-y", axis=alt.Axis(labelAngle=0)),
+                x=alt.X("source:N", title=None, sort="-y", axis=alt.Axis(labelAngle=-30, labelAlign="right", labelOverlap=False)),
                 y=alt.Y("value:Q", title="Total deal value (USD)", axis=alt.Axis(values=_source_tick_vals, labelExpr=_pi_usd_axis_expr)),
-                tooltip=[alt.Tooltip("source:N", title="Source"), alt.Tooltip("count:Q", title="Leads", format="d"), alt.Tooltip("value:Q", title="Total value", format="$,.0f")],
+                tooltip=[
+                    alt.Tooltip("source:N", title="Source"), alt.Tooltip("count:Q", title="Leads", format="d"),
+                    alt.Tooltip("value:Q", title="Total value", format="$,.0f"), alt.Tooltip("leads_preview:N", title="Top leads"),
+                ],
             )
             _labels4 = alt.Chart(_source_df).mark_text(dy=-10, fontWeight="bold", color=_pi_label_color).encode(
                 x=alt.X("source:N", sort="-y"), y=alt.Y("value:Q"), text=alt.Text("label:N"),
             )
-            _chart4 = (_bars4 + _labels4).properties(width=_bar_width(len(_source_df)), height=280)
+            _chart4 = (_bars4 + _labels4).properties(width=_bar_width(len(_source_df)), height=280, padding={"top": 24, "bottom": 5, "left": 5, "right": 5})
             st.altair_chart(_style_chart(_chart4), use_container_width=False, theme="streamlit")
+
+    st.divider()
+    _row3_left, _row3_right = st.columns(2, gap="large")
 
     # ---- Chart 5: Findings Mix by Owner (stacked columns) ------------------
     with _row3_left:
@@ -2739,31 +2784,47 @@ if selected_tab == "portfolio_insights":
                 }
                 for cat_key in _FINDINGS_MIX_CATEGORIES:
                     if counts[cat_key] > 0:
-                        _mix_rows.append({"owner": owner, "category": _chart5_labels[cat_key], "count": counts[cat_key]})
+                        _mix_rows.append({
+                            "owner": owner, "category": _chart5_labels[cat_key], "count": counts[cat_key],
+                            "company": cf.crm_row.get("company", cf.lead_id),
+                        })
             if not _mix_rows:
                 st.caption("No findings among visible, analyzed leads.")
             else:
-                _mix_df = pd.DataFrame(_mix_rows).groupby(["owner", "category"], as_index=False)["count"].sum()
+                _mix_rows_df = pd.DataFrame(_mix_rows)
+                _mix_df = _mix_rows_df.groupby(["owner", "category"], as_index=False)["count"].sum()
+
+                def _top_lead_in_segment(row) -> str:
+                    seg = _mix_rows_df[(_mix_rows_df["owner"] == row["owner"]) & (_mix_rows_df["category"] == row["category"])]
+                    top = seg.sort_values("count", ascending=False).iloc[0]
+                    extra = len(seg) - 1
+                    return f"{top['company']} ({int(top['count'])})" + (f" +{extra} more" if extra > 0 else "")
+
+                _mix_df["top_lead"] = _mix_df.apply(_top_lead_in_segment, axis=1)
                 _cat_labels = [_chart5_labels[k] for k in _FINDINGS_MIX_CATEGORIES]
                 _cat_colors = [CATEGORIES_BY_KEY[k]["color"] for k in _FINDINGS_MIX_CATEGORIES]
                 _owner_totals = _mix_df.groupby("owner")["count"].sum()
                 _chart5 = alt.Chart(_mix_df).mark_bar(size=48).encode(
-                    x=alt.X("owner:N", title=None, axis=alt.Axis(labelAngle=0)),
+                    x=alt.X("owner:N", title=None, axis=alt.Axis(labelAngle=-30, labelAlign="right", labelOverlap=False)),
                     y=_int_y("count", "Findings", _owner_totals.max()),
                     color=alt.Color("category:N", title="Category", scale=alt.Scale(domain=_cat_labels, range=_cat_colors), legend=alt.Legend(labelLimit=130)),
                     order=alt.Order("category:N", sort="ascending"),
-                    tooltip=[alt.Tooltip("owner:N", title="Owner"), alt.Tooltip("category:N", title="Category"), alt.Tooltip("count:Q", title="Findings", format="d")],
-                ).properties(width=_bar_width(_mix_df["owner"].nunique()), height=320)
+                    tooltip=[
+                        alt.Tooltip("owner:N", title="Owner"), alt.Tooltip("category:N", title="Category"),
+                        alt.Tooltip("count:Q", title="Findings", format="d"), alt.Tooltip("top_lead:N", title="Top lead"),
+                    ],
+                ).properties(width=_bar_width(_mix_df["owner"].nunique()), height=320, padding={"top": 10, "bottom": 5, "left": 5, "right": 5})
                 st.altair_chart(_style_chart(_chart5), use_container_width=False, theme="streamlit")
 
     # ---- Chart 6: Competitor Mentions (Phase 2) -----------------------------
     with _row3_right:
         st.markdown("##### Competitor Mentions")
-        st.caption("Competitors explicitly named in linked emails/notes — verbatim-quotable, same grounding rule as every other finding. Requires the competitor_mentioned field (PROMPT_VERSION v4).")
+        st.caption("Competing vendors/consultancies explicitly named as an alternative to AtliQ — not just a named tool/tech stack preference (see Drill Into a Lead for those). Verbatim-quotable, same grounding rule as every other finding. Requires PROMPT_VERSION v5.")
         if not analyses:
             st.info("Click **Refresh** at the top of the page to populate this chart.")
         else:
             _competitor_rows = []
+            _competitor_detail: dict[str, list[tuple[str, str]]] = {}
             for cf in case_files:
                 if cf.lead_id not in visible_lead_ids:
                     continue
@@ -2772,20 +2833,39 @@ if selected_tab == "portfolio_insights":
                     name = (a.competitor_mentioned.get("competitor_name") or "").strip()
                     if name:
                         _competitor_rows.append(name)
+                        _competitor_detail.setdefault(name, []).append(
+                            (cf.crm_row.get("company", cf.lead_id), a.competitor_mentioned.get("evidence_quote", ""))
+                        )
             if not _competitor_rows:
                 st.caption("No competitor mentions found among visible, analyzed leads.")
             else:
                 _comp_counts = pd.Series(_competitor_rows).value_counts().reset_index()
                 _comp_counts.columns = ["competitor", "count"]
+
+                def _comp_hover_lead(name: str) -> str:
+                    detail = _competitor_detail.get(name, [])
+                    lead, _ = detail[0]
+                    extra = len(detail) - 1
+                    return f"{lead} +{extra} more" if extra > 0 else lead
+
+                def _comp_hover_quote(name: str) -> str:
+                    detail = _competitor_detail.get(name, [])
+                    return _truncate(detail[0][1])
+
+                _comp_counts["hover_lead"] = _comp_counts["competitor"].map(_comp_hover_lead)
+                _comp_counts["hover_quote"] = _comp_counts["competitor"].map(_comp_hover_quote)
                 _bars6 = alt.Chart(_comp_counts).mark_bar(color="#8B5CF6", size=48).encode(
-                    x=alt.X("competitor:N", title=None, sort="-y", axis=alt.Axis(labelAngle=0)),
+                    x=alt.X("competitor:N", title=None, sort="-y", axis=alt.Axis(labelAngle=-30, labelAlign="right", labelOverlap=False)),
                     y=_int_y("count", "Leads", _comp_counts["count"].max()),
-                    tooltip=[alt.Tooltip("competitor:N", title="Competitor"), alt.Tooltip("count:Q", title="Leads", format="d")],
+                    tooltip=[
+                        alt.Tooltip("competitor:N", title="Competitor"), alt.Tooltip("count:Q", title="Leads", format="d"),
+                        alt.Tooltip("hover_lead:N", title="Lead"), alt.Tooltip("hover_quote:N", title="Quote"),
+                    ],
                 )
                 _labels6 = alt.Chart(_comp_counts).mark_text(dy=-10, fontWeight="bold", color=_pi_label_color).encode(
                     x=alt.X("competitor:N", sort="-y"), y=alt.Y("count:Q"), text=alt.Text("count:Q", format="d"),
                 )
-                _chart6 = (_bars6 + _labels6).properties(width=_bar_width(len(_comp_counts)), height=260)
+                _chart6 = (_bars6 + _labels6).properties(width=_bar_width(len(_comp_counts)), height=260, padding={"top": 24, "bottom": 5, "left": 5, "right": 5})
                 st.altair_chart(_style_chart(_chart6), use_container_width=False, theme="streamlit")
 
 if selected_tab == "drill_down":
@@ -2855,6 +2935,13 @@ if selected_tab == "drill_down":
                 st.markdown(f'<div class="atliq-suggestion">Suggested CRM update: {a.suggested_crm_update} (not applied automatically)</div>', unsafe_allow_html=True)
             if a.suggested_next_action:
                 st.markdown(f'<div class="atliq-suggestion">Suggested action (draft only — nothing is sent automatically): {a.suggested_next_action}</div>', unsafe_allow_html=True)
+            if a.tool_preference_mentioned:
+                # Informational only, not a competitive signal - see
+                # llm_client.py's competitor_mentioned/tool_preference_mentioned
+                # split. Routed here instead of the Competitor Mentions chart.
+                _tool_name = a.tool_preference_mentioned.get("tool_name", "")
+                _tool_quote = a.tool_preference_mentioned.get("evidence_quote", "")
+                st.markdown(f'<div class="atliq-suggestion">Tool/stack preference mentioned: <strong>{_tool_name}</strong> — “{_tool_quote}”</div>', unsafe_allow_html=True)
             if a.dropped_findings:
                 with st.expander(f"{len(a.dropped_findings)} finding(s) dropped for failing the evidence-grounding check"):
                     st.json(a.dropped_findings)

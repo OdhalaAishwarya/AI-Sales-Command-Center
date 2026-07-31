@@ -29,5 +29,29 @@
     "The most urgent leads needing immediate action are Kaveri Textiles and FinEdge Bank, followed closely by NovaPharma, Meridian Healthcare, and Meridian Health LLC.",
     "Bhavin's pipeline needs the most attention, owning 4 of the top 8 highest-urgency leads (FinEdge Bank, NovaPharma, Meridian Healthcare, ShopSwift).",
     "Overall, the CRM is significantly out of sync with real client activity, and quick fixes to these top leads should be prioritized to avoid losing deals that are actually still active."
+  ],
+  "8d7b7ac56d0fc66eb8c9d60f81c64a5bf867852561bf11225511da5967f0eca2": [
+    "Out of 43 leads analyzed, there are 30 CRM mismatches, 35 with missing info, 43 open follow-up questions, 2 duplicates, 5 not in CRM, and 5 flagged to deprioritize.",
+    "The most urgent leads needing immediate action are FinEdge Bank and Meridian Health LLC (both score 20.0), followed by Kaveri Textiles, ShopSwift, and NovaPharma.",
+    "Bhavin's pipeline needs the most attention, owning 3 of the top 8 highest-urgency leads (FinEdge Bank, ShopSwift, NovaPharma).",
+    "Overall takeaway: CRM data is significantly out of sync with reality across many leads, so owners should urgently update statuses and follow up on the top-scored accounts."
+  ],
+  "d7d4adea2436f56b974178bc08d138a3dc88dd6ebd5a4cfa6aba00c958319a87": [
+    "Out of 42 leads reviewed, we found 24 CRM mismatches, 31 with missing info, 40 open follow-up questions, 2 duplicates, 5 not in CRM, and 4 flagged to deprioritize.",
+    "The most urgent leads to act on now are NovaPharma, HealthFirst Clinics, AgroLink, and GreenGrid Solar, each with overdue follow-ups or CRM gaps on active deals.",
+    "Karandeep and Dhaval each have two leads in the top-attention list, but Bhavin's NovaPharma lead has the single highest urgency score and needs immediate attention.",
+    "Overall, the pipeline has solid deal activity but CRM records aren't keeping pace, so timely updates and follow-ups are needed to avoid losing momentum on these deals."
+  ],
+  "1c618c9bd66a3399f101f5864ae0d63a350ae4a435c4a04d3150d4416514821f": [
+    "Out of 43 leads analyzed, we found 25 CRM mismatches, 32 with missing info, 41 open follow-up questions, 2 duplicates, 5 not in CRM, and 4 flagged to deprioritize.",
+    "The most urgent leads needing immediate attention are NovaPharma, Trustline NBFC, and HealthFirst Clinics, all with high urgency scores due to stale or incorrect CRM statuses.",
+    "Dhaval's pipeline needs the most attention, with three high-urgency leads (Trustline NBFC, AgroLink, and Northwind Logistics) showing mismatches or missed follow-through.",
+    "Overall, the CRM data is significantly out of sync with real deal progress, so a manual review of top leads is needed to avoid losing momentum on active deals."
+  ],
+  "94419e4d0db286523e5a58ca0354215e83381eec768655400be3c40b8083a603": [
+    "Out of 43 leads analyzed, we found 25 mismatches, 32 missing info, 41 open follow-up questions, 2 duplicates, 5 not in CRM, and 4 to consider deprioritizing.",
+    "The most urgent leads needing immediate attention are NovaPharma, HealthFirst Clinics, GreenGrid Solar, and AgroLink, followed by Meridian Health LLC, DataNest, FinEdge Bank, and Northwind Logistics.",
+    "Karandeep and Bhavin each own two of the top urgent leads, but Bhavin's NovaPharma has the single highest urgency score (19.5), suggesting Bhavin's pipeline needs the closest look.",
+    "Overall, the pipeline has widespread data-quality gaps and stalled follow-ups that could cause real deals to slip through the cracks if not addressed soon."
   ]
 }

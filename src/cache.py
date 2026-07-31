@@ -14,7 +14,7 @@ from .analyzer import LeadAnalysis, analyze_lead
 from .data_loader import BASE_DIR
 from .linker import CaseFile, OrphanLead
 
-PROMPT_VERSION = "v4"  # bumped: pricing_pushback now requires 2+ objections or an explicit walk-away, not one soft ask
+PROMPT_VERSION = "v5"  # bumped: competitor_mentioned now excludes tool/stack preferences (split into tool_preference_mentioned)
 CACHE_PATH = BASE_DIR / ".cache" / "analysis_cache.json"
 
 # Part 3 (memory trail): a separate, compact, bounded-size history of findings
@@ -67,6 +67,7 @@ def _to_cacheable(analysis: LeadAnalysis) -> dict:
         "suggested_crm_update": analysis.suggested_crm_update,
         "suggested_next_action": analysis.suggested_next_action,
         "competitor_mentioned": analysis.competitor_mentioned,
+        "tool_preference_mentioned": analysis.tool_preference_mentioned,
         "dropped_findings": analysis.dropped_findings,
     }
 
@@ -87,6 +88,7 @@ def _from_cacheable(data: dict, item: CaseFile | OrphanLead, crm_row: dict | Non
         suggested_crm_update=data["suggested_crm_update"],
         suggested_next_action=data.get("suggested_next_action", ""),
         competitor_mentioned=data.get("competitor_mentioned"),
+        tool_preference_mentioned=data.get("tool_preference_mentioned"),
         dropped_findings=data["dropped_findings"],
     )
 
