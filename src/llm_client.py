@@ -92,7 +92,7 @@ FINDINGS_TOOL = {
             },
             "deprioritize_signals": {
                 "type": "array",
-                "description": "Signs this lead may be a poor fit or going cold - NOT an urgency signal, a different kind of flag entirely. Only report a pattern like: repeated pricing pushback with no resolution, an explicit mention that the client chose a competitor, or the client going silent specifically after an objection or a 'not right now'. This is a suggestion for a human to consider, never an automatic action.",
+                "description": "Signs this lead may be a poor fit or going cold - NOT an urgency signal, a different kind of flag entirely. Only report a pattern like: repeated pricing pushback with no resolution, an explicit mention that the client chose a competitor, or the client going silent specifically after an objection or a 'not right now'. pricing_pushback specifically requires either 2+ separate instances of the client objecting to price, or one instance where the client explicitly says they're walking away or reconsidering because of price - a single polite ask to adjust scope or phase the work to fit budget is normal negotiation, not pushback, and must NOT be reported on its own. This is a suggestion for a human to consider, never an automatic action.",
                 "items": {
                     "type": "object",
                     "properties": {
@@ -103,6 +103,16 @@ FINDINGS_TOOL = {
                     },
                     "required": ["summary", "signal_type", "evidence_quote", "source_file"],
                 },
+            },
+            "competitor_mentioned": {
+                "type": "object",
+                "description": "Only include this key at all if a competitor is explicitly named in the provided text (e.g. 'we're also evaluating Rival Corp' or 'they went with Acme Rival instead') - omit the key entirely if no competitor is named anywhere in the linked documents. Never infer a competitor from vague phrases like 'other vendors' or 'another option'.",
+                "properties": {
+                    "competitor_name": {"type": "string", "description": "The competitor's name, exactly as it appears in the source text."},
+                    "evidence_quote": {"type": "string", "description": "A verbatim quote (exact substring) from the source document naming the competitor."},
+                    "source_file": {"type": "string"},
+                },
+                "required": ["competitor_name", "evidence_quote", "source_file"],
             },
             "suggested_crm_update": {
                 "type": "string",
@@ -137,11 +147,16 @@ assume, or infer beyond what's written.
 - Be conservative: a healthy, unremarkable lead should produce few or no findings.
 - deprioritize_signals is a distinct, non-urgent flag - do not report it just because a deal is slow or quiet; it \
 needs a real pattern (repeated unresolved pricing pushback, an explicit competitor choice, or silence specifically \
-following an objection/"not right now").
+following an objection/"not right now"). pricing_pushback specifically needs 2+ separate price objections, or one \
+explicit statement that the client is walking away or reconsidering because of price - a single "can we adjust \
+scope/phase this to fit budget" is normal negotiation and must not be reported on its own.
 - suggested_next_action does not need a verbatim evidence_quote (it's a synthesized recommendation, not a quote), \
 but it must still reference something concrete and real from the documents, not generic advice.
 - Never suggest or imply that any file should be edited or sent automatically - suggested_crm_update and \
-suggested_next_action are both just notes for a human to review."""
+suggested_next_action are both just notes for a human to review.
+- Only include competitor_mentioned if a competitor is explicitly named in the provided text, with a verbatim, \
+quotable mention - omit the key entirely otherwise. Do not infer a competitor from vague phrases like "other \
+vendors" or "another option" with no name given."""
 
 
 def get_client(api_key: str | None = None) -> Anthropic:

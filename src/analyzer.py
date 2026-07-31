@@ -44,6 +44,7 @@ class LeadAnalysis:
     deprioritize_signals: list[dict] = field(default_factory=list)
     suggested_crm_update: str = ""
     suggested_next_action: str = ""
+    competitor_mentioned: dict | None = None
     dropped_findings: list[dict] = field(default_factory=list)
 
 
@@ -114,6 +115,19 @@ def _filter_findings(raw: dict, docs: list[Document]) -> tuple[dict, list[dict]]
                 clean[key].append(finding)
             else:
                 dropped.append({"category": key, **finding})
+
+    # Single optional object, not a list - same verbatim-quote grounding rule
+    # as every other finding; the model is instructed to omit this key
+    # entirely when no competitor is named, so a missing key is expected and
+    # not an error.
+    competitor = raw.get("competitor_mentioned")
+    if competitor and _grounded(competitor.get("evidence_quote", ""), docs):
+        clean["competitor_mentioned"] = competitor
+    else:
+        clean["competitor_mentioned"] = None
+        if competitor:
+            dropped.append({"category": "competitor_mentioned", **competitor})
+
     return clean, dropped
 
 
@@ -153,5 +167,6 @@ def analyze_lead(client: Anthropic, item: CaseFile | OrphanLead, model: str | No
         deprioritize_signals=clean["deprioritize_signals"],
         suggested_crm_update=clean.get("suggested_crm_update", ""),
         suggested_next_action=clean.get("suggested_next_action", ""),
+        competitor_mentioned=clean.get("competitor_mentioned"),
         dropped_findings=dropped,
     )

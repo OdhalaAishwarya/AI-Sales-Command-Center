@@ -14,7 +14,7 @@ from .analyzer import LeadAnalysis, analyze_lead
 from .data_loader import BASE_DIR
 from .linker import CaseFile, OrphanLead
 
-PROMPT_VERSION = "v2"  # bumped: schema now includes deprioritize_signals + suggested_next_action
+PROMPT_VERSION = "v4"  # bumped: pricing_pushback now requires 2+ objections or an explicit walk-away, not one soft ask
 CACHE_PATH = BASE_DIR / ".cache" / "analysis_cache.json"
 
 # Part 3 (memory trail): a separate, compact, bounded-size history of findings
@@ -66,6 +66,7 @@ def _to_cacheable(analysis: LeadAnalysis) -> dict:
         "deprioritize_signals": analysis.deprioritize_signals,
         "suggested_crm_update": analysis.suggested_crm_update,
         "suggested_next_action": analysis.suggested_next_action,
+        "competitor_mentioned": analysis.competitor_mentioned,
         "dropped_findings": analysis.dropped_findings,
     }
 
@@ -85,6 +86,7 @@ def _from_cacheable(data: dict, item: CaseFile | OrphanLead, crm_row: dict | Non
         deprioritize_signals=data.get("deprioritize_signals", []),
         suggested_crm_update=data["suggested_crm_update"],
         suggested_next_action=data.get("suggested_next_action", ""),
+        competitor_mentioned=data.get("competitor_mentioned"),
         dropped_findings=data["dropped_findings"],
     )
 
