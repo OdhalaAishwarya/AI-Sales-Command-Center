@@ -227,6 +227,7 @@ CSS = """
 .category-card.selected { border-color: var(--card-color); }
 .category-card .cat-icon { font-size: 26px; color: var(--card-color); }
 .category-card .cat-count { font-size: 2rem; font-weight: 700; line-height: 1.15; margin-top: 8px; }
+.category-card .cat-unit { font-size: 0.68rem; opacity: 0.75; text-transform: uppercase; letter-spacing: 0.03em; margin-top: -2px; }
 .category-card .cat-label { font-size: 0.86rem; opacity: 0.72; margin-top: 2px; }
 
 /* The buttons directly under each category card are the actual click target
@@ -1460,15 +1461,20 @@ if selected_tab == "overview":
                     row[f"{cat} (passed/raw)"] = f"{passed}/{raw}"
                 rows.append(row)
 
-            st.markdown("**Totals across all analyzed leads (passed the grounding check / raw count returned by the model):**")
+            # Raw INDIVIDUAL FINDINGS (not deduplicated by lead, and includes
+            # orphan/not-in-CRM leads) - intentionally a different unit than
+            # the Categories page's card counts, which dedupe to distinct
+            # non-orphan leads. A lead with 3 mismatches contributes 3 here.
+            st.markdown("**Totals across all analyzed leads — raw individual findings, not deduplicated by lead (passed the grounding check / raw count returned by the model):**")
             st.markdown(
                 "\n".join(
-                    f"- `{cat}`: {totals[cat]['passed']} passed / {totals[cat]['raw']} raw "
+                    f"- `{cat}`: {totals[cat]['passed']} finding(s) passed / {totals[cat]['raw']} finding(s) raw "
                     f"({totals[cat]['raw'] - totals[cat]['passed']} dropped for failing the verbatim-quote check)"
                     for cat in FINDING_CATEGORIES
                 )
             )
-            st.markdown("**Per-lead breakdown:**")
+            st.caption("Note: these are raw finding counts, not distinct leads - the Categories page's card counts dedupe to \"N leads with ≥1 finding\" and exclude orphan/not-in-CRM leads, so the two will legitimately differ.")
+            st.markdown("**Per-lead breakdown (finding counts per lead, passed/raw):**")
             _debug_df = pd.DataFrame(rows)
             _passed_raw_cols = [c for c in _debug_df.columns if c != "lead"]
 
@@ -2274,6 +2280,28 @@ if selected_tab == "categories":
     # agree, so both are read from full_ranked_list_for_category() - one
     # deduplicated-by-lead list per category, counted once here.
     counts = {cat["key"]: len(full_ranked_list_for_category(cat["key"])[0]) for cat in CATEGORIES}
+    # Same unit as the count above (pairs for duplicates, leads everywhere
+    # else) - shown on each card so "22" is never mistaken for a raw finding
+    # count (that's the debug panel's "N finding(s)" number instead; the two
+    # intentionally differ - a lead with 3 mismatches is still 1 entry here).
+    CATEGORY_COUNT_UNIT = {
+        "mismatches": "leads", "missing_info": "leads", "followup_open_questions": "leads",
+        "duplicates": "pairs", "not_in_crm": "leads", "deprioritize": "leads",
+    }
+    _FINDING_FIELD_MAP = {
+        "mismatches": ["mismatches"], "missing_info": ["missing_info_flags"],
+        "followup_open_questions": ["timing_signals", "open_questions_or_dropped_commitments"],
+        "deprioritize": ["deprioritize_signals"],
+    }
+
+    def _category_finding_count(category_key: str) -> int:
+        """Total individual findings behind this card's lead count - same
+        underlying lead set as `counts` above (via _leads_in_category), so
+        the two numbers can never drift out of sync with each other."""
+        fields = _FINDING_FIELD_MAP.get(category_key)
+        if not fields:
+            return 0
+        return sum(sum(len(getattr(a, f)) for f in fields) for a in _leads_in_category(category_key))
 
     st.session_state.setdefault("selected_category", None)
 
@@ -2281,16 +2309,20 @@ if selected_tab == "categories":
     for col, cat in zip(card_cols, CATEGORIES):
         with col:
             is_selected = st.session_state["selected_category"] == cat["key"]
+            _unit = CATEGORY_COUNT_UNIT.get(cat["key"], "leads")
             st.markdown(
                 f'<div class="category-card {"selected" if is_selected else ""}" '
                 f'style="--card-color:{cat["color"]};background:{cat["bg"]};">'
                 f'<span class="msi cat-icon">{cat["icon"]}</span>'
                 f'<div class="cat-count" style="color:{cat["color"]};">{counts[cat["key"]]}</div>'
+                f'<div class="cat-unit" style="color:{cat["color"]};">{_unit}</div>'
                 f'<div class="cat-label">{cat["label"]}</div>'
                 f'</div>',
                 unsafe_allow_html=True,
             )
-            if st.button(cat["label"], key=f"cardbtn_{cat['key']}", use_container_width=True,
+            _finding_count = _category_finding_count(cat["key"])
+            _card_help = f"{counts[cat['key']]} {_unit} · {_finding_count} finding(s) total (a lead can have more than one)" if _finding_count else None
+            if st.button(cat["label"], key=f"cardbtn_{cat['key']}", use_container_width=True, help=_card_help,
                          type="primary" if is_selected else "secondary"):
                 st.session_state["selected_category"] = None if is_selected else cat["key"]
                 st.rerun()
