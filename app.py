@@ -1930,6 +1930,22 @@ def render_lead_card(item: AttentionItem, show_impact: bool = False):
     # from lead_analysis, so it still shows even for a not-yet-analyzed lead
     # - it's static CRM data, independent of whether the LLM call has run.
     _cf_for_source = case_files_by_id.get(item.lead_id) if item.lead_id else None
+    # Raw CRM field (crm_export.csv), same case_files_by_id lookup already
+    # used for lead_source above - not re-fetched or reformatted from
+    # anywhere else, and not something the AI pipeline ever touches. NaN
+    # check mirrors the drill-down grid's own (`val == val`), so a blank
+    # cell here matches exactly what the drill-down already treats as blank.
+    service_interest = _cf_for_source.crm_row.get("service_interest") if _cf_for_source else None
+    title_extra = ""
+    if service_interest is not None and service_interest == service_interest and str(service_interest).strip():
+        si_full = str(service_interest).strip()
+        si_display = " ".join(si_full.split()[:4])
+        if len(si_display) > 35:
+            si_display = si_display[:35].rstrip()
+        if si_display != si_full:
+            si_display += "…"
+        title_extra = f" — Service Interest: {si_display}"
+
     lead_source = _cf_for_source.crm_row.get("source") if _cf_for_source else None
     if lead_source:
         # Fix 2: plain descriptive metadata (not an urgency/quality signal),
@@ -1958,7 +1974,7 @@ def render_lead_card(item: AttentionItem, show_impact: bool = False):
         f'<div class="atliq-card">'
         f'<div style="display:flex;align-items:center;gap:12px;">'
         f'<div class="score-circle" style="--score-color:{badge["color"]};color:{badge["color"]};">{display_score}</div>'
-        f'<div><b>{item.company}{lead_tag}</b><div style="margin-top:4px;">{badge_html(item.urgency_level)}{impact_badge_html}{evidence_badge_html}{source_badge_html}</div></div>'
+        f'<div><b>{item.company}{lead_tag}{title_extra}</b><div style="margin-top:4px;">{badge_html(item.urgency_level)}{impact_badge_html}{evidence_badge_html}{source_badge_html}</div></div>'
         f'</div>'
         f'<div style="margin-top:10px;">{primary_tag}</div>'
         f'<div class="atliq-suggestion" style="margin-top:4px;text-decoration:none;">{primary_text}</div>'
