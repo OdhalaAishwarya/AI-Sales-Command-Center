@@ -34,7 +34,7 @@ FINDINGS_TOOL = {
         "properties": {
             "mismatches": {
                 "type": "array",
-                "description": "Places where the CRM's status/activity contradicts what the emails or notes show.",
+                "description": "Places where the CRM's status/activity CONTRADICTS what the emails or notes show - CRM says X, source says Y. A blank/missing CRM field is NOT by itself a mismatch (that's missing_info_flags) - do not report a mismatch whose core justification is really just an absent field plus inferred urgency. A blank field may be mentioned briefly as supporting context for a real contradiction, but must not be the mismatch's main justification when that same blank field already qualifies as its own missing_info_flags entry - report it there once, not in both places.",
                 "items": {
                     "type": "object",
                     "properties": {
@@ -155,6 +155,11 @@ assume, or infer beyond what's written.
 - Lines in the documents introduced as ground truth (marked "GROUND TRUTH:") are confirmed fact - weigh them heavily.
 - If there is nothing noteworthy for a category, return an empty array for it. Don't force findings.
 - Be conservative: a healthy, unremarkable lead should produce few or no findings.
+- Do not double-report the same underlying gap as both a mismatch and a missing_info_flag. A mismatch needs an actual \
+contradiction (CRM says X, source says Y) - an absent field is missing_info_flags territory, not a mismatch, even if \
+the absence feels urgent. If a blank field is only relevant as brief context for a real contradiction, mention it in \
+passing, but don't build the mismatch's summary/severity around it when it's already being reported separately as \
+missing_info_flags.
 - deprioritize_signals is a distinct, non-urgent flag - do not report it just because a deal is slow or quiet; it \
 needs a real pattern (repeated unresolved pricing pushback, an explicit competitor choice, or silence specifically \
 following an objection/"not right now"). pricing_pushback specifically needs 2+ separate price objections, or one \

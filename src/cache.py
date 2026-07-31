@@ -14,7 +14,7 @@ from .analyzer import LeadAnalysis, analyze_lead
 from .data_loader import BASE_DIR
 from .linker import CaseFile, OrphanLead
 
-PROMPT_VERSION = "v5"  # bumped: competitor_mentioned now excludes tool/stack preferences (split into tool_preference_mentioned)
+PROMPT_VERSION = "v6"  # bumped: mismatches must be real CRM-vs-source contradictions, not a restated missing_info gap
 CACHE_PATH = BASE_DIR / ".cache" / "analysis_cache.json"
 
 # Part 3 (memory trail): a separate, compact, bounded-size history of findings
