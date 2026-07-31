@@ -1075,6 +1075,7 @@ TAB_DEFS = [
     ("effort_payoff", "Effort vs. Payoff", "target"),
     ("hidden_opportunity", "Hidden Opportunity", "insights"),
     ("drill_down", "Drill into a Lead", "person_search"),
+    ("portfolio_insights", "Portfolio Insights", "bar_chart"),
     ("overview", "Overview", "dashboard"),  # 2x2 grid glyph (Material Symbols), not a house
 ]
 st.session_state.setdefault("selected_tab", "attention")
@@ -1614,33 +1615,11 @@ if selected_tab == "overview":
                     st.markdown(f"- **{company}** — {len(items)} {plural} resolved: {items[0]['summary']}")
 
 
-# V2 section 2: Executive Summary panel - the single cached AI paragraph
-# (see the run_clicked block above) always reflects the FULL pipeline (that
-# call only runs once per Run/Refresh, not once per owner-filter click, to
-# keep the AI-call count exactly as approved); the line beneath it is a
-# plain computed count for whichever owner is currently selected, so
-# selecting an owner still visibly scopes this panel without spending a
-# second AI call per click.
-if selected_tab == "overview":
-    st.subheader("Executive Summary")
-    _exec_summary = st.session_state.get("exec_summary")
-    _exec_summary_error = st.session_state.get("exec_summary_error")
-    if _exec_summary:
-        # Bullets (list[str]) is the current format; a bare string can only be a
-        # summary generated before this format change and still sitting in this
-        # session's state (not yet refreshed) - shown as a single line so it
-        # still renders sensibly until the next Run/Refresh regenerates it.
-        _exec_bullets = _exec_summary if isinstance(_exec_summary, list) else [_exec_summary]
-        _bullets_html = "".join(f"<li style='margin-bottom:6px;'>{b}</li>" for b in _exec_bullets)
-        st.markdown(f'<div class="atliq-card" style="font-size:1rem;"><ul style="margin:0;padding-left:1.2em;">{_bullets_html}</ul></div>', unsafe_allow_html=True)
-        st.caption("Reflects the full pipeline as of the last Refresh. Use the owner buttons above to filter the lists below.")
-    elif _exec_summary_error:
-        st.warning(f"Executive summary could not be generated: {_exec_summary_error}")
-    else:
-        st.info("Click **Refresh** at the top of the page to generate an executive summary of the pipeline.")
-
-    st.divider()
-
+# V2 section 2: the full bullet-point Executive Summary panel that used to
+# render here on the Overview tab has moved to the new Portfolio Insights
+# tab (condensed to its first 2 bullets, same cached data, no new AI call -
+# see "if selected_tab == portfolio_insights" further down). "Since your
+# last check" directly above this comment is untouched.
 # --------------------------------------------------------------------------
 # Feature 1 — 30-Minute Work Plan: filtered by the currently-selected owner
 # (the same buttons above), using only the already-computed Urgency Score
@@ -2361,14 +2340,14 @@ if selected_tab == "categories":
 VALUE_THRESHOLD = 50_000
 STALENESS_THRESHOLD = 45
 
-if selected_tab == "effort_payoff":
-    # ----------------------------------------------------------------------
-    # Effort vs. Payoff — pure CRM/scoring data, no LLM analysis required, so
-    # this renders even before any "Run analysis" click.
-    # ----------------------------------------------------------------------
-    st.header("Effort vs. Payoff")
-    st.caption("Every open lead plotted by deal value against staleness — no AI calls, this uses only the CRM export.")
 
+def _compute_quadrant_rows() -> tuple[list[dict], int]:
+    """Pure CRM/scoring math, no LLM analysis required - shared verbatim by
+    the Effort vs. Payoff tab and Portfolio Insights' Pipeline Health chart
+    (extracted, not duplicated, so both can never silently diverge). Scoped
+    by visible_lead_ids like every other tab, so it respects the owner
+    filter row at the top of the page the same way everywhere it's used.
+    """
     quad_rows = []
     skipped = 0
     for cf in case_files:
@@ -2397,24 +2376,40 @@ if selected_tab == "effort_payoff":
             "status": row.get("status", ""), "value": float(value), "days_stale": int(days_stale),
             "quadrant": quadrant,
         })
+    return quad_rows, skipped
+
+
+# Shared purple/magenta quadrant palette - defined once here so Portfolio
+# Insights' Pipeline Health chart uses the exact same colors as Effort vs.
+# Payoff, not a second hand-picked set.
+QUADRANT_ORDER = ["Prioritize", "Quick wins", "Worth the push", "Consider letting go"]
+_is_dark_theme = st.get_option("theme.base") == "dark"
+QUADRANT_COLORS = (
+    {"Prioritize": "#7C3AED", "Quick wins": "#A78BFA", "Worth the push": "#EC4899", "Consider letting go": "#6D5A82"}
+    if _is_dark_theme else
+    {"Prioritize": "#6D28D9", "Quick wins": "#8B5CF6", "Worth the push": "#DB2777", "Consider letting go": "#5B4B6E"}
+)
+
+if selected_tab == "effort_payoff":
+    # ----------------------------------------------------------------------
+    # Effort vs. Payoff — pure CRM/scoring data, no LLM analysis required, so
+    # this renders even before any "Run analysis" click.
+    # ----------------------------------------------------------------------
+    st.header("Effort vs. Payoff")
+    st.caption("Every open lead plotted by deal value against staleness — no AI calls, this uses only the CRM export.")
+
+    quad_rows, skipped = _compute_quadrant_rows()
 
     if not quad_rows:
         st.info("No open leads with both a deal value and a last-contact date to plot.")
     else:
         quad_df = pd.DataFrame(quad_rows)
 
-        QUADRANT_ORDER = ["Prioritize", "Quick wins", "Worth the push", "Consider letting go"]
-        # Recolored to tonal purple/magenta steps of the app's own brand
-        # gradient (was a red/orange/blue/green mixed palette) - deeper
-        # purple / lighter purple / magenta / muted violet, per quadrant,
-        # kept distinct enough from each other to still read at a glance.
-        # Light/dark are steps of the same 4 hues, not separate palettes.
-        is_dark = st.get_option("theme.base") == "dark"
-        quadrant_colors = (
-            {"Prioritize": "#7C3AED", "Quick wins": "#A78BFA", "Worth the push": "#EC4899", "Consider letting go": "#6D5A82"}
-            if is_dark else
-            {"Prioritize": "#6D28D9", "Quick wins": "#8B5CF6", "Worth the push": "#DB2777", "Consider letting go": "#5B4B6E"}
-        )
+        # QUADRANT_ORDER/QUADRANT_COLORS are now shared module-level
+        # constants (see _compute_quadrant_rows above) so Portfolio
+        # Insights' Pipeline Health chart uses the exact same palette -
+        # aliased to the old local name so nothing below this line changes.
+        quadrant_colors = QUADRANT_COLORS
         color_scale = alt.Scale(domain=QUADRANT_ORDER, range=[quadrant_colors[q] for q in QUADRANT_ORDER])
 
         max_value = max(quad_df["value"].max() * 1.08, VALUE_THRESHOLD * 1.6)
@@ -2478,6 +2473,173 @@ if selected_tab == "effort_payoff":
                 table_df.style.map(_quadrant_cell_style, subset=["quadrant"]),
                 use_container_width=True,
             )
+
+if selected_tab == "portfolio_insights":
+    # --------------------------------------------------------------------------
+    # Portfolio Insights (Phase 1) — six charts giving a cross-lead view of the
+    # pipeline, replacing the old bullet-point Executive Summary on the
+    # Overview tab (moved here as a short 1-2 line version instead - see
+    # below). Every chart on this page reads ONLY data already sitting in
+    # memory: case_files/crm_df (from load_everything(), cached), analyses
+    # (from st.session_state, populated by the last Refresh), and the same
+    # _compute_quadrant_rows() helper Effort vs. Payoff uses - NOT a single
+    # new Claude API call anywhere on this page. Charts are scoped by
+    # visible_lead_ids (the owner-filter row above), same as every other
+    # tab - the one exception is the condensed summary blurb, which stays
+    # full-pipeline like the original Executive Summary always was, since
+    # it's one cached AI paragraph that isn't regenerated per owner-click.
+    # --------------------------------------------------------------------------
+    st.header("Portfolio Insights")
+
+    _exec_summary = st.session_state.get("exec_summary")
+    _exec_summary_error = st.session_state.get("exec_summary_error")
+    if _exec_summary:
+        _exec_bullets = _exec_summary if isinstance(_exec_summary, list) else [_exec_summary]
+        # Condensed to the first 2 bullets only - same cached data as the
+        # old full Executive Summary, no new AI call to shorten it.
+        _short_bullets = _exec_bullets[:2]
+        _short_html = " ".join(_short_bullets)
+        st.markdown(f'<div class="atliq-card" style="font-size:0.95rem;">{_short_html}</div>', unsafe_allow_html=True)
+        st.caption("Reflects the full pipeline as of the last Refresh, independent of the owner filter above.")
+    elif _exec_summary_error:
+        st.warning(f"Executive summary could not be generated: {_exec_summary_error}")
+    else:
+        st.info("Click **Refresh** at the top of the page to generate a summary and populate these charts.")
+
+    st.divider()
+
+    # ---- Chart 1: Pipeline Health (Effort vs. Payoff quadrant counts) -----
+    st.markdown("##### Pipeline Health")
+    st.caption("Lead count per Effort vs. Payoff quadrant — no AI calls, same computation as the Effort vs. Payoff tab.")
+    _pi_quad_rows, _ = _compute_quadrant_rows()
+    if not _pi_quad_rows:
+        st.caption("No open leads with both a deal value and a last-contact date to plot.")
+    else:
+        _quad_counts = pd.DataFrame(_pi_quad_rows)["quadrant"].value_counts().reindex(QUADRANT_ORDER, fill_value=0).reset_index()
+        _quad_counts.columns = ["quadrant", "count"]
+        _quad_color_scale = alt.Scale(domain=QUADRANT_ORDER, range=[QUADRANT_COLORS[q] for q in QUADRANT_ORDER])
+        _chart1 = alt.Chart(_quad_counts).mark_bar().encode(
+            x=alt.X("count:Q", title="Leads"),
+            y=alt.Y("quadrant:N", title=None, sort=QUADRANT_ORDER),
+            color=alt.Color("quadrant:N", scale=_quad_color_scale, legend=None),
+            tooltip=[alt.Tooltip("quadrant:N", title="Quadrant"), alt.Tooltip("count:Q", title="Leads")],
+        ).properties(height=180)
+        st.altair_chart(_chart1, use_container_width=True, theme="streamlit")
+
+    # ---- Chart 2: What Clients Are Asking For (service_interest) ----------
+    st.markdown("##### What Clients Are Asking For")
+    st.caption("Leads grouped by SERVICE_INTEREST from the CRM export — a raw CRM field, not AI-generated.")
+    _service_rows = []
+    for cf in case_files:
+        if cf.lead_id not in visible_lead_ids:
+            continue
+        val = (cf.crm_row.get("service_interest") or "").strip()
+        _service_rows.append(val if val else "Not specified")
+    if not _service_rows:
+        st.caption("No visible leads to summarize.")
+    else:
+        _service_counts = pd.Series(_service_rows).value_counts().reset_index()
+        _service_counts.columns = ["service_interest", "count"]
+        _chart2 = alt.Chart(_service_counts).mark_bar(color="#8B5CF6").encode(
+            x=alt.X("count:Q", title="Leads"),
+            y=alt.Y("service_interest:N", title=None, sort="-x"),
+            tooltip=[alt.Tooltip("service_interest:N", title="Service interest"), alt.Tooltip("count:Q", title="Leads")],
+        ).properties(height=max(120, 26 * len(_service_counts)))
+        st.altair_chart(_chart2, use_container_width=True, theme="streamlit")
+
+    # ---- Chart 3: Revenue at Risk from Pricing Pushback --------------------
+    st.markdown("##### Revenue at Risk from Pricing Pushback")
+    st.caption("Total deal value of leads with a 'pricing pushback' deprioritize signal, vs. total pipeline value.")
+    if not analyses:
+        st.info("Click **Refresh** at the top of the page to populate this chart.")
+    else:
+        _total_pipeline_value = 0.0
+        _at_risk_value = 0.0
+        for cf in case_files:
+            if cf.lead_id not in visible_lead_ids:
+                continue
+            val = cf.crm_row.get("est_value_usd")
+            if val is None or val != val:
+                continue
+            val = float(val)
+            _total_pipeline_value += val
+            a = analyses.get(cf.lead_id)
+            if a and any(d["signal_type"] == "pricing_pushback" for d in a.deprioritize_signals):
+                _at_risk_value += val
+        _risk_df = pd.DataFrame([
+            {"label": "Total pipeline value", "value": _total_pipeline_value},
+            {"label": "At risk (pricing pushback)", "value": _at_risk_value},
+        ])
+        _chart3 = alt.Chart(_risk_df).mark_bar().encode(
+            x=alt.X("value:Q", title="Deal value (USD)", axis=alt.Axis(format="$,.0f")),
+            y=alt.Y("label:N", title=None, sort=None),
+            color=alt.Color("label:N", scale=alt.Scale(domain=["Total pipeline value", "At risk (pricing pushback)"], range=["#8B5CF6", "#EC4899"]), legend=None),
+            tooltip=[alt.Tooltip("label:N", title=""), alt.Tooltip("value:Q", title="Deal value", format="$,.0f")],
+        ).properties(height=140)
+        st.altair_chart(_chart3, use_container_width=True, theme="streamlit")
+        if _total_pipeline_value > 0:
+            st.caption(f"{_at_risk_value / _total_pipeline_value:.0%} of visible pipeline value is on leads showing unresolved pricing pushback.")
+
+    # ---- Chart 4: Lead Source Effectiveness --------------------------------
+    st.markdown("##### Lead Source Effectiveness")
+    st.caption("Total deal value by lead source — no AI calls, this uses only the CRM export.")
+    _source_rows = []
+    for cf in case_files:
+        if cf.lead_id not in visible_lead_ids:
+            continue
+        val = cf.crm_row.get("est_value_usd")
+        val = float(val) if val is not None and val == val else 0.0
+        source = (cf.crm_row.get("source") or "").strip() or "Not specified"
+        _source_rows.append({"source": source, "value": val})
+    if not _source_rows:
+        st.caption("No visible leads to summarize.")
+    else:
+        _source_df = pd.DataFrame(_source_rows).groupby("source", as_index=False).agg(value=("value", "sum"), count=("value", "size"))
+        _chart4 = alt.Chart(_source_df).mark_bar(color="#34D399").encode(
+            x=alt.X("value:Q", title="Total deal value (USD)", axis=alt.Axis(format="$,.0f")),
+            y=alt.Y("source:N", title=None, sort="-x"),
+            tooltip=[alt.Tooltip("source:N", title="Source"), alt.Tooltip("count:Q", title="Leads"), alt.Tooltip("value:Q", title="Total value", format="$,.0f")],
+        ).properties(height=max(120, 26 * len(_source_df)))
+        st.altair_chart(_chart4, use_container_width=True, theme="streamlit")
+
+    # ---- Chart 5: Findings Mix by Owner (stacked bar) ----------------------
+    st.markdown("##### Findings Mix by Owner")
+    st.caption("Finding category counts per owner. Orphan leads (not in CRM, no owner) are excluded — see the 'Not in CRM' category elsewhere.")
+    if not analyses:
+        st.info("Click **Refresh** at the top of the page to populate this chart.")
+    else:
+        _FINDINGS_MIX_CATEGORIES = ["mismatches", "missing_info", "followup_open_questions", "deprioritize"]
+        _mix_rows = []
+        for cf in case_files:
+            if cf.lead_id not in visible_lead_ids:
+                continue
+            a = analyses.get(cf.lead_id)
+            if not a:
+                continue
+            owner = cf.crm_row.get("owner") or UNASSIGNED_OWNER_LABEL
+            counts = {
+                "mismatches": len(a.mismatches),
+                "missing_info": len(a.missing_info_flags),
+                "followup_open_questions": len(a.timing_signals) + len(a.open_questions_or_dropped_commitments),
+                "deprioritize": len(a.deprioritize_signals),
+            }
+            for cat_key in _FINDINGS_MIX_CATEGORIES:
+                if counts[cat_key] > 0:
+                    _mix_rows.append({"owner": owner, "category": CATEGORIES_BY_KEY[cat_key]["label"], "count": counts[cat_key]})
+        if not _mix_rows:
+            st.caption("No findings among visible, analyzed leads.")
+        else:
+            _mix_df = pd.DataFrame(_mix_rows).groupby(["owner", "category"], as_index=False)["count"].sum()
+            _cat_labels = [CATEGORIES_BY_KEY[k]["label"] for k in _FINDINGS_MIX_CATEGORIES]
+            _cat_colors = [CATEGORIES_BY_KEY[k]["color"] for k in _FINDINGS_MIX_CATEGORIES]
+            _chart5 = alt.Chart(_mix_df).mark_bar().encode(
+                x=alt.X("count:Q", title="Findings"),
+                y=alt.Y("owner:N", title=None),
+                color=alt.Color("category:N", title="Category", scale=alt.Scale(domain=_cat_labels, range=_cat_colors)),
+                order=alt.Order("category:N", sort="ascending"),
+                tooltip=[alt.Tooltip("owner:N", title="Owner"), alt.Tooltip("category:N", title="Category"), alt.Tooltip("count:Q", title="Findings")],
+            ).properties(height=max(140, 32 * _mix_df["owner"].nunique()))
+            st.altair_chart(_chart5, use_container_width=True, theme="streamlit")
 
 if selected_tab == "drill_down":
     # ----------------------------------------------------------------------
