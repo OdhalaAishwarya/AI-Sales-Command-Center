@@ -49,7 +49,7 @@ See [APP_README.md](APP_README.md) for full setup, run instructions, and archite
    The problem and discovery insights, the opportunity chosen, the solution and a walkthrough, success metrics, and risks and guardrails.
 
 7. **Stakeholder demo video**<br>
-   *(TBD — not yet recorded.)*<br>
+   [Watch the demo video](https://drive.google.com/file/d/1wM3xGKPuzX-FjcqsurtuSG1HfQ0qmOsS/view?usp=sharing)<br>
    A ~5-minute walkthrough of the live prototype handling real dataset scenarios, presented to AtliQ's stakeholders.
 
 Assignment brief, for reference:<br>
