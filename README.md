@@ -23,13 +23,18 @@ Built with **Streamlit** (UI) and the **Anthropic API** (Claude, for grounded pe
 See [APP_README.md](APP_README.md) for full setup, run instructions, and architecture details.
 
 ## Project Documentation
-- [AI Product Canvas.pdf](Project%20Docs/AI%20Product%20Canvas.pdf)
-- [AI_PRD.pdf](Project%20Docs/AI_PRD.pdf)
-- [Problem_Discovery_User_Research.pdf](Project%20Docs/Problem_Discovery_User_Research.pdf)
-- [Cost_Estimation.xlsx](Project%20Docs/Cost_Estimation.xlsx)
-- [Cost_Estimation.pdf](Project%20Docs/Cost_Estimation.pdf)
-- [Feature_Guide.pdf](Project%20Docs/Feature_Guide.pdf)
-- [AtliQ_Product_Presentation.pdf](Project%20Docs/AtliQ_Product_Presentation.pdf)
+
+Mapped 1:1 to the capstone submission checklist:
+
+1. **User research worksheet** — persona (Bhavin + Jay), pain points, 5 Whys, and JTBD, every claim traced to a real email or meeting note in this dataset. [AtliQ_Problem_Discovery_User_Research.xlsx](Project%20Docs/AtliQ_Problem_Discovery_User_Research.xlsx) (+ [PDF companion](Project%20Docs/AtliQ_Problem_Discovery_User_Research.pdf))
+2. **AI opportunity map** — Miro board mapping where AI fits across the sales workflow. *(TBD — not yet created.)*
+3. **AI PRD** — product requirements, pressure-tested against the same real dataset. [AI_PRD.pdf](Project%20Docs/AI_PRD.pdf)
+4. **Cost estimation** — build and run cost breakdown for the prototype. [Cost_Estimation.xlsx](Project%20Docs/Cost_Estimation.xlsx) (+ [PDF companion](Project%20Docs/Cost_Estimation.pdf))
+5. **Working AI prototype** — this repo. See [APP_README.md](APP_README.md) for setup/run instructions, or the live demo linked above.
+6. **Presentation** — pitch deck walking through problem, solution, and demo. [AtliQ_Product_Story_Presentation.pptx](Project%20Docs/AtliQ_Product_Story_Presentation.pptx)
+7. **Stakeholder demo video** — recorded walkthrough for stakeholders. *(TBD — not yet recorded.)*
+
+Additional docs (not part of the official checklist, kept for reference): [AI Product Canvas.pdf](Project%20Docs/AI%20Product%20Canvas.pdf) · [Feature_Guide.pdf](Project%20Docs/Feature_Guide.pdf) · [AtliQ_Product_Presentation.pdf](Project%20Docs/AtliQ_Product_Presentation.pdf) (PDF export of item 6's presentation, for viewing without PowerPoint)
 
 ## Dataset
 
