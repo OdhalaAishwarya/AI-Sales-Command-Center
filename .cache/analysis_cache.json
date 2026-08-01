@@ -9076,5 +9076,2421 @@
         "severity": "high"
       }
     ]
+  },
+  "ab70de38788a8874159b0d260526392ee0fe95612f24806571012d689921cdd2": {
+    "key": "L-1029",
+    "lead_id": "L-1029",
+    "company": "NovaPharma",
+    "is_orphan": false,
+    "mismatches": [
+      {
+        "summary": "CRM status is 'Contacted' but the deal is actively progressing through procurement/security review with a hard deadline, not just an initial contact stage.",
+        "crm_says": "CRM status: Contacted",
+        "evidence_quote": "We need everything wrapped by end of July to make this year's budget.",
+        "source_file": "2026-06-25_novapharma_stakeholders.md",
+        "severity": "medium"
+      },
+      {
+        "summary": "CRM last contact date is listed as 2026-06-25, but there was a further email exchange on 2026-06-30 and internal follow-up on 2026-07-01 that isn't reflected.",
+        "crm_says": "Last contact date (per CRM): 2026-06-25",
+        "evidence_quote": "Date:** 2026-06-30",
+        "source_file": "2026-06-30_novapharma_security_questionnaire.md",
+        "severity": "low"
+      }
+    ],
+    "missing_info_flags": [
+      {
+        "summary": "No next follow-up date is set in CRM despite a hard external deadline of 24 July for the security questionnaire.",
+        "missing_field": "next_followup_date",
+        "evidence_quote": "We need the completed document back by 24 July to keep the procurement timeline.",
+        "source_file": "2026-06-30_novapharma_security_questionnaire.md"
+      }
+    ],
+    "timing_signals": [
+      {
+        "summary": "Client wants entire deal wrapped by end of July for this year's budget.",
+        "evidence_quote": "Realistically we need everything wrapped by end of July to make this year's budget.",
+        "source_file": "2026-06-25_novapharma_stakeholders.md",
+        "urgency": "due_this_month",
+        "estimated_date_or_window": "2026-07-31"
+      },
+      {
+        "summary": "Security questionnaire due back to NovaPharma by 24 July, and it gates the entire deal.",
+        "evidence_quote": "We need the completed document back by 24 July to keep the procurement timeline.",
+        "source_file": "2026-06-30_novapharma_security_questionnaire.md",
+        "urgency": "due_this_month",
+        "estimated_date_or_window": "2026-07-24"
+      },
+      {
+        "summary": "Internal review confirms deadline is real and ownership is still unresolved.",
+        "evidence_quote": "NovaPharma security questionnaire deadline is real \u2014 end of July or we slip a year. Who owns it? (Unresolved in meeting.)",
+        "source_file": "2026-07-02_internal_pipeline_review.md",
+        "urgency": "due_this_month",
+        "estimated_date_or_window": "2026-07-24"
+      },
+      {
+        "summary": "As of 7 July prioritization meeting, questionnaire is still untouched with no owner.",
+        "evidence_quote": "NovaPharma (L-1029, 80k) \u2014 security questionnaire due 24 Jul, still untouched, Pranav hasn't responded to the forward.",
+        "source_file": "2026-07-07_internal_prioritization.md",
+        "urgency": "due_now",
+        "estimated_date_or_window": "2026-07-24"
+      }
+    ],
+    "open_questions_or_dropped_commitments": [
+      {
+        "summary": "Bhavin asked Pranav to take a first pass at the security questionnaire; no response or work has occurred as of 2026-07-10.",
+        "kind": "dropped_commitment",
+        "evidence_quote": "No response from Pranav and no work started on the questionnaire as of 2026-07-10.",
+        "source_file": "2026-06-30_novapharma_security_questionnaire.md"
+      },
+      {
+        "summary": "Rajesh's 78-question security questionnaire has not yet been answered.",
+        "kind": "unanswered_question",
+        "evidence_quote": "Rajesh's security questionnaire arrived 2026-06-30. Not yet answered.",
+        "source_file": "2026-06-25_novapharma_stakeholders.md"
+      },
+      {
+        "summary": "Emma in procurement requested three references from healthcare/pharma clients; no indication this was provided.",
+        "kind": "unanswered_question",
+        "evidence_quote": "Emma will need three references from healthcare/pharma clients.",
+        "source_file": "2026-06-25_novapharma_stakeholders.md"
+      }
+    ],
+    "deprioritize_signals": [],
+    "suggested_crm_update": "Set next_followup_date to 2026-07-24 (security questionnaire deadline) and update status to reflect procurement/security review stage.",
+    "suggested_next_action": "Follow up directly with Pranav (or reassign) to start the NovaPharma security questionnaire immediately, since it gates the full $80k deal and is due back to Rajesh by 24 July with no work started as of 2026-07-10.",
+    "competitor_mentioned": null,
+    "tool_preference_mentioned": null,
+    "dropped_findings": []
+  },
+  "2882a29680109b26a780cdf556e59c3bc4ed35ba170d7911ea79eb8843116dbd": {
+    "key": "L-1002",
+    "lead_id": "L-1002",
+    "company": "FinServe Capital",
+    "is_orphan": false,
+    "mismatches": [],
+    "missing_info_flags": [
+      {
+        "summary": "CRM has no next follow-up date even though the note indicates a specific time to reconnect with the client.",
+        "missing_field": "next_followup_date",
+        "evidence_quote": "arjun travelling first 2 wks of july, said ping him after 15th",
+        "source_file": "2026-06-30_finserve_intro_call.md"
+      },
+      {
+        "summary": "Estimated deal value is blank; note confirms budget was never discussed.",
+        "missing_field": "estimated_value",
+        "evidence_quote": "budget not discussed",
+        "source_file": "2026-06-30_finserve_intro_call.md"
+      }
+    ],
+    "timing_signals": [
+      {
+        "summary": "Client asked to be contacted after July 15th due to travel.",
+        "evidence_quote": "arjun travelling first 2 wks of july, said ping him after 15th",
+        "source_file": "2026-06-30_finserve_intro_call.md",
+        "urgency": "due_this_month",
+        "estimated_date_or_window": "2026-07-15 onward"
+      }
+    ],
+    "open_questions_or_dropped_commitments": [],
+    "deprioritize_signals": [],
+    "suggested_crm_update": "Set next_followup_date to 2026-07-16 (after Arjun returns from travel on the 15th)",
+    "suggested_next_action": "Reach out to Arjun Mehta shortly after July 15th, referencing his request to be pinged then, to continue discussing the credit-scoring ML project and address budget and explainability requirements.",
+    "competitor_mentioned": null,
+    "tool_preference_mentioned": null,
+    "dropped_findings": []
+  },
+  "a2bc26691897abf436cedd913c3b738a3c1e1181b4fa104b2a09d80d863e5b23": {
+    "key": "L-1001",
+    "lead_id": "L-1001",
+    "company": "Acme Retail Group",
+    "is_orphan": false,
+    "mismatches": [],
+    "missing_info_flags": [
+      {
+        "summary": "CRM has no next follow-up date despite an outstanding action item (scope note) and a scheduled September renewal.",
+        "missing_field": "next_followup_date",
+        "evidence_quote": "Scope note for report automation \u2014 Ayush \u2014 by 27 Jun  *(not done)*",
+        "source_file": "2026-06-24_acme_quarterly_review.md"
+      }
+    ],
+    "timing_signals": [
+      {
+        "summary": "Scope note for report automation was promised by 27 Jun but not sent, now overdue.",
+        "evidence_quote": "Scope note for report automation \u2014 Ayush \u2014 by 27 Jun  *(not done)*",
+        "source_file": "2026-06-24_acme_quarterly_review.md",
+        "urgency": "due_now",
+        "estimated_date_or_window": "2026-06-27 (overdue as of 2026-07-10)"
+      },
+      {
+        "summary": "Support contract renewal due in September 2026.",
+        "evidence_quote": "Renewal of support contract due September. Priya signalled no issues.",
+        "source_file": "2026-06-24_acme_quarterly_review.md",
+        "urgency": "later",
+        "estimated_date_or_window": "2026-09"
+      },
+      {
+        "summary": "New inventory forecasting opportunity raised but not yet scheduled.",
+        "evidence_quote": "Vikas mentioned ops side struggles with seasonal inventory forecasting \u2014 overstock on festive SKUs, stockouts on staples. Worth a separate conversation with their COO. New opportunity, not logged anywhere.",
+        "source_file": "2026-06-24_acme_quarterly_review.md",
+        "urgency": "due_this_month",
+        "estimated_date_or_window": "2026-07"
+      }
+    ],
+    "open_questions_or_dropped_commitments": [
+      {
+        "summary": "Dhaval promised a scope note for report automation 'this week' after the 6/19 email, but it was never sent.",
+        "kind": "dropped_commitment",
+        "evidence_quote": "we'll send you a short scope note this week",
+        "source_file": "2026-06-18_acme_retail_monthly_reports.md"
+      },
+      {
+        "summary": "Client asked if AtliQ could help with inventory forecasting for seasonal SKUs; no response on record.",
+        "kind": "unanswered_question",
+        "evidence_quote": "Not sure if that's your area, but thought I'd mention it.",
+        "source_file": "2026-06-18_acme_retail_monthly_reports.md"
+      },
+      {
+        "summary": "Action item to call Ananya at FreshCart has no assigned owner/status recorded.",
+        "kind": "dropped_commitment",
+        "evidence_quote": "Call Ananya @ FreshCart \u2014 ?",
+        "source_file": "2026-06-24_acme_quarterly_review.md"
+      },
+      {
+        "summary": "Action item for intro conversation with Acme COO re: forecasting has no assigned owner/status.",
+        "kind": "dropped_commitment",
+        "evidence_quote": "Intro convo re: forecasting with Acme COO \u2014 ?",
+        "source_file": "2026-06-24_acme_quarterly_review.md"
+      }
+    ],
+    "deprioritize_signals": [],
+    "suggested_crm_update": "Set next_followup_date to reflect overdue scope note commitment (originally due 2026-06-27) and log new inventory forecasting opportunity separately.",
+    "suggested_next_action": "Have Ayush send the overdue scope note for report automation to Priya, referencing the QBR action item that was due 27 Jun and remains undone.",
+    "competitor_mentioned": null,
+    "tool_preference_mentioned": null,
+    "dropped_findings": [
+      {
+        "category": "mismatches",
+        "summary": "CRM status is 'Won' with no further activity logged, but emails/notes show ongoing new work requests and an unresolved commitment after the last CRM contact date.",
+        "crm_says": "CRM status: Won; Last contact date: 2026-02-20",
+        "evidence_quote": "GROUND TRUTH: No scope note sent as of 2026-07-10.",
+        "source_file": "2026-06-18_acme_retail_monthly_reports.md",
+        "severity": "medium"
+      }
+    ]
+  },
+  "0033211d7029e5e0ebe49d37aed09579c1ad38c219a9c810cd4c33126947863e": {
+    "key": "L-1003",
+    "lead_id": "L-1003",
+    "company": "Meridian Healthcare",
+    "is_orphan": false,
+    "mismatches": [
+      {
+        "summary": "CRM status shows 'Contacted' with last contact 2026-06-15, but the client actually sent unanswered proposal questions on 2026-06-16 that were never replied to, meaning the deal is stalled, not simply 'contacted'.",
+        "crm_says": "CRM status: Contacted; Last contact date: 2026-06-15",
+        "evidence_quote": "No reply from AtliQ as of 2026-07-10. CRM status for lead L-1003 still says \"Contacted\".",
+        "source_file": "2026-06-16_meridian_proposal_questions.md",
+        "severity": "high"
+      },
+      {
+        "summary": "Meridian is also sitting in the CRM as a duplicate lead (L-1027) from a separate TechSummit booth conversation, which the CRM record for L-1003 does not reflect.",
+        "crm_says": "CRM record L-1003 shows no indication of duplicate lead or duplicate engagement",
+        "evidence_quote": "Meridian booth conversation \u2014 SAME hospital group we already have an open deal with?? Sanjay was at the booth, talked to Jay who didn't realise Bhavin already has a proposal with him. Awkward. (Now sitting in CRM twice: L-1003 and L-1027.)",
+        "source_file": "2026-06-14_techsummit_debrief.md",
+        "severity": "medium"
+      }
+    ],
+    "missing_info_flags": [],
+    "timing_signals": [
+      {
+        "summary": "Client wants to close out the proposal before their Q2 budget review in mid-July.",
+        "evidence_quote": "We'd like to close this out before our Q2 budget review in mid-July.",
+        "source_file": "2026-06-16_meridian_proposal_questions.md",
+        "urgency": "due_now",
+        "estimated_date_or_window": "2026-07 (mid-month)"
+      },
+      {
+        "summary": "Internal prioritization note reiterates Meridian's budget review is mid-July and questions remain unanswered since 16 Jun.",
+        "evidence_quote": "Meridian (L-1003) \u2014 Sanjay's proposal questions from 16 Jun still unanswered. Their budget review is mid-July.",
+        "source_file": "2026-07-07_internal_prioritization.md",
+        "urgency": "due_now",
+        "estimated_date_or_window": "2026-07 (mid-month)"
+      }
+    ],
+    "open_questions_or_dropped_commitments": [
+      {
+        "summary": "Client asked whether ingestion layer supports HL7 feeds from older lab systems, in addition to FHIR APIs - no reply found.",
+        "kind": "unanswered_question",
+        "evidence_quote": "Can the ingestion layer handle HL7 feeds from our older lab systems, or only the FHIR APIs mentioned in section 3?",
+        "source_file": "2026-06-16_meridian_proposal_questions.md"
+      },
+      {
+        "summary": "Client asked whether the quoted 14-week timeline includes UAT with clinicians or is additional - no reply found.",
+        "kind": "unanswered_question",
+        "evidence_quote": "The proposal quotes a 14-week timeline \u2014 does that include UAT with our clinicians, or is that on top?",
+        "source_file": "2026-06-16_meridian_proposal_questions.md"
+      },
+      {
+        "summary": "Internal team confirmed nobody replied to Sanjay's proposal questions and needed to check the inbox.",
+        "kind": "dropped_commitment",
+        "evidence_quote": "Nobody sure if we replied to Sanjay's proposal questions from 16 Jun. Check inbox.",
+        "source_file": "2026-07-06_meridian_check.md"
+      }
+    ],
+    "deprioritize_signals": [],
+    "suggested_crm_update": "Set next_followup_date to reflect urgent reply needed before Meridian's mid-July budget review; verify if L-1027 duplicate should be merged with L-1003.",
+    "suggested_next_action": "Have Bhavin reply to Sanjay's 2026-06-16 email answering the HL7/FHIR ingestion question and clarifying whether the 14-week timeline includes UAT, before Meridian's mid-July Q2 budget review.",
+    "competitor_mentioned": null,
+    "tool_preference_mentioned": null,
+    "dropped_findings": [
+      {
+        "category": "missing_info_flags",
+        "summary": "Next follow-up date is blank despite an active, time-sensitive client question awaiting response.",
+        "missing_field": "next_followup_date",
+        "evidence_quote": "Next follow-up date (per CRM): (blank)",
+        "source_file": "2026-06-16_meridian_proposal_questions.md"
+      }
+    ]
+  },
+  "a1a417af91e20eddd8924c63cbff4cf8d38120c972e22c976861775f028c6e0e": {
+    "key": "L-1005",
+    "lead_id": "L-1005",
+    "company": "Northwind Logistics",
+    "is_orphan": false,
+    "mismatches": [],
+    "missing_info_flags": [
+      {
+        "summary": "There is a new cross-sell opportunity (dashboard layer) discussed but no next follow-up date is set in CRM to track it.",
+        "missing_field": "next_followup_date",
+        "evidence_quote": "Let me send you a few sample dashboard concepts next week to react to.",
+        "source_file": "2026-06-11_northwind_crosssell.md"
+      }
+    ],
+    "timing_signals": [
+      {
+        "summary": "Dhaval committed to sending sample dashboard concepts 'next week' after 2026-06-13, which is now overdue as of 2026-07-10.",
+        "evidence_quote": "Let me send you a few sample dashboard concepts next week to react to.",
+        "source_file": "2026-06-11_northwind_crosssell.md",
+        "urgency": "due_now",
+        "estimated_date_or_window": "2026-06-20 (week of)"
+      }
+    ],
+    "open_questions_or_dropped_commitments": [
+      {
+        "summary": "Dhaval promised to send sample dashboard concepts the week after 2026-06-13, but ground truth confirms none were sent as of 2026-07-10.",
+        "kind": "dropped_commitment",
+        "evidence_quote": "Let me send you a few sample dashboard concepts next week to react to.",
+        "source_file": "2026-06-11_northwind_crosssell.md"
+      },
+      {
+        "summary": "Tom asked whether AtliQ does dashboard/BI layer work on top of the existing pipeline; this was answered informally but no formal follow-through has occurred.",
+        "kind": "unanswered_question",
+        "evidence_quote": "Does AtliQ also do the dashboard layer on top?",
+        "source_file": "2026-06-11_northwind_crosssell.md"
+      }
+    ],
+    "deprioritize_signals": [],
+    "suggested_crm_update": "Update last_contact_date to 2026-06-13 and set next_followup_date to follow up on the promised dashboard sample concepts; consider logging a new cross-sell opportunity for the dashboard/BI layer work.",
+    "suggested_next_action": "Follow up with Tom Beckett on the dashboard sample concepts Dhaval promised to send 'next week' after the 2026-06-13 email, since none appear to have been sent as of 2026-07-10.",
+    "competitor_mentioned": null,
+    "tool_preference_mentioned": {
+      "tool_name": "Power BI",
+      "evidence_quote": "Our CEO saw a competitor's Power BI setup at an industry event and now wants \"something like that\".",
+      "source_file": "2026-06-11_northwind_crosssell.md"
+    },
+    "dropped_findings": [
+      {
+        "category": "mismatches",
+        "summary": "CRM shows last contact date of 2026-01-10, but there was actual email contact between Tom and Dhaval in June 2026 that isn't reflected.",
+        "crm_says": "Last contact date (per CRM): 2026-01-10",
+        "evidence_quote": "GROUND TRUTH (confirmed fact about what actually happened): No samples sent as of 2026-07-10. CRM for L-1005 still shows last_contact_date 2026-01-10 and no new opportunity logged.",
+        "source_file": "2026-06-11_northwind_crosssell.md",
+        "severity": "medium"
+      }
+    ]
+  },
+  "8e5d35d89dd91e330296cf56b750d27ee94c39222c8de232b53a2e6a97fee73a": {
+    "key": "L-1006",
+    "lead_id": "L-1006",
+    "company": "BlueOrchid Hotels",
+    "is_orphan": false,
+    "mismatches": [],
+    "missing_info_flags": [
+      {
+        "summary": "CRM has no contact email for Farah despite real engagement (call on 6/19), blocking the promised approach note.",
+        "missing_field": "contact_email",
+        "evidence_quote": "need her email first, it's on her card. which card. which drawer",
+        "source_file": "2026-06-19_blueorchid_call.md"
+      },
+      {
+        "summary": "No next follow-up date set in CRM even though a pilot cost discussion happened.",
+        "missing_field": "next_followup_date",
+        "evidence_quote": "seemed serious, asked what a pilot would cost",
+        "source_file": "2026-06-19_blueorchid_call.md"
+      }
+    ],
+    "timing_signals": [
+      {
+        "summary": "Farah asked about pilot cost during the 6/19 call, indicating she was ready to move forward, but no follow-up has occurred since.",
+        "evidence_quote": "seemed serious, asked what a pilot would cost",
+        "source_file": "2026-06-19_blueorchid_call.md",
+        "urgency": "due_now",
+        "estimated_date_or_window": "2026-06-19 (overdue as of 2026-07-10)"
+      }
+    ],
+    "open_questions_or_dropped_commitments": [
+      {
+        "summary": "Jay promised to send an approach note to Farah but never got her email and it appears not to have been sent.",
+        "kind": "dropped_commitment",
+        "evidence_quote": "said I'd send an approach note \u2014 need her email first, it's on her card. which card. which drawer",
+        "source_file": "2026-06-19_blueorchid_call.md"
+      }
+    ],
+    "deprioritize_signals": [],
+    "suggested_crm_update": "Add Farah Sayed's contact email once retrieved, and set next_followup_date to prompt sending the promised approach note.",
+    "suggested_next_action": "Track down Farah's email from her conference card (or via BlueOrchid Hotels) so the promised approach note covering the pilot cost can finally be sent, since she asked about pilot pricing on the 6/19 call and nothing has gone out since.",
+    "competitor_mentioned": null,
+    "tool_preference_mentioned": null,
+    "dropped_findings": [
+      {
+        "category": "open_questions_or_dropped_commitments",
+        "summary": "Ground truth confirms the approach note was never sent and email remains blank.",
+        "kind": "dropped_commitment",
+        "evidence_quote": "GROUND TRUTH (confirmed fact about what actually happened): L-1006 contact_email is still blank in the CRM. No approach note sent.",
+        "source_file": "2026-06-19_blueorchid_call.md"
+      }
+    ]
+  },
+  "8a4f2d9cc93bc30d4986328ab374ab508b4b0a48034a82fd752463894d28a52b": {
+    "key": "L-1008",
+    "lead_id": "L-1008",
+    "company": "Zenlytics",
+    "is_orphan": false,
+    "mismatches": [
+      {
+        "summary": "Bhavin committed to sending a calendar invite for the Wednesday 3pm call, but ground truth confirms no invite was ever sent, meaning the scheduled intro call likely never happened despite CRM still showing only 'Contacted' with no record of this failure.",
+        "crm_says": "CRM status: Contacted; last contact date 2026-06-05",
+        "evidence_quote": "No invite was ever sent. No contact since 2026-06-05.",
+        "source_file": "2026-06-03_zenlytics_intro_call.md",
+        "severity": "high"
+      }
+    ],
+    "missing_info_flags": [
+      {
+        "summary": "Next follow-up date is blank despite an unfulfilled commitment (calendar invite) and a client need with an August start target, leaving no scheduled next step.",
+        "missing_field": "next_followup_date",
+        "evidence_quote": "Wednesday 3pm it is. I'll send a calendar invite shortly.",
+        "source_file": "2026-06-03_zenlytics_intro_call.md"
+      }
+    ],
+    "timing_signals": [
+      {
+        "summary": "Client wants 2 data engineers with dbt + Snowflake experience ideally starting in August, implying a hiring timeline that is approaching.",
+        "evidence_quote": "We're looking for 2 data engineers with dbt + Snowflake experience, ideally starting August.",
+        "source_file": "2026-06-03_zenlytics_intro_call.md",
+        "urgency": "due_this_month",
+        "estimated_date_or_window": "2026-08 (start date target)"
+      }
+    ],
+    "open_questions_or_dropped_commitments": [
+      {
+        "summary": "Bhavin promised to send a calendar invite for the confirmed Wednesday 3pm call, but this was never followed through per ground truth.",
+        "kind": "dropped_commitment",
+        "evidence_quote": "I'll send a calendar invite shortly.",
+        "source_file": "2026-06-03_zenlytics_intro_call.md"
+      }
+    ],
+    "deprioritize_signals": [],
+    "suggested_crm_update": "Set next_followup_date to a near-term date and add a note that the promised calendar invite for the Wed 3pm call was never sent, to prompt manual re-engagement given the August start target.",
+    "suggested_next_action": "Have Bhavin follow up with Maya to actually send the calendar invite for the intro call that was agreed for Wednesday 3pm, given her team wants 2 dbt + Snowflake data engineers starting in August.",
+    "competitor_mentioned": null,
+    "tool_preference_mentioned": {
+      "tool_name": "dbt + Snowflake",
+      "evidence_quote": "We're looking for 2 data engineers with dbt + Snowflake experience, ideally starting August.",
+      "source_file": "2026-06-03_zenlytics_intro_call.md"
+    },
+    "dropped_findings": []
+  },
+  "db942bf798319cbcd9ac70e032864e96609611d9339c989f7038f2947f5dfbc9": {
+    "key": "L-1007",
+    "lead_id": "L-1007",
+    "company": "Kaveri Textiles",
+    "is_orphan": false,
+    "mismatches": [
+      {
+        "summary": "CRM last contact date is listed as 2026-01-08 but there has been active email and meeting engagement in June and July 2026.",
+        "crm_says": "Last contact date (per CRM): 2026-01-08",
+        "evidence_quote": "8 July confirmed. Bring the template.",
+        "source_file": "2026-06-23_kaveri_vendor_failed.md",
+        "severity": "medium"
+      }
+    ],
+    "missing_info_flags": [
+      {
+        "summary": "Next follow-up date is blank despite a concrete client-requested deadline of 15 July for a revised quote.",
+        "missing_field": "next_followup_date",
+        "evidence_quote": "Subbu asked for revised quote by 15 July.",
+        "source_file": "2026-07-08_kaveri_demo_round2.md"
+      }
+    ],
+    "timing_signals": [
+      {
+        "summary": "Client asked for a revised 2-plant scope quote by 15 July.",
+        "evidence_quote": "Subbu asked for revised quote by 15 July.",
+        "source_file": "2026-07-08_kaveri_demo_round2.md",
+        "urgency": "due_now",
+        "estimated_date_or_window": "2026-07-15"
+      },
+      {
+        "summary": "Client wants to move quickly on reopening the dashboard discussion.",
+        "evidence_quote": "We'd want to move quickly this time.",
+        "source_file": "2026-06-23_kaveri_vendor_failed.md",
+        "urgency": "due_now",
+        "estimated_date_or_window": "2026-07 (immediate)"
+      }
+    ],
+    "open_questions_or_dropped_commitments": [
+      {
+        "summary": "Action item to update CRM status away from 'Lost' has not been completed.",
+        "kind": "dropped_commitment",
+        "evidence_quote": "Update CRM \u2014 L-1007 still shows \"Lost\" \u2014 Jay",
+        "source_file": "2026-07-08_kaveri_demo_round2.md"
+      },
+      {
+        "summary": "Client asked whether the November quote was still valid; Jay deferred to a fresh demo/re-quote rather than directly answering.",
+        "kind": "unanswered_question",
+        "evidence_quote": "Is your quote from November still valid?",
+        "source_file": "2026-06-23_kaveri_vendor_failed.md"
+      }
+    ],
+    "deprioritize_signals": [],
+    "suggested_crm_update": "\"Update CRM status for L-1007 from 'Lost' to an active/reopened stage, and set next_followup_date to 2026-07-15 (client's requested quote deadline).\"",
+    "suggested_next_action": "Since the revised 2-plant scope quote is due to Subbu by 15 July and hasn't been started yet, Jay should prepare and send that quote referencing the 2026-07-08 demo before the deadline.",
+    "competitor_mentioned": null,
+    "tool_preference_mentioned": null,
+    "dropped_findings": [
+      {
+        "category": "mismatches",
+        "summary": "CRM status is 'Lost' but the client has re-engaged and a demo was held, with a revised quote requested \u2014 the lead is active again.",
+        "crm_says": "Lost",
+        "evidence_quote": "GROUND TRUTH (confirmed fact about what actually happened): Demo held 2026-07-08 \u2014 see meeting notes. CRM status for L-1007 still says \"Lost\".",
+        "source_file": "2026-06-23_kaveri_vendor_failed.md",
+        "severity": "high"
+      },
+      {
+        "category": "open_questions_or_dropped_commitments",
+        "summary": "Action item to send revised quote by 15 Jul has not been started as of 2026-07-10.",
+        "kind": "dropped_commitment",
+        "evidence_quote": "GROUND TRUTH (confirmed fact about what actually happened): Quote not started as of 2026-07-10.",
+        "source_file": "2026-07-08_kaveri_demo_round2.md"
+      }
+    ]
+  },
+  "1572790aa245ff3ff94d968eab520d8e468a7f93645ac501f62ee472ade74532": {
+    "key": "L-1009",
+    "lead_id": "L-1009",
+    "company": "HealthFirst Clinics",
+    "is_orphan": false,
+    "mismatches": [
+      {
+        "summary": "CRM notes say they are simply 'waiting on board approval' but the actual email shows the client requested a re-phased, lower-cost proposal to help win that approval, which was sent by Karandeep - the CRM doesn't reflect this negotiation.",
+        "crm_says": "waiting on their board approval",
+        "evidence_quote": "can you split the pricing into two phases so the initial approval amount is smaller?",
+        "source_file": "2026-04-20_healthfirst_board_update.md",
+        "severity": "medium"
+      },
+      {
+        "summary": "CRM last contact date is listed as 2026-04-22, matching the last email, but no follow-up or reminder was set despite a known board decision date of 14 July fast approaching.",
+        "crm_says": "Last contact date (per CRM): 2026-04-22",
+        "evidence_quote": "Board meets 2026-07-14 \u2014 four days from now. No reminder set, no contact since April.",
+        "source_file": "2026-04-20_healthfirst_board_update.md",
+        "severity": "high"
+      }
+    ],
+    "missing_info_flags": [
+      {
+        "summary": "CRM next_followup_date is blank despite a known, critical board decision date of 2026-07-14 just four days away.",
+        "missing_field": "next_followup_date",
+        "evidence_quote": "CRM next_followup_date for L-1009 is empty.",
+        "source_file": "2026-04-20_healthfirst_board_update.md"
+      }
+    ],
+    "timing_signals": [
+      {
+        "summary": "Board decision on the proposal is scheduled for 2026-07-14, just four days from today.",
+        "evidence_quote": "Board meets 2026-07-14 \u2014 four days from now. No reminder set, no contact since April.",
+        "source_file": "2026-04-20_healthfirst_board_update.md",
+        "urgency": "due_now",
+        "estimated_date_or_window": "2026-07-14"
+      },
+      {
+        "summary": "Internal team discussion flagged the HealthFirst board date as something nobody had tracked, discovered by accident.",
+        "evidence_quote": "HealthFirst board meets 14 Jul \u2014 should we ping Anita before? Nobody had this date until Karandeep searched his inbox during the meeting.",
+        "source_file": "2026-07-07_internal_prioritization.md",
+        "urgency": "due_now",
+        "estimated_date_or_window": "2026-07-14"
+      }
+    ],
+    "open_questions_or_dropped_commitments": [
+      {
+        "summary": "Karandeep asked Anita to keep him posted on the board outcome, but there's no evidence of follow-up contact since April 22, with the board meeting now imminent.",
+        "kind": "dropped_commitment",
+        "evidence_quote": "Good luck with the board, and do keep me posted.",
+        "source_file": "2026-04-20_healthfirst_board_update.md"
+      }
+    ],
+    "deprioritize_signals": [],
+    "suggested_crm_update": "Set next_followup_date to 2026-07-14 (or sooner) to align with HealthFirst's board decision date.",
+    "suggested_next_action": "Send Dr. Anita Rao a brief check-in ahead of the 14 July board meeting to see if the re-phased two-phase proposal (18k/12k) needs anything further before the vote.",
+    "competitor_mentioned": null,
+    "tool_preference_mentioned": null,
+    "dropped_findings": []
+  },
+  "92465cee5be06e4b20ebd07037b27976f77416c97f9d64516aca32355b4b0d4c": {
+    "key": "L-1010",
+    "lead_id": "L-1010",
+    "company": "EduSpark",
+    "is_orphan": false,
+    "mismatches": [
+      {
+        "summary": "CRM status is 'New' with no owner, but the client has already reached out twice (original form + follow-up email) without any response, indicating the lead has gone stale rather than being freshly new.",
+        "crm_says": "CRM status: New; Owner: (blank)",
+        "evidence_quote": "I submitted an enquiry through your website on 25 June about an AI assistant for student queries and haven't heard back",
+        "source_file": "2026-07-08_eduspark_website_enquiry.md",
+        "severity": "high"
+      }
+    ],
+    "missing_info_flags": [
+      {
+        "summary": "No owner assigned to a lead that has real engagement and a time-sensitive budget window.",
+        "missing_field": "owner",
+        "evidence_quote": "CRM entry L-1010 has no owner assigned and still says \"chatbot for student queries maybe\".",
+        "source_file": "2026-07-08_eduspark_website_enquiry.md"
+      },
+      {
+        "summary": "No next follow-up date set despite client explicitly stating a mid-August budget deadline.",
+        "missing_field": "next_followup_date",
+        "evidence_quote": "our budget window closes mid-August",
+        "source_file": "2026-07-08_eduspark_website_enquiry.md"
+      }
+    ],
+    "timing_signals": [
+      {
+        "summary": "Client states their budget window for this project closes mid-August, and admissions season query spikes make timing critical.",
+        "evidence_quote": "our budget window closes mid-August",
+        "source_file": "2026-07-08_eduspark_website_enquiry.md",
+        "urgency": "due_this_month",
+        "estimated_date_or_window": "2026-08 (mid-August budget deadline)"
+      },
+      {
+        "summary": "Client needs the assistant ready before admissions season query spike in Aug-Sep.",
+        "evidence_quote": "the immediate need is actually for our admissions season (queries spike 10x in Aug\u2013Sep), so timing matters",
+        "source_file": "2026-07-08_eduspark_website_enquiry.md",
+        "urgency": "due_this_month",
+        "estimated_date_or_window": "2026-08 to 2026-09"
+      }
+    ],
+    "open_questions_or_dropped_commitments": [
+      {
+        "summary": "Client offered to set up a joint call with the actual decision-maker (Prof. Meenakshi Iyer) but no reply or scheduling has occurred.",
+        "kind": "dropped_commitment",
+        "evidence_quote": "Happy to set up a joint call.",
+        "source_file": "2026-07-08_eduspark_website_enquiry.md"
+      },
+      {
+        "summary": "Original website enquiry from 25 June went unanswered, and this follow-up email also has no reply as of 2026-07-10.",
+        "kind": "unanswered_question",
+        "evidence_quote": "No reply sent as of 2026-07-10.",
+        "source_file": "2026-07-08_eduspark_website_enquiry.md"
+      }
+    ],
+    "deprioritize_signals": [],
+    "suggested_crm_update": "Assign an owner and set next_followup_date to mid-July 2026, given the client's stated mid-August budget deadline.",
+    "suggested_next_action": "Have someone at AtliQ respond to Vikram Joshi's 2026-07-08 follow-up email, acknowledge the missed original enquiry, and propose the joint call with Prof. Meenakshi Iyer before the mid-August budget window closes.",
+    "competitor_mentioned": null,
+    "tool_preference_mentioned": null,
+    "dropped_findings": []
+  },
+  "2bae172b344de931cce28383545f4a3f2ae205cd8904772c75c41636fe054f49": {
+    "key": "L-1012",
+    "lead_id": "L-1012",
+    "company": "UrbanNest Realty",
+    "is_orphan": false,
+    "mismatches": [],
+    "missing_info_flags": [
+      {
+        "summary": "CRM has no next follow-up date despite an outstanding, unanswered follow-up email to the client.",
+        "missing_field": "next_followup_date",
+        "evidence_quote": "Happy to do a short demo whenever suits.",
+        "source_file": "2026-05-04_urbannest_no_response.md"
+      }
+    ],
+    "timing_signals": [
+      {
+        "summary": "Follow-up email sent referencing a prior call, but no response received and no further outreach - lead is stalling.",
+        "evidence_quote": "following up on our call last week about the site-visit booking app",
+        "source_file": "2026-05-04_urbannest_no_response.md",
+        "urgency": "unclear",
+        "estimated_date_or_window": "unclear"
+      }
+    ],
+    "open_questions_or_dropped_commitments": [
+      {
+        "summary": "Jay offered to do a demo whenever suits the client, but there's no indication this was followed up on after the client went silent.",
+        "kind": "dropped_commitment",
+        "evidence_quote": "Happy to do a short demo whenever suits.",
+        "source_file": "2026-05-04_urbannest_no_response.md"
+      }
+    ],
+    "deprioritize_signals": [
+      {
+        "summary": "Client went silent after the follow-up email with no response and no further outreach attempted.",
+        "signal_type": "went_silent_after_objection",
+        "evidence_quote": "No response. No further follow-up sent.",
+        "source_file": "2026-05-04_urbannest_no_response.md"
+      }
+    ],
+    "suggested_crm_update": "Set next_followup_date and consider updating CRM status from 'Contacted' to reflect no response since 2026-05-04.",
+    "suggested_next_action": "Send a brief check-in to Kunal referencing the site-visit booking app approach note and demo offer from the 2026-05-04 email, since there's been no response since.",
+    "competitor_mentioned": null,
+    "tool_preference_mentioned": null,
+    "dropped_findings": [
+      {
+        "category": "mismatches",
+        "summary": "CRM status is 'Contacted' with last contact 2026-05-02, but the linked email shows a follow-up sent 2026-05-04 that received no response and no further follow-up occurred, suggesting the lead has gone cold rather than being actively 'Contacted'.",
+        "crm_says": "CRM status: Contacted; Last contact date: 2026-05-02",
+        "evidence_quote": "GROUND TRUTH (confirmed fact about what actually happened): No response. No further follow-up sent.",
+        "source_file": "2026-05-04_urbannest_no_response.md",
+        "severity": "medium"
+      }
+    ]
+  },
+  "ce6c70b12df47bb7153c0dfa5fca8b2507cbe41f99126efccfafa5e595256715": {
+    "key": "L-1011",
+    "lead_id": "L-1011",
+    "company": "AgroLink",
+    "is_orphan": false,
+    "mismatches": [
+      {
+        "summary": "CRM shows blank estimated value even though the budget call revealed a concrete approved budget of ~35-40k USD for the project.",
+        "crm_says": "Estimated value (USD): (blank)",
+        "evidence_quote": "BUDGET FINALLY REVEALED: ~35-40k approved for this FY, he called it \"the data project\" \u2014 it's real money",
+        "source_file": "2026-07-01_agrolink_budget_call.md",
+        "severity": "high"
+      },
+      {
+        "summary": "CRM status is blank despite a real, active engagement including a budget call and an outstanding proposal commitment due 10 July.",
+        "crm_says": "CRM status: (blank)",
+        "evidence_quote": "action: proposal \u2014 Dhaval \u2014 by 10 Jul *(not started as of 10 Jul. CRM L-1011 still has empty status and no est_value.)*",
+        "source_file": "2026-07-01_agrolink_budget_call.md",
+        "severity": "medium"
+      }
+    ],
+    "missing_info_flags": [
+      {
+        "summary": "CRM has no next follow-up date even though the client requested a proposal by 10 July and is going on leave on the 14th.",
+        "missing_field": "next_followup_date",
+        "evidence_quote": "wants proposal before 10 July, he goes on leave 14th",
+        "source_file": "2026-07-01_agrolink_budget_call.md"
+      },
+      {
+        "summary": "CRM last contact date is blank despite a documented budget call with Harpreet on 2026-07-01.",
+        "missing_field": "last_contact_date",
+        "evidence_quote": "finally connected after techsummit (2.5 weeks!)",
+        "source_file": "2026-07-01_agrolink_budget_call.md"
+      }
+    ],
+    "timing_signals": [
+      {
+        "summary": "Client explicitly asked for a proposal before 10 July, and that deadline has now passed with the proposal not started.",
+        "evidence_quote": "wants proposal before 10 July, he goes on leave 14th",
+        "source_file": "2026-07-01_agrolink_budget_call.md",
+        "urgency": "due_now",
+        "estimated_date_or_window": "2026-07-10"
+      },
+      {
+        "summary": "Client goes on leave on the 14th, narrowing the window to reach him before then.",
+        "evidence_quote": "he goes on leave 14th",
+        "source_file": "2026-07-01_agrolink_budget_call.md",
+        "urgency": "due_this_month",
+        "estimated_date_or_window": "2026-07-14"
+      }
+    ],
+    "open_questions_or_dropped_commitments": [
+      {
+        "summary": "AtliQ committed to sending Harpreet a proposal by 10 July, but the note confirms it was not started as of that date.",
+        "kind": "dropped_commitment",
+        "evidence_quote": "action: proposal \u2014 Dhaval \u2014 by 10 Jul *(not started as of 10 Jul. CRM L-1011 still has empty status and no est_value.)*",
+        "source_file": "2026-07-01_agrolink_budget_call.md"
+      }
+    ],
+    "deprioritize_signals": [],
+    "suggested_crm_update": "Set CRM status to reflect active proposal stage, estimated value to ~35-40k USD, last_contact_date to 2026-07-01, and next_followup_date to before 2026-07-14 (Harpreet's leave date).",
+    "suggested_next_action": "Since the proposal was due 10 July and Harpreet goes on leave on the 14th, Dhaval should send the \"data project\" proposal to Harpreet as soon as possible before he leaves on the 14th.",
+    "competitor_mentioned": null,
+    "tool_preference_mentioned": null,
+    "dropped_findings": []
+  },
+  "9b55a15b18a4d29b9a9884c842dde9bff4ad7d13d35032b7f4e1b91fcbe5d250": {
+    "key": "L-1013",
+    "lead_id": "L-1013",
+    "company": "PayTrack",
+    "is_orphan": false,
+    "mismatches": [
+      {
+        "summary": "CRM last contact date is listed as 2025-12-18 but there are emails from Shreya as recent as 2026-07-02, showing more recent contact than CRM reflects.",
+        "crm_says": "Last contact date (per CRM): 2025-12-18",
+        "evidence_quote": "Sharing notes from our quarterly model review.",
+        "source_file": "2026-07-02_paytrack_phase2.md",
+        "severity": "medium"
+      }
+    ],
+    "missing_info_flags": [
+      {
+        "summary": "CRM has no next follow-up date despite an active request for a merchant-risk module one-pager tied to an August planning cycle.",
+        "missing_field": "next_followup_date",
+        "evidence_quote": "if you sent us a one-pager on what a merchant-risk module would look like, I could circulate it before our August planning cycle",
+        "source_file": "2026-07-02_paytrack_phase2.md"
+      },
+      {
+        "summary": "A new referral lead (Nimbus Lending) surfaced via PayTrack contact but has no CRM record, and contact email for Rhea Sharma is not captured anywhere in CRM.",
+        "missing_field": "contact_email (for referred lead Nimbus Lending, not in CRM)",
+        "evidence_quote": "Nimbus Lending does not appear in the CRM.",
+        "source_file": "2026-07-05_nimbus_lending_intro.md"
+      }
+    ],
+    "timing_signals": [
+      {
+        "summary": "Shreya wants a one-pager on merchant-risk module before PayTrack's August planning cycle.",
+        "evidence_quote": "if you sent us a one-pager on what a merchant-risk module would look like, I could circulate it before our August planning cycle",
+        "source_file": "2026-07-02_paytrack_phase2.md",
+        "urgency": "due_this_month",
+        "estimated_date_or_window": "2026-08 (planning cycle)"
+      },
+      {
+        "summary": "Rhea Sharma at Nimbus Lending wants a call before her budget conversations the week of 20 July, and no reply has been sent as of 2026-07-10.",
+        "evidence_quote": "I have budget conversations happening the week of 20 July, so a call before then would be ideal.",
+        "source_file": "2026-07-05_nimbus_lending_intro.md",
+        "urgency": "due_now",
+        "estimated_date_or_window": "2026-07-20 (week of)"
+      }
+    ],
+    "open_questions_or_dropped_commitments": [
+      {
+        "summary": "Shreya asked for a one-pager on a merchant-risk module concept, no evidence of it being sent.",
+        "kind": "unanswered_question",
+        "evidence_quote": "if you sent us a one-pager on what a merchant-risk module would look like, I could circulate it before our August planning cycle",
+        "source_file": "2026-07-02_paytrack_phase2.md"
+      }
+    ],
+    "deprioritize_signals": [],
+    "suggested_crm_update": "Set next_followup_date to before 2026-07-20 to reach Rhea Sharma (Nimbus Lending) ahead of her budget conversations, and update last_contact_date to reflect the 2026-07-02 email; consider creating a new CRM lead for Nimbus Lending.",
+    "suggested_next_action": "Reply to Rhea Sharma at Nimbus Lending to schedule a call before the week of 20 July as she requested, and send Shreya the merchant-risk module one-pager she asked for ahead of PayTrack's August planning cycle.",
+    "competitor_mentioned": null,
+    "tool_preference_mentioned": null,
+    "dropped_findings": [
+      {
+        "category": "open_questions_or_dropped_commitments",
+        "summary": "Rhea Sharma explicitly requested a call before the week of 20 July regarding Nimbus Lending's underwriting automation needs, and no reply has been sent as of the ground truth note.",
+        "kind": "dropped_commitment",
+        "evidence_quote": "GROUND TRUTH (confirmed fact about what actually happened): No reply sent as of 2026-07-10. Nimbus Lending does not appear in the CRM.",
+        "source_file": "2026-07-05_nimbus_lending_intro.md"
+      }
+    ]
+  },
+  "a81fce3df1621b2f983b22edf93d95a7a5d729bd055735fd23b961f89476fb31": {
+    "key": "L-1014",
+    "lead_id": "L-1014",
+    "company": "VoltEnergy",
+    "is_orphan": false,
+    "mismatches": [],
+    "missing_info_flags": [
+      {
+        "summary": "Next follow-up date is blank despite an outstanding client request for a TCO comparison that needs a timely response.",
+        "missing_field": "next_followup_date",
+        "evidence_quote": "That TCO comparison would actually help a lot \u2014 board asks for 3-year numbers. Can you send it this week?",
+        "source_file": "2026-06-15_voltenergy_competitor.md"
+      }
+    ],
+    "timing_signals": [
+      {
+        "summary": "Client asked for the TCO comparison to be sent within the week of 2026-07-01, and it has not been sent as of 2026-07-10.",
+        "evidence_quote": "Can you send it this week?",
+        "source_file": "2026-06-15_voltenergy_competitor.md",
+        "urgency": "due_now",
+        "estimated_date_or_window": "2026-07 (week of July 1)"
+      }
+    ],
+    "open_questions_or_dropped_commitments": [
+      {
+        "summary": "Karandeep offered to send a side-by-side TCO comparison, and the client explicitly requested it, but no reply has been sent as of today.",
+        "kind": "dropped_commitment",
+        "evidence_quote": "Happy to put both TCOs side by side if useful.",
+        "source_file": "2026-06-15_voltenergy_competitor.md"
+      },
+      {
+        "summary": "Client's direct request to send the TCO comparison this week went unanswered.",
+        "kind": "unanswered_question",
+        "evidence_quote": "Can you send it this week?",
+        "source_file": "2026-06-15_voltenergy_competitor.md"
+      }
+    ],
+    "deprioritize_signals": [],
+    "suggested_crm_update": "Set next_followup_date to send the TCO comparison, and update last_contact_date to reflect the 2026-07-01 client email.",
+    "suggested_next_action": "Send Marcus Chen the 3-year TCO comparison (Power BI vs Tableau) he requested on 2026-07-01 for the board, referencing that it's already overdue by his 'this week' deadline.",
+    "competitor_mentioned": {
+      "competitor_name": "Tableau consultancy",
+      "evidence_quote": "we're also evaluating a Tableau consultancy for this",
+      "source_file": "2026-06-15_voltenergy_competitor.md"
+    },
+    "tool_preference_mentioned": {
+      "tool_name": "Microsoft E5",
+      "evidence_quote": "you're already on Microsoft E5",
+      "source_file": "2026-06-15_voltenergy_competitor.md"
+    },
+    "dropped_findings": [
+      {
+        "category": "mismatches",
+        "summary": "CRM shows last contact on 2026-06-17, but client sent a follow-up request on 2026-07-01 that was never replied to, meaning actual last client contact is later than CRM reflects.",
+        "crm_says": "Last contact date (per CRM): 2026-06-17",
+        "evidence_quote": "GROUND TRUTH (confirmed fact about what actually happened): No reply sent as of 2026-07-10. CRM last_contact_date for L-1014 still shows 2026-06-17.",
+        "source_file": "2026-06-15_voltenergy_competitor.md",
+        "severity": "high"
+      }
+    ]
+  },
+  "2ee30f0f4bd12fac04dabbe302f309882438b84fdff977a4fb172e37c4f0fe80": {
+    "key": "L-1016",
+    "lead_id": "L-1016",
+    "company": "MEDTRACK LABS",
+    "is_orphan": false,
+    "mismatches": [],
+    "missing_info_flags": [
+      {
+        "summary": "CRM has no next follow-up date despite a commitment to send materials 'this week' back in mid-June.",
+        "missing_field": "next_followup_date",
+        "evidence_quote": "send this week",
+        "source_file": "2026-06-13_medtrack_scribble.md"
+      },
+      {
+        "summary": "Service interest is blank even though the note suggests specific interest areas (lab ops dashboards or LIMS integration).",
+        "missing_field": "service_interest",
+        "evidence_quote": "lab ops dashboards? or was it LIMS integration. both?",
+        "source_file": "2026-06-13_medtrack_scribble.md"
+      }
+    ],
+    "timing_signals": [
+      {
+        "summary": "AtliQ committed to sending intro deck and case studies within the week of the conference meeting, but nothing was sent.",
+        "evidence_quote": "asked for our intro deck + healthcare case studies\nsend this week",
+        "source_file": "2026-06-13_medtrack_scribble.md",
+        "urgency": "due_now",
+        "estimated_date_or_window": "2026-06 (week of 2026-06-13)"
+      }
+    ],
+    "open_questions_or_dropped_commitments": [
+      {
+        "summary": "AtliQ promised to send an intro deck and healthcare case studies to Rohit within the week, but nothing was sent per ground truth.",
+        "kind": "dropped_commitment",
+        "evidence_quote": "asked for our intro deck + healthcare case studies\nsend this week",
+        "source_file": "2026-06-13_medtrack_scribble.md"
+      },
+      {
+        "summary": "The exact service interest (lab ops dashboards vs. LIMS integration) was unclear from the conference conversation and was never clarified.",
+        "kind": "unanswered_question",
+        "evidence_quote": "lab ops dashboards? or was it LIMS integration. both?",
+        "source_file": "2026-06-13_medtrack_scribble.md"
+      }
+    ],
+    "deprioritize_signals": [],
+    "suggested_crm_update": "Set next_followup_date to a near-term date and update CRM notes to reflect that intro deck/case studies still need to be sent to Rohit.",
+    "suggested_next_action": "Since nothing was sent nearly a month after Rohit requested the intro deck and healthcare case studies at techsummit, have Jay send those materials now and clarify whether MedTrack's interest is lab ops dashboards, LIMS integration, or both.",
+    "competitor_mentioned": null,
+    "tool_preference_mentioned": null,
+    "dropped_findings": []
+  },
+  "ec5f218ad8e4568dcb17131fa755027877db416a0b53af9af843e39761f0caf7": {
+    "key": "L-1015",
+    "lead_id": "L-1015",
+    "company": "ClearPath Insurance",
+    "is_orphan": false,
+    "mismatches": [
+      {
+        "summary": "CRM marks the deal as Lost, but the client has re-engaged and the project is back on their roadmap for Q3, with budget freeze lifted.",
+        "crm_says": "CRM status: Lost",
+        "evidence_quote": "The freeze lifted with the new financial year and the project is back on our roadmap for Q3.",
+        "source_file": "2026-06-09_clearpath_budget_unfrozen.md",
+        "severity": "high"
+      }
+    ],
+    "missing_info_flags": [
+      {
+        "summary": "Client re-engaged over a month ago asking to pick things back up, but there is no next follow-up date set to track a response.",
+        "missing_field": "next_followup_date",
+        "evidence_quote": "Is AtliQ still interested, and does the 40k estimate still hold?",
+        "source_file": "2026-06-09_clearpath_budget_unfrozen.md"
+      }
+    ],
+    "timing_signals": [
+      {
+        "summary": "Client indicates the project is back on their roadmap for Q3 2026 and is waiting on a reply.",
+        "evidence_quote": "the project is back on our roadmap for Q3",
+        "source_file": "2026-06-09_clearpath_budget_unfrozen.md",
+        "urgency": "due_now",
+        "estimated_date_or_window": "2026-Q3"
+      }
+    ],
+    "open_questions_or_dropped_commitments": [
+      {
+        "summary": "Deepa Nair asked whether AtliQ is still interested and if the 40k estimate still holds, but no reply has been sent as of 2026-07-10.",
+        "kind": "unanswered_question",
+        "evidence_quote": "Is AtliQ still interested, and does the 40k estimate still hold?",
+        "source_file": "2026-06-09_clearpath_budget_unfrozen.md"
+      }
+    ],
+    "deprioritize_signals": [],
+    "suggested_crm_update": "Update CRM status from 'Lost' to an active/reopened status and set next_followup_date, since the client re-engaged on 2026-06-09.",
+    "suggested_next_action": "Reply to Deepa Nair's 2026-06-09 email confirming AtliQ's interest and whether the 40k estimate for the claims data warehouse project still holds, since no response has been sent in over a month.",
+    "competitor_mentioned": null,
+    "tool_preference_mentioned": null,
+    "dropped_findings": []
+  },
+  "d1c5582556d819e9cac841a7e0c0419ca4b1cfa8056cf45eacea6e6370b7abbe": {
+    "key": "L-1017",
+    "lead_id": "L-1017",
+    "company": "ShopSwift",
+    "is_orphan": false,
+    "mismatches": [
+      {
+        "summary": "CRM status is still 'Contacted' despite the client formally approving budget and requesting an SOW with a hard deadline, indicating the deal has progressed well beyond initial contact.",
+        "crm_says": "Contacted",
+        "evidence_quote": "CRM for L-1017 still says \"Contacted\".",
+        "source_file": "2026-06-29_shopswift_budget_confirmed.md",
+        "severity": "high"
+      }
+    ],
+    "missing_info_flags": [
+      {
+        "summary": "No next follow-up date is set in the CRM despite a hard client deadline of 15 July for the SOW.",
+        "missing_field": "next_followup_date",
+        "evidence_quote": "a statement of work by 15 July so I can push it through procurement before our finance team closes the quarter's commitments",
+        "source_file": "2026-06-29_shopswift_budget_confirmed.md"
+      }
+    ],
+    "timing_signals": [
+      {
+        "summary": "Client needs the SOW by 15 July or the budget may slip to next quarter, and no reply/SOW has been sent as of 2026-07-10.",
+        "evidence_quote": "If we miss that window it slips to next quarter and I can't guarantee the budget survives.",
+        "source_file": "2026-06-29_shopswift_budget_confirmed.md",
+        "urgency": "due_now",
+        "estimated_date_or_window": "2026-07-15"
+      },
+      {
+        "summary": "Internal prioritization note confirms the 15 Jul SOW deadline is still looming and unaddressed as of 7 July.",
+        "evidence_quote": "ShopSwift (L-1017, 55k) \u2014 Elena needs SOW by 15 Jul or budget slips a quarter.",
+        "source_file": "2026-07-07_internal_prioritization.md",
+        "urgency": "due_now",
+        "estimated_date_or_window": "2026-07-15"
+      }
+    ],
+    "open_questions_or_dropped_commitments": [
+      {
+        "summary": "Elena explicitly requested a statement of work by 15 July, and no reply or SOW has been sent as of today.",
+        "kind": "dropped_commitment",
+        "evidence_quote": "No reply and no SOW sent as of 2026-07-10 \u2014 five days to the deadline.",
+        "source_file": "2026-06-29_shopswift_budget_confirmed.md"
+      }
+    ],
+    "deprioritize_signals": [],
+    "suggested_crm_update": "Update CRM status from 'Contacted' to reflect budget approval, and set next_followup_date to 2026-07-15 (SOW deadline).",
+    "suggested_next_action": "Send Elena the statement of work for the recommendation engine before the 15 July procurement deadline she flagged, since budget (55k) has already been approved and no SOW has gone out yet.",
+    "competitor_mentioned": null,
+    "tool_preference_mentioned": null,
+    "dropped_findings": []
+  },
+  "f4e3918bb9dd626e724fd16a8d6cd1198d6061b611671e55dfcda13807327ecf": {
+    "key": "L-1018",
+    "lead_id": "L-1018",
+    "company": "DataNest",
+    "is_orphan": false,
+    "mismatches": [
+      {
+        "summary": "CRM last contact date is far out of date; a call was held on 2026-07-08 discussing renewal and expansion, but CRM still shows last_contact_date as 2026-03-05.",
+        "crm_says": "Last contact date (per CRM): 2026-03-05",
+        "evidence_quote": "Call held 2026-07-08 \u2014 renewal verbally agreed, third engineer profile to be shared by mid-July. CRM for L-1018 still shows last_contact_date 2026-03-05 and nothing about the expansion.",
+        "source_file": "2026-06-30_datanest_renewal.md",
+        "severity": "high"
+      },
+      {
+        "summary": "CRM notes field only mentions '2 engineers placed' and status 'Won', but the account is actively expanding with a renewal and a third engineer being added, which is not reflected.",
+        "crm_says": "CRM notes field: 2 engineers placed",
+        "evidence_quote": "We've raised a Series A and want to add a third engineer, ideally someone strong on Kafka. Same arrangement?",
+        "source_file": "2026-06-30_datanest_renewal.md",
+        "severity": "medium"
+      }
+    ],
+    "missing_info_flags": [
+      {
+        "summary": "No next follow-up date is set despite a concrete mid-July commitment to share the third engineer's profile.",
+        "missing_field": "next_followup_date",
+        "evidence_quote": "renewal verbally agreed, third engineer profile to be shared by mid-July",
+        "source_file": "2026-06-30_datanest_renewal.md"
+      }
+    ],
+    "timing_signals": [
+      {
+        "summary": "Contract renewal deadline is end of September; client wants it sorted early to avoid a gap.",
+        "evidence_quote": "Our contract runs out end of September. Can we sort the renewal early so there's no gap?",
+        "source_file": "2026-06-30_datanest_renewal.md",
+        "urgency": "due_this_month",
+        "estimated_date_or_window": "2026-09 (renewal deadline), action needed before then"
+      },
+      {
+        "summary": "Third engineer profile (Kafka-focused) was committed to be shared by mid-July following the 2026-07-08 call.",
+        "evidence_quote": "renewal verbally agreed, third engineer profile to be shared by mid-July",
+        "source_file": "2026-06-30_datanest_renewal.md",
+        "urgency": "due_now",
+        "estimated_date_or_window": "2026-07 (mid-July)"
+      }
+    ],
+    "open_questions_or_dropped_commitments": [
+      {
+        "summary": "AtliQ committed to sharing a third engineer profile (Kafka skillset) by mid-July following the call, per ground truth - needs tracking to confirm it happens.",
+        "kind": "dropped_commitment",
+        "evidence_quote": "third engineer profile to be shared by mid-July",
+        "source_file": "2026-06-30_datanest_renewal.md"
+      }
+    ],
+    "deprioritize_signals": [],
+    "suggested_crm_update": "Update last_contact_date to 2026-07-08, add note on renewal agreement and third engineer (Kafka) expansion, and set next_followup_date to mid-July 2026 to track the promised engineer profile.",
+    "suggested_next_action": "Follow up with Sameer to confirm the Kafka engineer profile promised by mid-July and formalize the renewal paperwork before the September contract expiry.",
+    "competitor_mentioned": null,
+    "tool_preference_mentioned": {
+      "tool_name": "Kafka",
+      "evidence_quote": "ideally someone strong on Kafka",
+      "source_file": "2026-06-30_datanest_renewal.md"
+    },
+    "dropped_findings": []
+  },
+  "9f17414cd263e672770f338b53cd52b0f8e8383e2fc5b7e96dfb41d3373bd7cc": {
+    "key": "L-1020",
+    "lead_id": "L-1020",
+    "company": "FreshCart",
+    "is_orphan": false,
+    "mismatches": [
+      {
+        "summary": "CRM status is 'Contacted' implying an active/ongoing engagement, but the client has gone unanswered for weeks and is actively considering other vendors.",
+        "crm_says": "CRM status: Contacted",
+        "evidence_quote": "We're now in conversations with two other vendors and want to decide by mid-July.",
+        "source_file": "2026-05-18_freshcart_referral_followup.md",
+        "severity": "high"
+      }
+    ],
+    "missing_info_flags": [
+      {
+        "summary": "No next follow-up date is set despite the client stating a mid-July decision deadline.",
+        "missing_field": "next_followup_date",
+        "evidence_quote": "want to decide by mid-July",
+        "source_file": "2026-05-18_freshcart_referral_followup.md"
+      },
+      {
+        "summary": "Estimated value is blank despite this being an active referral opportunity with a defined project scope.",
+        "missing_field": "estimated_value",
+        "evidence_quote": "need a proper customer account portal (orders, subscriptions, wallet)",
+        "source_file": "2026-05-18_freshcart_referral_followup.md"
+      }
+    ],
+    "timing_signals": [
+      {
+        "summary": "Client stated they want to decide on a vendor by mid-July 2026, and today is 2026-07-10 - decision window is closing imminently.",
+        "evidence_quote": "We're now in conversations with two other vendors and want to decide by mid-July.",
+        "source_file": "2026-05-18_freshcart_referral_followup.md",
+        "urgency": "due_now",
+        "estimated_date_or_window": "2026-07 (mid-month)"
+      },
+      {
+        "summary": "Dhaval promised to call Ananya 'early next week' after her initial outreach on 2026-05-18, but no record of that call happening.",
+        "evidence_quote": "Slightly swamped this week; I'll call you early next week to set things up.",
+        "source_file": "2026-05-18_freshcart_referral_followup.md",
+        "urgency": "due_now",
+        "estimated_date_or_window": "2026-05 (week of 25th, missed)"
+      },
+      {
+        "summary": "Acme QBR notes confirm the call to Ananya is still an open, unassigned action item as of 2026-06-24.",
+        "evidence_quote": "Call Ananya @ FreshCart \u2014 ?",
+        "source_file": "2026-06-24_acme_quarterly_review.md",
+        "urgency": "due_now",
+        "estimated_date_or_window": "2026-06-24 (overdue)"
+      }
+    ],
+    "open_questions_or_dropped_commitments": [
+      {
+        "summary": "Dhaval promised to call Ananya early the week after 2026-05-20 but there is no evidence this call occurred.",
+        "kind": "dropped_commitment",
+        "evidence_quote": "I'll call you early next week to set things up.",
+        "source_file": "2026-05-18_freshcart_referral_followup.md"
+      },
+      {
+        "summary": "Ananya's direct question about scheduling a call ('When can we talk?') and her follow-up on 2026-06-16 both appear unanswered as of the ground truth note.",
+        "kind": "unanswered_question",
+        "evidence_quote": "When can we talk?",
+        "source_file": "2026-05-18_freshcart_referral_followup.md"
+      }
+    ],
+    "deprioritize_signals": [],
+    "suggested_crm_update": "Set next_followup_date to before mid-July 2026 and update last_contact_date to reflect the 2026-06-16 client email; consider updating status given competitive risk.",
+    "suggested_next_action": "Have Dhaval call or email Ananya Desai immediately referencing her 2026-06-16 message and the mid-July vendor decision deadline, since no reply has been sent since her initial 2026-05-18 outreach.",
+    "competitor_mentioned": null,
+    "tool_preference_mentioned": null,
+    "dropped_findings": [
+      {
+        "category": "mismatches",
+        "summary": "CRM shows last contact date as 2026-05-20, but the client emailed again on 2026-06-16 with no reply, and CRM was never updated to reflect this later contact/non-response.",
+        "crm_says": "Last contact date (per CRM): 2026-05-20",
+        "evidence_quote": "GROUND TRUTH (confirmed fact about what actually happened): No reply sent as of 2026-07-10. A warm referral from AtliQ's happiest client, going cold. CRM last_contact_date for L-1020 still shows 2026-05-20.",
+        "source_file": "2026-05-18_freshcart_referral_followup.md",
+        "severity": "high"
+      },
+      {
+        "category": "deprioritize_signals",
+        "summary": "The client went silent from AtliQ's side after their objection/warning that the window is closing and they're talking to other vendors, with no reply sent as of 2026-07-10.",
+        "signal_type": "went_silent_after_objection",
+        "evidence_quote": "GROUND TRUTH (confirmed fact about what actually happened): No reply sent as of 2026-07-10. A warm referral from AtliQ's happiest client, going cold.",
+        "source_file": "2026-05-18_freshcart_referral_followup.md"
+      }
+    ]
+  },
+  "865d698410f6147287f1d3a41356487d6bb2dd3237b2aa1f232b732e223c299b": {
+    "key": "L-1021",
+    "lead_id": "L-1021",
+    "company": "SteelCore Industries",
+    "is_orphan": false,
+    "mismatches": [
+      {
+        "summary": "CRM status shows lead as 'Contacted' (implying active engagement) but the thread ended with the client going silent and no further outreach from AtliQ.",
+        "crm_says": "CRM status: Contacted",
+        "evidence_quote": "No response from Verma, and no further nudge from AtliQ. No activity on L-1021 since 2026-02-14.",
+        "source_file": "2026-02-05_steelcore_pricing_objection.md",
+        "severity": "medium"
+      }
+    ],
+    "missing_info_flags": [
+      {
+        "summary": "No next follow-up date is set despite the deal being left mid-negotiation after a pricing objection.",
+        "missing_field": "next_followup_date",
+        "evidence_quote": "No response from Verma, and no further nudge from AtliQ. No activity on L-1021 since 2026-02-14.",
+        "source_file": "2026-02-05_steelcore_pricing_objection.md"
+      },
+      {
+        "summary": "Estimated value is blank in CRM even though an indicative estimate of 14\u201316k was given to the client.",
+        "missing_field": "estimated_value",
+        "evidence_quote": "attaching an overview of the production and dispatch dashboards we'd propose, with an indicative estimate of 14\u201316k depending on data source complexity.",
+        "source_file": "2026-02-05_steelcore_pricing_objection.md"
+      }
+    ],
+    "timing_signals": [
+      {
+        "summary": "Last real activity was Jay's reply on 2026-02-14 offering a call to explain pricing; no follow-up has happened since, and it's now five months later.",
+        "evidence_quote": "No response from Verma, and no further nudge from AtliQ. No activity on L-1021 since 2026-02-14.",
+        "source_file": "2026-02-05_steelcore_pricing_objection.md",
+        "urgency": "unclear",
+        "estimated_date_or_window": "unclear - stalled since 2026-02-14"
+      }
+    ],
+    "open_questions_or_dropped_commitments": [
+      {
+        "summary": "Jay offered to get on a call to walk through what's included in the pricing, but there's no record this call happened or was followed up on.",
+        "kind": "dropped_commitment",
+        "evidence_quote": "Happy to get on a call and walk through exactly what's included.",
+        "source_file": "2026-02-05_steelcore_pricing_objection.md"
+      },
+      {
+        "summary": "Verma's direct question about why AtliQ's rates are higher than a freelancer's was answered once, but he never responded further, leaving the objection potentially unresolved.",
+        "kind": "unanswered_question",
+        "evidence_quote": "Why should we pay AtliQ rates?",
+        "source_file": "2026-02-05_steelcore_pricing_objection.md"
+      }
+    ],
+    "deprioritize_signals": [
+      {
+        "summary": "Client raised a pricing objection comparing AtliQ's estimate unfavorably to a freelancer's quote, then went silent after Jay's response, with no further activity since.",
+        "signal_type": "went_silent_after_objection",
+        "evidence_quote": "Jay \u2014 frankly the number is a problem. A local freelancer has quoted us less than a third of this for \"the same dashboards\". Why should we pay AtliQ rates?",
+        "source_file": "2026-02-05_steelcore_pricing_objection.md"
+      }
+    ],
+    "suggested_crm_update": "Set next_followup_date and consider updating CRM status to reflect stalled/no-response since 2026-02-14.",
+    "suggested_next_action": "Have Jay send a brief check-in to B.K. Verma referencing the offer to walk through the pricing breakdown (ERP/weighbridge integration, documentation, handover) since no response was received after the 2026-02-14 email.",
+    "competitor_mentioned": {
+      "competitor_name": "local freelancer",
+      "evidence_quote": "A local freelancer has quoted us less than a third of this for \"the same dashboards\".",
+      "source_file": "2026-02-05_steelcore_pricing_objection.md"
+    },
+    "tool_preference_mentioned": null,
+    "dropped_findings": []
+  },
+  "2c4e9fa2c0a5542584fab6e594244aa916b58d9f1cd644462d12a24ca3678e9d": {
+    "key": "L-1022",
+    "lead_id": "L-1022",
+    "company": "TravelHub",
+    "is_orphan": false,
+    "mismatches": [],
+    "missing_info_flags": [
+      {
+        "summary": "CRM has no next follow-up date despite lead being flagged as early-stage from a conference conversation.",
+        "missing_field": "next_followup_date",
+        "evidence_quote": "TravelHub (Nadia) \u2014 itinerary personalization, early stage (L-1022)",
+        "source_file": "2026-06-14_techsummit_debrief.md"
+      },
+      {
+        "summary": "CRM has no last contact date recorded even though the debrief note documents an initial conversation at TechSummit.",
+        "missing_field": "last_contact_date",
+        "evidence_quote": "TravelHub (Nadia) \u2014 itinerary personalization, early stage (L-1022)",
+        "source_file": "2026-06-14_techsummit_debrief.md"
+      }
+    ],
+    "timing_signals": [
+      {
+        "summary": "Note warns that many conference leads (including this one, listed among the cards) go cold if not followed up soon after the event.",
+        "evidence_quote": "Karandeep: half of these will go cold before we get to them. Happens every conference.",
+        "source_file": "2026-06-14_techsummit_debrief.md",
+        "urgency": "due_now",
+        "estimated_date_or_window": "2026-06 (shortly after TechSummit)"
+      }
+    ],
+    "open_questions_or_dropped_commitments": [],
+    "deprioritize_signals": [],
+    "suggested_crm_update": "Set next_followup_date and last_contact_date fields based on outreach status, and consider updating CRM status from \"New\" given the lead is already ~4 weeks old since TechSummit.",
+    "suggested_next_action": "Since Karandeep noted many TechSummit leads (including TravelHub/Nadia) risk going cold, have Karandeep reach out to Nadia now to follow up on the itinerary personalization idea before it stalls further.",
+    "competitor_mentioned": null,
+    "tool_preference_mentioned": null,
+    "dropped_findings": []
+  },
+  "09b774cd2f613d109e65e0e6b4289e34724e5c2d8c2c496171b8f75f631f7c93": {
+    "key": "L-1023",
+    "lead_id": "L-1023",
+    "company": "FinEdge Bank",
+    "is_orphan": false,
+    "mismatches": [
+      {
+        "summary": "CRM shows last contact 2026-03-30 and no follow-up scheduled, but compliance was cleared and client requested a commercial call on 2026-06-19 with no response since.",
+        "crm_says": "Last contact date (per CRM): 2026-03-30",
+        "evidence_quote": "Bhavin \u2014 good news, compliance has cleared AtliQ. We can move to the commercial discussion now. My assistant will find a slot the week of 29 June \u2014 please confirm your availability.",
+        "source_file": "2026-03-26_finedge_compliance_docs.md",
+        "severity": "high"
+      },
+      {
+        "summary": "CRM status is 'Proposal Sent' with no indication of the compliance clearance and pending commercial discussion that has stalled for weeks.",
+        "crm_says": "CRM status: Proposal Sent",
+        "evidence_quote": "The 95k deal \u2014 L-1023, largest in the pipeline \u2014 has had no AtliQ activity since March.",
+        "source_file": "2026-03-26_finedge_compliance_docs.md",
+        "severity": "high"
+      }
+    ],
+    "missing_info_flags": [
+      {
+        "summary": "Referral contact David Harbor (Harbor & Finch Advisory) has no CRM lead record despite an explicit warm introduction and interest expressed.",
+        "missing_field": "new lead record / contact_email for Harbor & Finch",
+        "evidence_quote": "Harbor & Finch does not appear in the CRM.",
+        "source_file": "2026-06-27_harborfinch_referral_intro.md"
+      }
+    ],
+    "timing_signals": [
+      {
+        "summary": "Client requested a commercial call for the week of June 29, calling this their largest data initiative of the year - urgent and overdue.",
+        "evidence_quote": "My assistant will find a slot the week of 29 June \u2014 please confirm your availability. This is our largest data initiative this year, so let's not lose momentum.",
+        "source_file": "2026-03-26_finedge_compliance_docs.md",
+        "urgency": "due_now",
+        "estimated_date_or_window": "week of 2026-06-29 (now overdue by ~10 days as of 2026-07-10)"
+      },
+      {
+        "summary": "Internal team acknowledged the deal has been stalled three weeks with no owner confirmed to act on it.",
+        "evidence_quote": "biggest deal we have and it's been sitting three weeks.",
+        "source_file": "2026-07-07_internal_prioritization.md",
+        "urgency": "due_now",
+        "estimated_date_or_window": "immediate - as of 2026-07-07 meeting"
+      }
+    ],
+    "open_questions_or_dropped_commitments": [
+      {
+        "summary": "Client asked Bhavin to confirm availability for a commercial discussion call the week of June 29; no confirmation was sent.",
+        "kind": "dropped_commitment",
+        "evidence_quote": "please confirm your availability",
+        "source_file": "2026-03-26_finedge_compliance_docs.md"
+      },
+      {
+        "summary": "David Harbor asked if Bhavin has time in the next couple weeks to discuss automating client reporting; no reply was sent.",
+        "kind": "unanswered_question",
+        "evidence_quote": "Do you have time in the next couple of weeks?",
+        "source_file": "2026-06-27_harborfinch_referral_intro.md"
+      }
+    ],
+    "deprioritize_signals": [],
+    "suggested_crm_update": "Update last_contact_date to reflect the 2026-06-19 email, set CRM status to reflect compliance cleared/awaiting commercial call, and set next_followup_date given the overdue response.",
+    "suggested_next_action": "Have Bhavin respond to Suresh Menon's 2026-06-19 email confirming availability for the commercial discussion call he requested for the week of June 29, since compliance has cleared and the deal has been stalled since then; also consider creating a CRM lead for the Harbor & Finch referral and replying to David Harbor's request.",
+    "competitor_mentioned": null,
+    "tool_preference_mentioned": null,
+    "dropped_findings": [
+      {
+        "category": "missing_info_flags",
+        "summary": "No next follow-up date is set despite the client explicitly requesting a scheduling response weeks ago.",
+        "missing_field": "next_followup_date",
+        "evidence_quote": "Next follow-up date (per CRM): (blank)",
+        "source_file": "2026-03-26_finedge_compliance_docs.md"
+      }
+    ]
+  },
+  "6570c2ccaa211d9614eb8e2da7b5c3028c841060659af0bb394f97116947bc23": {
+    "key": "L-1025",
+    "lead_id": "L-1025",
+    "company": "CloudNine SaaS",
+    "is_orphan": false,
+    "mismatches": [],
+    "missing_info_flags": [
+      {
+        "summary": "CRM has no next follow-up date despite an unanswered client email requesting an update.",
+        "missing_field": "next_followup_date",
+        "evidence_quote": "Karandeep \u2014 any update on the references? We're comparing you with one other vendor and want to close this out by mid-July.",
+        "source_file": "2026-06-21_cloudnine_rates_references.md"
+      }
+    ],
+    "timing_signals": [
+      {
+        "summary": "Client wants to close out vendor comparison by mid-July.",
+        "evidence_quote": "We're comparing you with one other vendor and want to close this out by mid-July.",
+        "source_file": "2026-06-21_cloudnine_rates_references.md",
+        "urgency": "due_now",
+        "estimated_date_or_window": "2026-07 (mid-month)"
+      }
+    ],
+    "open_questions_or_dropped_commitments": [
+      {
+        "summary": "Karandeep promised to revert with reference names within a day or two but never did.",
+        "kind": "dropped_commitment",
+        "evidence_quote": "let me check with two clients that they're happy to take a call, will revert with names in a day or two.",
+        "source_file": "2026-06-21_cloudnine_rates_references.md"
+      },
+      {
+        "summary": "Client's follow-up question about reference status was never answered.",
+        "kind": "unanswered_question",
+        "evidence_quote": "Karandeep \u2014 any update on the references?",
+        "source_file": "2026-06-21_cloudnine_rates_references.md"
+      }
+    ],
+    "deprioritize_signals": [],
+    "suggested_crm_update": "Update last_contact_date to 2026-07-06 and set next_followup_date given the client's mid-July decision deadline.",
+    "suggested_next_action": "Send Dev Malhotra the two client references promised on 2026-06-22 and reply to his 2026-07-06 follow-up before their mid-July decision deadline.",
+    "competitor_mentioned": null,
+    "tool_preference_mentioned": null,
+    "dropped_findings": [
+      {
+        "category": "mismatches",
+        "summary": "CRM shows last contact on 2026-06-22, but the client sent a follow-up email on 2026-07-06 that has gone unanswered as of today.",
+        "crm_says": "Last contact date (per CRM): 2026-06-22",
+        "evidence_quote": "GROUND TRUTH (confirmed fact about what actually happened): No reply sent as of 2026-07-10. References never shared. CRM last_contact_date for L-1025 still shows 2026-06-22.",
+        "source_file": "2026-06-21_cloudnine_rates_references.md",
+        "severity": "high"
+      }
+    ]
+  },
+  "44e4f6da58534eb9efcd6b4920f476c27c810851efbb018612e3ac998bc0db44": {
+    "key": "L-1026",
+    "lead_id": "L-1026",
+    "company": "Sunrise Foods",
+    "is_orphan": false,
+    "mismatches": [],
+    "missing_info_flags": [
+      {
+        "summary": "No next follow-up date set despite client actively waiting on a call for a new v2 project.",
+        "missing_field": "next_followup_date",
+        "evidence_quote": "let me set up a call when I'm back.",
+        "source_file": "2026-06-10_sunrise_foods_reactivation.md"
+      }
+    ],
+    "timing_signals": [
+      {
+        "summary": "Client asked for a v2 scoping call in mid-June; as of the internal review (July 2), three weeks had passed with no call scheduled.",
+        "evidence_quote": "Dhaval: Sunrise Foods came back wanting a v2 three weeks ago. Still no call scheduled. \"That one's on me.\"",
+        "source_file": "2026-07-02_internal_pipeline_review.md",
+        "urgency": "due_now",
+        "estimated_date_or_window": "2026-07 (immediate)"
+      }
+    ],
+    "open_questions_or_dropped_commitments": [
+      {
+        "summary": "Dhaval promised to set up a call to discuss v2 after returning from travel, but no call was scheduled.",
+        "kind": "dropped_commitment",
+        "evidence_quote": "Yes, absolutely interested. Travelling this week \u2014 let me set up a call when I'm back.",
+        "source_file": "2026-06-10_sunrise_foods_reactivation.md"
+      },
+      {
+        "summary": "Meera's question about whether the portal data can feed into a sales dashboard for the CFO was not addressed in the reply.",
+        "kind": "unanswered_question",
+        "evidence_quote": "Also our CFO keeps asking if the portal data can feed into some kind of sales dashboard.",
+        "source_file": "2026-06-10_sunrise_foods_reactivation.md"
+      }
+    ],
+    "deprioritize_signals": [],
+    "suggested_crm_update": "Update CRM status from Won to an active/open opportunity for Sunrise Foods v2, and set next_followup_date given the pending call commitment.",
+    "suggested_next_action": "Have Dhaval reach out to Meera to schedule the overdue v2 scoping call, referencing her June 10 request about portal v2 and the CFO's sales dashboard question, since it's now been three weeks with no call as flagged in the July 2 pipeline review.",
+    "competitor_mentioned": null,
+    "tool_preference_mentioned": null,
+    "dropped_findings": [
+      {
+        "category": "mismatches",
+        "summary": "CRM shows status Won and last contact 2025-10-30, but the client re-engaged in June 2026 asking for new work (portal v2) that hasn't been reflected or acted on.",
+        "crm_says": "CRM status: Won; Last contact date: 2025-10-30",
+        "evidence_quote": "GROUND TRUTH (confirmed fact about what actually happened): No call was scheduled. CRM last_contact_date for Sunrise Foods still shows 2025-10-30.",
+        "source_file": "2026-06-10_sunrise_foods_reactivation.md",
+        "severity": "high"
+      }
+    ]
+  },
+  "f48f7c8edad50b9b624234abb7030b70d73d99e036f994201c8c7902c6a63922": {
+    "key": "L-1028",
+    "lead_id": "L-1028",
+    "company": "ApexAuto Parts",
+    "is_orphan": false,
+    "mismatches": [],
+    "missing_info_flags": [],
+    "timing_signals": [],
+    "open_questions_or_dropped_commitments": [
+      {
+        "summary": "Jay offered to share a two-page sample dashboard spec but there's no indication it was ever sent since the client never responded.",
+        "kind": "dropped_commitment",
+        "evidence_quote": "Happy to share a two-page sample dashboard spec for a parts distributor, no strings attached.",
+        "source_file": "2026-03-04_apexauto_cold_outreach.md"
+      }
+    ],
+    "deprioritize_signals": [],
+    "suggested_crm_update": "\"\"",
+    "suggested_next_action": "\"\"",
+    "competitor_mentioned": null,
+    "tool_preference_mentioned": null,
+    "dropped_findings": [
+      {
+        "category": "missing_info_flags",
+        "summary": "CRM has no owner assigned despite a lead created over four months ago with outreach attempts logged.",
+        "missing_field": "owner",
+        "evidence_quote": "GROUND TRUTH (confirmed fact about what actually happened): No response ever received. L-1028 sits in CRM as \"New\" with no owner and no service_interest.",
+        "source_file": "2026-03-04_apexauto_cold_outreach.md"
+      },
+      {
+        "category": "missing_info_flags",
+        "summary": "CRM has no next follow-up date even though the lead has never received a response and outreach was sent twice.",
+        "missing_field": "next_followup_date",
+        "evidence_quote": "GROUND TRUTH (confirmed fact about what actually happened): No response ever received. L-1028 sits in CRM as \"New\" with no owner and no service_interest.",
+        "source_file": "2026-03-04_apexauto_cold_outreach.md"
+      }
+    ]
+  },
+  "3d0e2be13d6472bbb92f6c60fd0386a85fd866b5d5d0d4bf57215bca380b84d6": {
+    "key": "L-1027",
+    "lead_id": "L-1027",
+    "company": "Meridian Health LLC",
+    "is_orphan": false,
+    "mismatches": [
+      {
+        "summary": "This lead (L-1027) is actually a duplicate CRM entry for the same Meridian/Sanjay deal already tracked as L-1003, which has ongoing proposal correspondence, but L-1027 shows CRM status 'New' with no activity as if it were a fresh, untouched lead.",
+        "crm_says": "CRM status: New",
+        "evidence_quote": "Meridian booth conversation \u2014 SAME hospital group we already have an open deal with?? Sanjay was at the booth, talked to Jay who didn't realise Bhavin already has a proposal with him. Awkward. (Now sitting in CRM twice: L-1003 and L-1027.)",
+        "source_file": "2026-06-14_techsummit_debrief.md",
+        "severity": "high"
+      },
+      {
+        "summary": "CRM shows no last contact date, but Sanjay actually emailed AtliQ with substantive proposal questions on 2026-06-16, indicating real engagement occurred that isn't reflected.",
+        "crm_says": "Last contact date (per CRM): (blank)",
+        "evidence_quote": "Thanks for the proposal. It looks solid overall. Two questions from our IT director before we can move ahead:",
+        "source_file": "2026-06-16_meridian_proposal_questions.md",
+        "severity": "medium"
+      }
+    ],
+    "missing_info_flags": [
+      {
+        "summary": "No next follow-up date is set despite an active proposal conversation with a stated client deadline (Q2 budget review mid-July).",
+        "missing_field": "next_followup_date",
+        "evidence_quote": "We'd like to close this out before our Q2 budget review in mid-July.",
+        "source_file": "2026-06-16_meridian_proposal_questions.md"
+      }
+    ],
+    "timing_signals": [
+      {
+        "summary": "Client wants proposal questions resolved before their Q2 budget review, which is expected mid-July.",
+        "evidence_quote": "We'd like to close this out before our Q2 budget review in mid-July.",
+        "source_file": "2026-06-16_meridian_proposal_questions.md",
+        "urgency": "due_now",
+        "estimated_date_or_window": "2026-07 (mid-month)"
+      },
+      {
+        "summary": "Internal review confirms Sanjay's proposal questions are still unanswered and his budget review is mid-July, three weeks after his original email.",
+        "evidence_quote": "Meridian (L-1003) \u2014 Sanjay's proposal questions from 16 Jun still unanswered. Their budget review is mid-July.",
+        "source_file": "2026-07-07_internal_prioritization.md",
+        "urgency": "due_now",
+        "estimated_date_or_window": "2026-07 (mid-month)"
+      }
+    ],
+    "open_questions_or_dropped_commitments": [
+      {
+        "summary": "Sanjay asked whether the ingestion layer supports HL7 feeds from older lab systems or only FHIR APIs, and whether the 14-week timeline includes UAT with clinicians - no reply sent as of 2026-07-10.",
+        "kind": "unanswered_question",
+        "evidence_quote": "Can the ingestion layer handle HL7 feeds from our older lab systems, or only the FHIR APIs mentioned in section 3?",
+        "source_file": "2026-06-16_meridian_proposal_questions.md"
+      }
+    ],
+    "deprioritize_signals": [],
+    "suggested_crm_update": "Flag L-1027 as a duplicate of L-1003 and merge/close it, updating L-1003 with last_contact_date 2026-06-16 and a next_followup_date before mid-July.",
+    "suggested_next_action": "Since Sanjay's 2026-06-16 questions about HL7 feed support and whether the 14-week timeline includes clinician UAT are still unanswered and his Q2 budget review is expected mid-July, someone (Bhavin, per the original thread) should reply to those two questions now, and the duplicate L-1027 entry should be reconciled with L-1003.",
+    "competitor_mentioned": null,
+    "tool_preference_mentioned": null,
+    "dropped_findings": [
+      {
+        "category": "missing_info_flags",
+        "summary": "Estimated value field is blank despite this being an active proposal-stage deal.",
+        "missing_field": "estimated_value",
+        "evidence_quote": "met at techsummit booth, hospital data warehouse",
+        "source_file": "2026-06-14_techsummit_debrief.md"
+      },
+      {
+        "category": "open_questions_or_dropped_commitments",
+        "summary": "No reply from AtliQ to Sanjay's proposal questions as confirmed by ground truth note.",
+        "kind": "dropped_commitment",
+        "evidence_quote": "GROUND TRUTH (confirmed fact about what actually happened): No reply from AtliQ as of 2026-07-10. CRM status for lead L-1003 still says \"Contacted\".",
+        "source_file": "2026-06-16_meridian_proposal_questions.md"
+      }
+    ]
+  },
+  "be39b46eb35cdd748e775f4634168e21417048f1efd9ac778c49ca8e9dade6eb": {
+    "key": "L-1030",
+    "lead_id": "L-1030",
+    "company": "GreenGrid Solar",
+    "is_orphan": false,
+    "mismatches": [
+      {
+        "summary": "CRM status is 'New' but a discovery call has already taken place and a proposal has been promised.",
+        "crm_says": "CRM status: New",
+        "evidence_quote": "Discovery call held 2026-07-09 \u2014 see meeting notes. Proposal promised by 17 July.",
+        "source_file": "2026-07-03_greengrid_new_lead.md",
+        "severity": "high"
+      }
+    ],
+    "missing_info_flags": [
+      {
+        "summary": "CRM has no next follow-up date despite a proposal being due 17 July and a pre-quote feasibility check due 14 July.",
+        "missing_field": "next_followup_date",
+        "evidence_quote": "Proposal \u2014 Jay \u2014 by 17 Jul",
+        "source_file": "2026-07-09_greengrid_discovery.md"
+      },
+      {
+        "summary": "CRM estimated value is blank despite a budget figure being discussed in discovery.",
+        "missing_field": "estimated_value",
+        "evidence_quote": "Budget: Aditya indicated 20\u201325k comfortable for phase 1.",
+        "source_file": "2026-07-09_greengrid_discovery.md"
+      },
+      {
+        "summary": "CRM last contact date is blank despite an email and a discovery call already having occurred.",
+        "missing_field": "last_contact_date",
+        "evidence_quote": "**Date:** 2026-07-09 \u00b7 **Attendees:** Aditya Kulkarni, GreenGrid plant head (Ramesh), Jay",
+        "source_file": "2026-07-09_greengrid_discovery.md"
+      }
+    ],
+    "timing_signals": [
+      {
+        "summary": "Proposal is promised to the client by 17 July, which is imminent.",
+        "evidence_quote": "Proposal \u2014 Jay \u2014 by 17 Jul",
+        "source_file": "2026-07-09_greengrid_discovery.md",
+        "urgency": "due_now",
+        "estimated_date_or_window": "2026-07-17"
+      },
+      {
+        "summary": "Internal feasibility check on SCADA API needs to happen before the quote, due 14 July.",
+        "evidence_quote": "Pranav to sanity-check SCADA API feasibility before quote \u2014 by 14 Jul",
+        "source_file": "2026-07-09_greengrid_discovery.md",
+        "urgency": "due_now",
+        "estimated_date_or_window": "2026-07-14"
+      },
+      {
+        "summary": "Client's own timeline driver is a board review in September, giving some buffer for the wider engagement.",
+        "evidence_quote": "Timeline driver: board review of plant performance in September.",
+        "source_file": "2026-07-09_greengrid_discovery.md",
+        "urgency": "later",
+        "estimated_date_or_window": "2026-09"
+      }
+    ],
+    "open_questions_or_dropped_commitments": [
+      {
+        "summary": "Data access feasibility (one SCADA vendor has API, other only sends CSV over email) is flagged as an open question that must be resolved before quoting.",
+        "kind": "unanswered_question",
+        "evidence_quote": "Data access is the open question \u2014 two different SCADA vendors, one has an API, other is \"CSV over email\".",
+        "source_file": "2026-07-09_greengrid_discovery.md"
+      }
+    ],
+    "deprioritize_signals": [],
+    "suggested_crm_update": "Update CRM status from 'New' to 'Proposal in progress', set next_followup_date to 2026-07-17, and set estimated_value to ~20-25k based on discovery notes.",
+    "suggested_next_action": "Confirm Pranav's SCADA API feasibility check (due 14 Jul) is on track so Jay can deliver the promised proposal to Aditya by 17 Jul.",
+    "competitor_mentioned": null,
+    "tool_preference_mentioned": null,
+    "dropped_findings": []
+  },
+  "1aad13018792a6a672fc8ae92490e0f02b522e8c27430fb48d3a5cc29b9e20f2": {
+    "key": "L-1031",
+    "lead_id": "L-1031",
+    "company": "ByteBridge",
+    "is_orphan": false,
+    "mismatches": [
+      {
+        "summary": "CRM shows only 'Contacted' status with no notes, but the email thread reveals active competitive pressure and an unfulfilled commitment from AtliQ, which is not reflected anywhere in the CRM.",
+        "crm_says": "CRM status: Contacted; CRM notes field: (blank)",
+        "evidence_quote": "TalentGrid has quoted us roughly 15% below your rates for the same three profiles.",
+        "source_file": "2026-05-10_bytebridge_competitor.md",
+        "severity": "medium"
+      }
+    ],
+    "missing_info_flags": [
+      {
+        "summary": "There is no next follow-up date set despite a specific promise made by Karandeep to send materials by a deadline.",
+        "missing_field": "next_followup_date",
+        "evidence_quote": "I'll send both, plus a reference, by Friday.",
+        "source_file": "2026-05-10_bytebridge_competitor.md"
+      }
+    ],
+    "timing_signals": [
+      {
+        "summary": "Karandeep committed to sending case studies and a reference by 'Friday' following the 2026-05-12 email, but nothing was sent per ground truth.",
+        "evidence_quote": "I'll send both, plus a reference, by Friday.",
+        "source_file": "2026-05-10_bytebridge_competitor.md",
+        "urgency": "due_now",
+        "estimated_date_or_window": "2026-05-15 (Friday following 2026-05-12 email)"
+      }
+    ],
+    "open_questions_or_dropped_commitments": [
+      {
+        "summary": "Fatima explicitly asked for concrete material (case studies, retention numbers, references) to justify the price gap to her CFO, and there's no indication this was resolved.",
+        "kind": "unanswered_question",
+        "evidence_quote": "I need something to justify the difference to my CFO \u2014 case studies, retention numbers, references, anything concrete.",
+        "source_file": "2026-05-10_bytebridge_competitor.md"
+      }
+    ],
+    "deprioritize_signals": [
+      {
+        "summary": "Client flagged a competitor's lower quote and AtliQ failed to follow up with promised justification materials, risking the deal going cold after this pricing pressure.",
+        "signal_type": "went_silent_after_objection",
+        "evidence_quote": "Nothing was sent. No contact with ByteBridge since 2026-05-12. L-1031 still \"Contacted\".",
+        "source_file": "2026-05-10_bytebridge_competitor.md"
+      }
+    ],
+    "suggested_crm_update": "Set next_followup_date to a near-term date and add notes documenting the TalentGrid competitive pressure and the dropped commitment to send case studies/reference.",
+    "suggested_next_action": "Follow up with Fatima to send the two case studies and reference on engineer retention that Karandeep promised by Friday (2026-05-12 email), which appear never to have been sent.",
+    "competitor_mentioned": {
+      "competitor_name": "TalentGrid",
+      "evidence_quote": "TalentGrid has quoted us roughly 15% below your rates for the same three profiles.",
+      "source_file": "2026-05-10_bytebridge_competitor.md"
+    },
+    "tool_preference_mentioned": null,
+    "dropped_findings": [
+      {
+        "category": "open_questions_or_dropped_commitments",
+        "summary": "Karandeep promised to send two case studies and a reference by Friday to help Fatima justify pricing to her CFO, but ground truth confirms nothing was ever sent.",
+        "kind": "dropped_commitment",
+        "evidence_quote": "GROUND TRUTH (confirmed fact about what actually happened): Nothing was sent. No contact with ByteBridge since 2026-05-12. L-1031 still \"Contacted\".",
+        "source_file": "2026-05-10_bytebridge_competitor.md"
+      }
+    ]
+  },
+  "2f7d2cb735c1bfdb6122eff069673eeefce63fd9f986e795ad6651cdd0f9078a": {
+    "key": "L-1032",
+    "lead_id": "L-1032",
+    "company": "Trustline NBFC",
+    "is_orphan": false,
+    "mismatches": [
+      {
+        "summary": "CRM status is still 'Proposal Sent' despite the deal being approved by the board, revised contract sent, and a verbal go-ahead given on a call.",
+        "crm_says": "Proposal Sent",
+        "evidence_quote": "Call held 2026-07-09 with verbal go-ahead; contract out for signature. CRM status for L-1032 still says \"Proposal Sent\".",
+        "source_file": "2026-07-03_trustline_approved.md",
+        "severity": "high"
+      },
+      {
+        "summary": "CRM last contact date shows 2026-04-10 but there was clear engagement (call notes, emails) on 2026-06-03, 2026-07-03, 2026-07-06, and 2026-07-09.",
+        "crm_says": "Last contact date: 2026-04-10",
+        "evidence_quote": "Call held 2026-07-09 with verbal go-ahead; contract out for signature.",
+        "source_file": "2026-07-03_trustline_approved.md",
+        "severity": "medium"
+      }
+    ],
+    "missing_info_flags": [
+      {
+        "summary": "Next follow-up date is blank in CRM even though a contract is out for signature and timing is time-sensitive (client wants to sign this month).",
+        "missing_field": "next_followup_date",
+        "evidence_quote": "we can sign this month",
+        "source_file": "2026-07-03_trustline_approved.md"
+      }
+    ],
+    "timing_signals": [
+      {
+        "summary": "Client wants to sign the revised contract this month (July 2026).",
+        "evidence_quote": "Please send the revised contract reflecting that structure and we can sign this month.",
+        "source_file": "2026-07-03_trustline_approved.md",
+        "urgency": "due_now",
+        "estimated_date_or_window": "2026-07"
+      },
+      {
+        "summary": "Follow-up call held Thursday 9 July to walk through contract terms, verbal go-ahead given, contract now out for signature.",
+        "evidence_quote": "Call held 2026-07-09 with verbal go-ahead; contract out for signature.",
+        "source_file": "2026-07-03_trustline_approved.md",
+        "urgency": "due_now",
+        "estimated_date_or_window": "2026-07-09 to 2026-07-31"
+      },
+      {
+        "summary": "Earlier note flagged board meeting as imminent (first week of July), signaling urgency at that time.",
+        "evidence_quote": "NOTE: their board meet is first week of July \u2192 this is NOW (crm L-1032, next_followup empty)",
+        "source_file": "2026-06-03_trustline_negotiation.md",
+        "urgency": "due_now",
+        "estimated_date_or_window": "2026-07 (first week)"
+      }
+    ],
+    "open_questions_or_dropped_commitments": [
+      {
+        "summary": "Dhaval committed to sending the revised contract 'this week' (week of 2026-07-06) - should be confirmed as sent/received.",
+        "kind": "dropped_commitment",
+        "evidence_quote": "Revised contract will be with you this week; let's do a short call Thursday 9 July to walk through the terms together.",
+        "source_file": "2026-07-03_trustline_approved.md"
+      }
+    ],
+    "deprioritize_signals": [],
+    "suggested_crm_update": "Update CRM status from 'Proposal Sent' to 'Verbal Approval/Contract Out for Signature', update last contact date to 2026-07-09, and set next_followup_date to follow up on contract signature within July 2026.",
+    "suggested_next_action": "Follow up with Mohan Krishnan to confirm receipt of the revised annual-license contract and check on signature status, referencing the verbal go-ahead from the 9 July call and his stated goal to sign this month.",
+    "competitor_mentioned": null,
+    "tool_preference_mentioned": null,
+    "dropped_findings": []
+  },
+  "b650049e581e4ce21cb5f80a6e9b766fcf9ba7c534a430bfa2150bdfe5be52f4": {
+    "key": "L-1033",
+    "lead_id": "L-1033",
+    "company": "OceanFreight",
+    "is_orphan": false,
+    "mismatches": [
+      {
+        "summary": "CRM status is 'New' despite a call having already been scheduled and confirmed for 14 July.",
+        "crm_says": "CRM status: New",
+        "evidence_quote": "14 July 8:00 CET / 11:30 IST confirmed \u2014 invite sent.",
+        "source_file": "2026-06-28_oceanfreight_timezones.md",
+        "severity": "medium"
+      }
+    ],
+    "missing_info_flags": [
+      {
+        "summary": "CRM has no owner assigned even though Jay has been corresponding with and scheduling the client call.",
+        "missing_field": "Owner",
+        "evidence_quote": "CRM entry L-1033 has no owner assigned \u2014 Jay took it by default but it hasn't been discussed.",
+        "source_file": "2026-06-28_oceanfreight_timezones.md"
+      },
+      {
+        "summary": "Next follow-up date is blank despite a confirmed call date of 14 July.",
+        "missing_field": "next_followup_date",
+        "evidence_quote": "14 July 8:00 CET / 11:30 IST confirmed \u2014 invite sent.",
+        "source_file": "2026-06-28_oceanfreight_timezones.md"
+      }
+    ],
+    "timing_signals": [
+      {
+        "summary": "Call confirmed for 14 July 2026, which is upcoming relative to today's date.",
+        "evidence_quote": "14 July 8:00 CET / 11:30 IST confirmed \u2014 invite sent.",
+        "source_file": "2026-06-28_oceanfreight_timezones.md",
+        "urgency": "due_this_month",
+        "estimated_date_or_window": "2026-07-14"
+      }
+    ],
+    "open_questions_or_dropped_commitments": [],
+    "deprioritize_signals": [],
+    "suggested_crm_update": "Set next_followup_date to 2026-07-14 and assign an owner (currently unassigned, Jay handling by default).",
+    "suggested_next_action": "Confirm ownership assignment for L-1033 before the scheduled 14 July 8:00 CET call so follow-up doesn't fall through the cracks.",
+    "competitor_mentioned": null,
+    "tool_preference_mentioned": null,
+    "dropped_findings": []
+  },
+  "48b802cc08e67a25b3976e4d73457d2f5b6218abcfb80b94b91115d86676da99": {
+    "key": "L-1034",
+    "lead_id": "L-1034",
+    "company": "SmartServe Hospitality",
+    "is_orphan": false,
+    "mismatches": [
+      {
+        "summary": "CRM status is 'Contacted' but there has been no client response since the 8 Apr email and no further outreach, so the lead has effectively gone cold rather than being actively engaged.",
+        "crm_says": "CRM status: Contacted",
+        "evidence_quote": "No response from SmartServe after the 8 Apr email, and no further follow-up from our side. L-1034 untouched since.",
+        "source_file": "2026-04-05_smartserve_intro_call.md",
+        "severity": "medium"
+      }
+    ],
+    "missing_info_flags": [
+      {
+        "summary": "No next follow-up date is set despite the lead being open and awaiting a promised reference call.",
+        "missing_field": "next_followup_date",
+        "evidence_quote": "Reference call with a past client for Arvind \u2014 Jay *(not arranged)*",
+        "source_file": "2026-04-05_smartserve_intro_call.md"
+      }
+    ],
+    "timing_signals": [
+      {
+        "summary": "Recap and pricing were sent on 8 Apr but no response since, indicating the lead has stalled for over three months.",
+        "evidence_quote": "Send call recap + indicative pricing \u2014 Jay \u2014 by 8 Apr *(sent 8 Apr)*",
+        "source_file": "2026-04-05_smartserve_intro_call.md",
+        "urgency": "unclear",
+        "estimated_date_or_window": "2026-04-08"
+      }
+    ],
+    "open_questions_or_dropped_commitments": [
+      {
+        "summary": "Jay was supposed to arrange a reference call with a past client for Arvind, but this was never arranged.",
+        "kind": "dropped_commitment",
+        "evidence_quote": "Reference call with a past client for Arvind \u2014 Jay *(not arranged)*",
+        "source_file": "2026-04-05_smartserve_intro_call.md"
+      }
+    ],
+    "deprioritize_signals": [
+      {
+        "summary": "Client went silent after the pricing/recap email was sent, with no response or further follow-up since.",
+        "signal_type": "went_silent_after_objection",
+        "evidence_quote": "No response from SmartServe after the 8 Apr email, and no further follow-up from our side. L-1034 untouched since.",
+        "source_file": "2026-04-05_smartserve_intro_call.md"
+      }
+    ],
+    "suggested_crm_update": "Set next_followup_date and consider updating CRM status from 'Contacted' to reflect no response since 8 Apr.",
+    "suggested_next_action": "Follow up with Pooja Reddy referencing the 8 Apr pricing email and offer to arrange the previously promised reference call for Arvind to address his concerns about milestone-based payments.",
+    "competitor_mentioned": null,
+    "tool_preference_mentioned": null,
+    "dropped_findings": []
+  },
+  "35665dd6624af13240fae66715d03a2a637a52182c9925d4c5938d8cf76ffce7": {
+    "key": "L-1035",
+    "lead_id": "L-1035",
+    "company": "Quantia Analytics",
+    "is_orphan": false,
+    "mismatches": [],
+    "missing_info_flags": [
+      {
+        "summary": "Client explicitly asked to be revisited around Q2 2026, but no next follow-up date was set in CRM.",
+        "missing_field": "next_followup_date",
+        "evidence_quote": "Please do check back with us around then. I mean that.",
+        "source_file": "2025-09-30_quantia_lost_deal.md"
+      }
+    ],
+    "timing_signals": [
+      {
+        "summary": "Client is mid-acquisition and won't sign anything until that process closes, expected around Q2 2026.",
+        "evidence_quote": "We're mid-acquisition and nothing new gets signed until that closes, likely Q2 2026.",
+        "source_file": "2025-09-30_quantia_lost_deal.md",
+        "urgency": "later",
+        "estimated_date_or_window": "2026-Q2"
+      }
+    ],
+    "open_questions_or_dropped_commitments": [
+      {
+        "summary": "Client explicitly requested AtliQ check back around Q2 2026, but ground truth confirms no revisit was scheduled.",
+        "kind": "dropped_commitment",
+        "evidence_quote": "Please do check back with us around then. I mean that.",
+        "source_file": "2025-09-30_quantia_lost_deal.md"
+      }
+    ],
+    "deprioritize_signals": [],
+    "suggested_crm_update": "Set next_followup_date to approximately 2026-Q2 (per client's request to check back after their acquisition closes), and consider reopening the lead rather than leaving it as Lost.",
+    "suggested_next_action": "Since the client explicitly asked AtliQ to check back around Q2 2026 once their acquisition closes, and no revisit was ever scheduled, a human should consider reaching out to James Whitfield around that timeframe to re-engage.",
+    "competitor_mentioned": null,
+    "tool_preference_mentioned": null,
+    "dropped_findings": []
+  },
+  "fa4affc20ea012c8f4e0bb6f171b52f7e5f179f9ff5970c00556cbe4837ca716": {
+    "key": "L-1037",
+    "lead_id": "L-1037",
+    "company": "Vertex Constructions",
+    "is_orphan": false,
+    "mismatches": [],
+    "missing_info_flags": [
+      {
+        "summary": "CRM has no next follow-up date despite Jay explicitly committing to reconnect in February 2026, and no further action was taken.",
+        "missing_field": "next_followup_date",
+        "evidence_quote": "No problem \u2014 will reconnect in February. Safe travels.",
+        "source_file": "2026-01-15_vertex_ooo_stall.md"
+      }
+    ],
+    "timing_signals": [],
+    "open_questions_or_dropped_commitments": [
+      {
+        "summary": "Jay promised to reconnect with P. Naidu in February 2026 once he returned from out-of-office, but this follow-up never happened per ground truth.",
+        "kind": "dropped_commitment",
+        "evidence_quote": "No problem \u2014 will reconnect in February. Safe travels.",
+        "source_file": "2026-01-15_vertex_ooo_stall.md"
+      }
+    ],
+    "deprioritize_signals": [],
+    "suggested_crm_update": "Set next_followup_date to reflect a new outreach attempt, since the promised February 2026 reconnect never occurred.",
+    "suggested_next_action": "Have Jay send a follow-up to P. Naidu referencing the December conversation about the site progress tracking mobile app and the promised February reconnect that never happened.",
+    "competitor_mentioned": null,
+    "tool_preference_mentioned": null,
+    "dropped_findings": [
+      {
+        "category": "timing_signals",
+        "summary": "Jay committed to reconnecting with the client in February 2026 after their out-of-office ended, but ground truth confirms this never happened.",
+        "evidence_quote": "GROUND TRUTH (confirmed fact about what actually happened): No one reconnected in February. No activity on L-1037 since 2026-01-20.",
+        "source_file": "2026-01-15_vertex_ooo_stall.md",
+        "urgency": "due_now",
+        "estimated_date_or_window": "2026-02 (missed)"
+      }
+    ]
+  },
+  "5926b84690dc0aa965525870d54df115bbb253d9bd32c973df973650a894e053": {
+    "key": "L-1036",
+    "lead_id": "L-1036",
+    "company": "LoopMart",
+    "is_orphan": false,
+    "mismatches": [
+      {
+        "summary": "CRM status is 'New' but a pricing call with the client and their finance person already took place on 2026-06-26.",
+        "crm_says": "CRM status: New",
+        "evidence_quote": "gave ballpark 18\u201322k for retail analytics dashboards, phase-able",
+        "source_file": "2026-06-26_loopmart_pricing_call.md",
+        "severity": "medium"
+      }
+    ],
+    "missing_info_flags": [
+      {
+        "summary": "CRM has no next follow-up date despite a pricing call having occurred and the client response being cut off mid-note.",
+        "missing_field": "next_followup_date",
+        "evidence_quote": "she said",
+        "source_file": "2026-06-26_loopmart_pricing_call.md"
+      },
+      {
+        "summary": "CRM has no last contact date recorded even though a pricing call happened on 2026-06-26.",
+        "missing_field": "last_contact_date",
+        "evidence_quote": "LoopMart \u2014 pricing call 26/6 (Karandeep)",
+        "source_file": "2026-06-26_loopmart_pricing_call.md"
+      },
+      {
+        "summary": "Estimated value is blank in CRM despite a specific pricing ballpark having been discussed.",
+        "missing_field": "estimated_value",
+        "evidence_quote": "gave ballpark 18\u201322k for retail analytics dashboards, phase-able",
+        "source_file": "2026-06-26_loopmart_pricing_call.md"
+      }
+    ],
+    "timing_signals": [
+      {
+        "summary": "Client requested pricing ballpark at conference, which was followed up with a call about two weeks later; note ends abruptly mid-sentence suggesting a response was cut off and not logged.",
+        "evidence_quote": "she said",
+        "source_file": "2026-06-26_loopmart_pricing_call.md",
+        "urgency": "due_now",
+        "estimated_date_or_window": "2026-07 (unclear, note incomplete)"
+      },
+      {
+        "summary": "Karandeep noted at TechSummit debrief that many leads from the conference go cold if not followed up quickly.",
+        "evidence_quote": "half of these will go cold before we get to them. Happens every conference.",
+        "source_file": "2026-06-14_techsummit_debrief.md",
+        "urgency": "due_now",
+        "estimated_date_or_window": "2026-07 (as soon as possible)"
+      }
+    ],
+    "open_questions_or_dropped_commitments": [
+      {
+        "summary": "The pricing call note cuts off right after 'she said', leaving the client's response to the pricing ballpark undocumented and seemingly unfollowed.",
+        "kind": "dropped_commitment",
+        "evidence_quote": "she said",
+        "source_file": "2026-06-26_loopmart_pricing_call.md"
+      }
+    ],
+    "deprioritize_signals": [],
+    "suggested_crm_update": "Update CRM status from 'New' to reflect that a pricing call occurred on 2026-06-26, and set last_contact_date to 2026-06-26.",
+    "suggested_next_action": "Have Karandeep follow up with Sania to capture her reaction to the 18\u201322k ballpark discussed on the 6/26 call, since the note trails off before recording her response.",
+    "competitor_mentioned": null,
+    "tool_preference_mentioned": null,
+    "dropped_findings": []
+  },
+  "4cb20fac902b6171c14cb926c63af6c28dd2c074779acfd3792b81d3ab75f4eb": {
+    "key": "L-1039",
+    "lead_id": "L-1039",
+    "company": "Citywide Diagnostics",
+    "is_orphan": false,
+    "mismatches": [],
+    "missing_info_flags": [
+      {
+        "summary": "CRM has no next follow-up date logged despite a confirmed call being scheduled for 2026-07-13.",
+        "missing_field": "next_followup_date",
+        "evidence_quote": "How about Monday 13 July, 11am?",
+        "source_file": "2026-07-06_citywide_referral.md"
+      },
+      {
+        "summary": "CRM owner field is blank even though Karandeep is actively corresponding with the lead.",
+        "missing_field": "owner",
+        "evidence_quote": "CRM entry L-1039 exists but the owner column is blank.",
+        "source_file": "2026-07-06_citywide_referral.md"
+      }
+    ],
+    "timing_signals": [
+      {
+        "summary": "A call has been scheduled and confirmed for July 13, 2026, just three days from today.",
+        "evidence_quote": "Monday 13th, 11am works. See you then.",
+        "source_file": "2026-07-06_citywide_referral.md",
+        "urgency": "due_now",
+        "estimated_date_or_window": "2026-07-13"
+      }
+    ],
+    "open_questions_or_dropped_commitments": [],
+    "deprioritize_signals": [],
+    "suggested_crm_update": "Set next_followup_date to 2026-07-13 and assign an owner (e.g., Karandeep) for lead L-1039.",
+    "suggested_next_action": "Confirm internally that Karandeep is prepared for the scheduled 2026-07-13 11am call with Rakesh Gupta about Citywide Diagnostics' three disconnected systems (lab, billing, referral data).",
+    "competitor_mentioned": null,
+    "tool_preference_mentioned": null,
+    "dropped_findings": []
+  },
+  "3da91454b6dd2953b3259fa7c6390133b31eb4f052986ae44870777d1889f353": {
+    "key": "L-1038",
+    "lead_id": "L-1038",
+    "company": "MiraHealth",
+    "is_orphan": false,
+    "mismatches": [
+      {
+        "summary": "CRM notes omit key scoping detail (UK ops first, not India) that was discussed on the second call.",
+        "crm_says": "patient triage assistant idea. second call done",
+        "evidence_quote": "They want the triage assistant scoped for UK ops first, not India.",
+        "source_file": "2026-07-07_mirahealth_quick_summary.md",
+        "severity": "medium"
+      }
+    ],
+    "missing_info_flags": [
+      {
+        "summary": "No next follow-up date set despite an active, recently discussed lead with confirmed budget.",
+        "missing_field": "next_followup_date",
+        "evidence_quote": "Budget ~35k confirmed verbally.",
+        "source_file": "2026-07-07_mirahealth_quick_summary.md"
+      }
+    ],
+    "timing_signals": [],
+    "open_questions_or_dropped_commitments": [
+      {
+        "summary": "Dhaval asked Jay to update the CRM with call details, but per ground truth this was never done.",
+        "kind": "dropped_commitment",
+        "evidence_quote": "Can you put this in the CRM? I'll forget half of it by next week.",
+        "source_file": "2026-07-07_mirahealth_quick_summary.md"
+      }
+    ],
+    "deprioritize_signals": [],
+    "suggested_crm_update": "Update CRM notes to include: scope is UK ops first (not India), budget ~35k verbally confirmed, CTO is ex-NHS and focused on clinical safety docs; set next_followup_date.",
+    "suggested_next_action": "Follow up with Sophie referencing the UK-ops-first scope and clinical safety documentation needs (given the ex-NHS CTO's focus), and set a concrete next follow-up date since the last contact was 2026-07-06 with no follow-up scheduled.",
+    "competitor_mentioned": null,
+    "tool_preference_mentioned": null,
+    "dropped_findings": []
+  },
+  "fcc9649015dc5942b22d40c6ec4e1499feab6c0ab8d61652b60ab09efce0d3dd": {
+    "key": "ORPHAN::Lumino Fitness",
+    "lead_id": null,
+    "company": "Lumino Fitness",
+    "is_orphan": true,
+    "mismatches": [],
+    "missing_info_flags": [
+      {
+        "summary": "Lumino Fitness shows real engagement (conference contact, direct request, budgeting timeline) but has no CRM record at all, including no logged contact info or follow-up date.",
+        "missing_field": "entire CRM record (contact_email, next_followup_date)",
+        "source_file": "2026-06-20_lumino_fitness_case_study.md",
+        "evidence_quote": "Lumino Fitness does not appear in the CRM."
+      }
+    ],
+    "timing_signals": [
+      {
+        "summary": "Client stated they are budgeting for next quarter, suggesting a decision/spend window is approaching.",
+        "evidence_quote": "we're budgeting for next quarter right now",
+        "source_file": "2026-06-20_lumino_fitness_case_study.md",
+        "urgency": "due_this_month",
+        "estimated_date_or_window": "2026-Q3 budgeting cycle"
+      }
+    ],
+    "open_questions_or_dropped_commitments": [
+      {
+        "summary": "Jay had promised to send a case study on member-churn prediction work for a fitness chain, but no reply was sent.",
+        "kind": "dropped_commitment",
+        "evidence_quote": "You mentioned you'd send over the case study about the member-churn prediction work you did for a fitness chain.",
+        "source_file": "2026-06-20_lumino_fitness_case_study.md"
+      }
+    ],
+    "deprioritize_signals": [],
+    "suggested_crm_update": "Create a new CRM lead for Lumino Fitness (contact: Carlos Mendes, carlos@luminofitness.com) and log the outstanding case-study request.",
+    "suggested_next_action": "Have Jay send Carlos Mendes the member-churn prediction case study he promised at TechSummit Mumbai, since Lumino Fitness said they are budgeting for next quarter and no reply has been sent yet.",
+    "competitor_mentioned": null,
+    "tool_preference_mentioned": null,
+    "dropped_findings": []
+  },
+  "2f3f336484a6b23f3926eb53a57eb04666174e04ce1c8a6139b49d97a7874208": {
+    "key": "L-1040",
+    "lead_id": "L-1040",
+    "company": "GlobalMart",
+    "is_orphan": false,
+    "mismatches": [
+      {
+        "summary": "CRM status is New despite an active proposal negotiation, demo, and pricing discussion having already taken place.",
+        "crm_says": "CRM status: New",
+        "evidence_quote": "We reviewed internally. The clickable prototype Pranav showed in the demo landed well \u2014 procurement liked seeing something real.",
+        "source_file": "2026-06-24_globalmart_pricing.md",
+        "severity": "high"
+      }
+    ],
+    "missing_info_flags": [
+      {
+        "summary": "CRM has no next follow-up date even though Karandeep promised to respond by Friday and never did.",
+        "missing_field": "next_followup_date",
+        "evidence_quote": "Neha, let me discuss with the team and come back on the phasing. (Will respond by Friday.)",
+        "source_file": "2026-06-24_globalmart_pricing.md"
+      },
+      {
+        "summary": "CRM has no last contact date despite documented email exchange on 2026-06-26.",
+        "missing_field": "last_contact_date",
+        "evidence_quote": "**Date:** 2026-06-26",
+        "source_file": "2026-06-24_globalmart_pricing.md"
+      },
+      {
+        "summary": "Estimated value is blank despite there being an active proposal with a specific price point under negotiation.",
+        "missing_field": "estimated_value",
+        "evidence_quote": "the number is about 20% above what they will clear this year",
+        "source_file": "2026-06-24_globalmart_pricing.md"
+      }
+    ],
+    "timing_signals": [
+      {
+        "summary": "Karandeep promised to respond by Friday (following the 2026-06-26 email) but no reply was sent as of 2026-07-10.",
+        "evidence_quote": "No further reply sent as of 2026-07-10. The forecasting question was never answered.",
+        "source_file": "2026-06-24_globalmart_pricing.md",
+        "urgency": "due_now",
+        "estimated_date_or_window": "2026-06-27 (Friday following 2026-06-26)"
+      },
+      {
+        "summary": "Neha requested a proposal by end of May during the demo.",
+        "evidence_quote": "Neha wants proposal by end of May \u2014",
+        "source_file": "2026-05-19_globalmart_demo.md",
+        "urgency": "later",
+        "estimated_date_or_window": "2026-05-31"
+      }
+    ],
+    "open_questions_or_dropped_commitments": [
+      {
+        "summary": "Neha asked whether AtliQ does demand forecasting; this was never answered per the ground truth note.",
+        "kind": "unanswered_question",
+        "evidence_quote": "my colleague in supply chain asked whether you do demand forecasting. Do you?",
+        "source_file": "2026-06-24_globalmart_pricing.md"
+      },
+      {
+        "summary": "Karandeep committed to responding by Friday about phasing options but never followed up.",
+        "kind": "dropped_commitment",
+        "evidence_quote": "let me discuss with the team and come back on the phasing. (Will respond by Friday.)",
+        "source_file": "2026-06-24_globalmart_pricing.md"
+      }
+    ],
+    "deprioritize_signals": [],
+    "suggested_crm_update": "Update CRM status from 'New' to reflect active proposal negotiation; set next_followup_date and populate estimated_value; correct service interest to Vendor Portal.",
+    "suggested_next_action": "Follow up with Neha Shah on the phasing options (trim analytics module to Phase 2 vs. lower full-scope figure) she proposed on 2026-06-24, and answer her colleague's question about demand forecasting capability, since Karandeep's promised Friday response was never sent.",
+    "competitor_mentioned": null,
+    "tool_preference_mentioned": null,
+    "dropped_findings": [
+      {
+        "category": "mismatches",
+        "summary": "CRM lists service interest as Power BI Dashboards, but the linked documents show the actual deal is a Vendor Portal proposal, not dashboards.",
+        "crm_says": "Service interest: Power BI Dashboards",
+        "evidence_quote": "Subject: RE: Proposal \u2014 Vendor Portal",
+        "source_file": "2026-06-24_globalmart_pricing.md",
+        "severity": "medium"
+      }
+    ]
+  },
+  "99e1b32b179a64cab5faab3dc01c2c7b2b55f37be61991185c5d5d0ecb5c4547": {
+    "key": "ORPHAN::Harbor & Finch Advisory",
+    "lead_id": null,
+    "company": "Harbor & Finch Advisory",
+    "is_orphan": true,
+    "mismatches": [],
+    "missing_info_flags": [],
+    "timing_signals": [
+      {
+        "summary": "Client asked for a call within the next couple of weeks from the referral date, and no reply has been sent as of today.",
+        "evidence_quote": "Do you have time in the next couple of weeks?",
+        "source_file": "2026-06-27_harborfinch_referral_intro.md",
+        "urgency": "due_now",
+        "estimated_date_or_window": "2026-07-11 (two weeks from 2026-06-27)"
+      }
+    ],
+    "open_questions_or_dropped_commitments": [
+      {
+        "summary": "David Harbor asked if Bhavin has time to talk in the next couple of weeks, and this appears to have gone unanswered.",
+        "kind": "unanswered_question",
+        "evidence_quote": "Do you have time in the next couple of weeks?",
+        "source_file": "2026-06-27_harborfinch_referral_intro.md"
+      }
+    ],
+    "deprioritize_signals": [],
+    "suggested_crm_update": "Create a new CRM lead record for Harbor & Finch Advisory (contact: David Harbor, david@harborfinch.com) referred by Suresh Menon (finedge.com) on 2026-06-27, and set a next_followup_date.",
+    "suggested_next_action": "Have Bhavin follow up with David Harbor (david@harborfinch.com) referencing his request to discuss automating their ~120 quarterly client reports, since no reply has been sent since the 2026-06-27 introduction.",
+    "competitor_mentioned": null,
+    "tool_preference_mentioned": null,
+    "dropped_findings": [
+      {
+        "category": "missing_info_flags",
+        "summary": "Harbor & Finch Advisory shows a real inbound referral and client request but has no CRM record at all, blocking any follow-up tracking.",
+        "missing_field": "entire CRM record (lead not logged)",
+        "evidence_quote": "This company ('Harbor & Finch Advisory') does not currently appear anywhere in the CRM export",
+        "source_file": "2026-06-27_harborfinch_referral_intro.md"
+      },
+      {
+        "category": "open_questions_or_dropped_commitments",
+        "summary": "No reply from AtliQ was sent to a warm referral introduction, per confirmed ground truth.",
+        "kind": "dropped_commitment",
+        "evidence_quote": "GROUND TRUTH (confirmed fact about what actually happened): No reply from AtliQ as of 2026-07-10. Harbor & Finch does not appear in the CRM.",
+        "source_file": "2026-06-27_harborfinch_referral_intro.md"
+      }
+    ]
+  },
+  "5e7c898cd6204eab53c29d3c02a3c44ef59b8bd9c8b9b8c0687dd300047e5204": {
+    "key": "ORPHAN::PixelWorks Agency",
+    "lead_id": null,
+    "company": "PixelWorks Agency",
+    "is_orphan": true,
+    "mismatches": [],
+    "missing_info_flags": [
+      {
+        "summary": "PixelWorks Agency shows real inbound engagement (a partnership inquiry) but has no CRM record at all, so there is no contact_email or next_followup_date logged.",
+        "missing_field": "contact_email / next_followup_date / entire lead record",
+        "evidence_quote": "PixelWorks does not appear in the CRM.",
+        "source_file": "2026-06-29_pixelworks_partnership.md"
+      }
+    ],
+    "timing_signals": [
+      {
+        "summary": "Client sent a partnership inquiry on 2026-06-29 and as of 2026-07-10 (11 days later) has received no reply.",
+        "evidence_quote": "No reply sent as of 2026-07-10.",
+        "source_file": "2026-06-29_pixelworks_partnership.md",
+        "urgency": "due_now",
+        "estimated_date_or_window": "2026-07-10 (immediate)"
+      }
+    ],
+    "open_questions_or_dropped_commitments": [
+      {
+        "summary": "Tara Bose asked who the right contact person would be for setting up the partnership, and this question was never answered.",
+        "kind": "unanswered_question",
+        "evidence_quote": "Who's the right person to speak with?",
+        "source_file": "2026-06-29_pixelworks_partnership.md"
+      }
+    ],
+    "deprioritize_signals": [],
+    "suggested_crm_update": "Create a new CRM lead record for PixelWorks Agency (contact: Tara Bose, tara@pixelworks.agency) with next_followup_date set soon given the 11-day-old unanswered inquiry.",
+    "suggested_next_action": "Have Jay reply to Tara Bose's 2026-06-29 email addressing her question about who to speak with regarding a white-label partnership for 3-4 projects a quarter, since no response has been sent as of 2026-07-10.",
+    "competitor_mentioned": null,
+    "tool_preference_mentioned": null,
+    "dropped_findings": []
+  },
+  "dc855f4c8fe2f23b461644b5efb9f879a72ccd981041fea02de76c5d34e93a2c": {
+    "key": "ORPHAN::Nimbus Lending",
+    "lead_id": null,
+    "company": "Nimbus Lending",
+    "is_orphan": true,
+    "mismatches": [],
+    "missing_info_flags": [
+      {
+        "summary": "Nimbus Lending shows real engagement (referral intro + specific ask) but has no CRM record at all, blocking any tracking or follow-up.",
+        "missing_field": "entire CRM record (contact_email, next_followup_date, etc.)",
+        "source_file": "2026-07-05_nimbus_lending_intro.md",
+        "evidence_quote": "Nimbus Lending does not appear in the CRM."
+      }
+    ],
+    "timing_signals": [
+      {
+        "summary": "Rhea has budget conversations happening the week of 20 July and wants a call before then.",
+        "evidence_quote": "I have budget conversations happening the week of 20 July, so a call before then would be ideal.",
+        "source_file": "2026-07-05_nimbus_lending_intro.md",
+        "urgency": "due_this_month",
+        "estimated_date_or_window": "before week of 2026-07-20"
+      }
+    ],
+    "open_questions_or_dropped_commitments": [
+      {
+        "summary": "Rhea requested a call before the week of 20 July but no reply has been sent as of 2026-07-10.",
+        "kind": "dropped_commitment",
+        "evidence_quote": "No reply sent as of 2026-07-10. Nimbus Lending does not appear in the CRM.",
+        "source_file": "2026-07-05_nimbus_lending_intro.md"
+      }
+    ],
+    "deprioritize_signals": [],
+    "suggested_crm_update": "Create a new CRM lead record for Nimbus Lending (contact: Rhea Sharma, rhea@nimbuslending.in) with next_followup_date before 2026-07-20.",
+    "suggested_next_action": "Have Bhavin reply to Rhea Sharma to schedule a call before the week of July 20, since she flagged that budget conversations start then and no response has gone out since her July 6 email.",
+    "competitor_mentioned": null,
+    "tool_preference_mentioned": null,
+    "dropped_findings": []
+  },
+  "282f0d8bd23fe22afa06447ba70d004fc6e42154226216d48673f68609f0fae7": {
+    "key": "ORPHAN::Ridgeline Foods",
+    "lead_id": null,
+    "company": "Ridgeline Foods",
+    "is_orphan": true,
+    "mismatches": [],
+    "missing_info_flags": [
+      {
+        "summary": "No contact email or phone number was captured for the Ridgeline Foods ops head, and the lead was never entered into the CRM at all.",
+        "missing_field": "contact_email",
+        "source_file": "2026-07-03_ridgeline_scribble.md",
+        "evidence_quote": "took no number, no email \u2014 he said \"I'll email you\" \u2014 to which address??"
+      },
+      {
+        "summary": "There is no next follow-up date logged anywhere, and no CRM record exists for this lead despite a real inbound inquiry.",
+        "missing_field": "next_followup_date",
+        "source_file": "2026-07-03_ridgeline_scribble.md",
+        "evidence_quote": "Ridgeline Foods is not in the CRM."
+      }
+    ],
+    "timing_signals": [
+      {
+        "summary": "Ops head called expressing interest in a distributor ordering portal similar to Sunrise Foods, said he would email but nothing was ever entered or received - the trail has gone cold since the 2026-07-03 call.",
+        "evidence_quote": "No email ever arrived, or nobody recognised it.",
+        "source_file": "2026-07-03_ridgeline_scribble.md",
+        "urgency": "due_now",
+        "estimated_date_or_window": "2026-07-03 (call date), follow-up overdue as of 2026-07-10"
+      }
+    ],
+    "open_questions_or_dropped_commitments": [
+      {
+        "summary": "The caller said he would email AtliQ but no email was ever received, and AtliQ has no way to reach him back since no contact info was taken.",
+        "kind": "dropped_commitment",
+        "evidence_quote": "he said \"I'll email you\" \u2014 to which address??",
+        "source_file": "2026-07-03_ridgeline_scribble.md"
+      }
+    ],
+    "deprioritize_signals": [],
+    "suggested_crm_update": "Create a new CRM lead entry for Ridgeline Foods (contact name possibly Prakash/Prashant, ops head) noting interest in a ~200-distributor ordering portal referencing Sunrise Foods, and flag contact_email and next_followup_date as missing.",
+    "suggested_next_action": "Since Ridgeline Foods referenced the shared distributor connection to Sunrise Foods, consider having the Sunrise Foods contact help identify or reach the Ridgeline ops head (possibly named Prakash or Prashant) to re-establish contact, since no email or phone number was captured from the 2026-07-03 call.",
+    "competitor_mentioned": null,
+    "tool_preference_mentioned": null,
+    "dropped_findings": []
+  },
+  "93d343093a82f58fda588021dcfb2f018f69dcc778f67abe5a38f14b22782c8b": {
+    "key": "L-1004",
+    "lead_id": "L-1004",
+    "company": "GlobalMart",
+    "is_orphan": false,
+    "mismatches": [
+      {
+        "summary": "CRM shows last contact as 2026-05-19 (demo date), but there was a substantive pricing negotiation email exchange on 2026-06-24/26 that isn't reflected in the CRM's last contact date.",
+        "crm_says": "Last contact date (per CRM): 2026-05-19",
+        "evidence_quote": "The scope is right but the number is about 20% above what they will clear this year.",
+        "source_file": "2026-06-24_globalmart_pricing.md",
+        "severity": "medium"
+      },
+      {
+        "summary": "CRM notes say the proposal simply 'sent' with no issues, but the client actually pushed back on price and Karandeep committed to respond by Friday and never did.",
+        "crm_says": "demo went ok, sent proposal",
+        "evidence_quote": "Neha, let me discuss with the team and come back on the phasing. (Will respond by Friday.)",
+        "source_file": "2026-06-24_globalmart_pricing.md",
+        "severity": "high"
+      }
+    ],
+    "missing_info_flags": [],
+    "timing_signals": [],
+    "open_questions_or_dropped_commitments": [],
+    "deprioritize_signals": [],
+    "suggested_crm_update": "",
+    "suggested_next_action": "",
+    "competitor_mentioned": null,
+    "tool_preference_mentioned": null,
+    "dropped_findings": []
   }
 }
