@@ -29,6 +29,7 @@ See [APP_README.md](APP_README.md) for full setup, run instructions, and archite
 - [Cost_Estimation.xlsx](Project%20Docs/Cost_Estimation.xlsx)
 - [Cost_Estimation.pdf](Project%20Docs/Cost_Estimation.pdf)
 - [Feature_Guide.pdf](Project%20Docs/Feature_Guide.pdf)
+- [AtliQ_Product_Presentation.pdf](Project%20Docs/AtliQ_Product_Presentation.pdf)
 
 ## Dataset
 
