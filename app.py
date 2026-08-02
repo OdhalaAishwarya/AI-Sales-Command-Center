@@ -31,7 +31,7 @@ from anthropic import APIStatusError
 
 from src.analyzer import LeadAnalysis
 from src.cache import (
-    CACHE_PATH, append_history_snapshot, clear_cache, get_or_analyze, load_cache,
+    CACHE_PATH, append_history_snapshot, get_or_analyze, load_cache,
     load_history, load_insights_cache, save_cache, save_insights_cache,
 )
 from src.data_loader import Document, load_all_docs, load_crm
@@ -1149,16 +1149,22 @@ with header_right:
             )
         include_orphans = st.checkbox("Include leads not in CRM", value=True)
         st.caption(f"Cache file: `{CACHE_PATH.name}` ({'exists' if CACHE_PATH.exists() else 'empty'})")
-        # Disabled for public deployment - always False regardless of the
-        # (visually greyed-out, non-interactive) checkbox's own return value,
-        # so Refresh can never be used to force repeated fresh API calls on
-        # leads that are already cached. cache.py's own logic is untouched -
-        # this only removes the public control that could bypass it.
-        st.checkbox(
-            "Ignore cache", value=False, disabled=True,
-            help="Disabled in public demo — Refresh still works, but only ever analyzes leads that aren't already cached.",
+        # Local-only escape hatch: ALLOW_FORCE_REFRESH must be explicitly set
+        # to "true" in .env (never in Streamlit Cloud's Secrets, never
+        # hardcoded here) for this checkbox to do anything. Unset or any
+        # other value -> disabled, exactly like the public deployment, so a
+        # forced re-analysis (real paid API calls on already-cached leads)
+        # can never ship enabled by accident.
+        allow_force_refresh = os.environ.get("ALLOW_FORCE_REFRESH", "").strip().lower() == "true"
+        force_refresh = st.checkbox(
+            "Ignore cache", value=False, disabled=not allow_force_refresh,
+            help=(
+                "Force re-analysis of every eligible lead this run, even ones already cached — "
+                "this re-bills the API for each one. Local-only (ALLOW_FORCE_REFRESH=true in .env)."
+                if allow_force_refresh else
+                "Disabled in public demo — Refresh still works, but only ever analyzes leads that aren't already cached."
+            ),
         )
-        force_refresh = False
         run_clicked = st.button("Refresh", key="refresh_btn", type="primary")
 
 # V2 section 5: owner filter as clearly-labeled pill buttons - reuses the
@@ -1202,8 +1208,10 @@ if run_clicked:
     # be mistaken for this run's outcome.
     st.session_state["run_diagnostics"] = None
 
-    if force_refresh:
-        clear_cache()
+    # force_refresh is passed per-lead to get_or_analyze() below, which is
+    # sufficient to force a fresh call for every lead in this run - no need
+    # to also wipe the whole cache file (that would additionally destroy
+    # every other lead's, and every past PROMPT_VERSION's, cached history).
 
     if not api_key:
         st.session_state["run_diagnostics"] = {
@@ -1226,6 +1234,7 @@ if run_clicked:
             errors: list[dict] = []
             cache_hits = 0
             fresh_calls = 0
+            forced_leads: list[str] = []
             shared_cache = load_cache()
 
             # This loop can fire dozens of large prompts back to back. Keep concurrency
@@ -1268,6 +1277,8 @@ if run_clicked:
                                     cache_hits += 1
                                 else:
                                     fresh_calls += 1
+                                    if force_refresh:
+                                        forced_leads.append(label)
                             except Exception as e:  # noqa: BLE001 - surface every failure, never swallow
                                 errors.append({"label": label, "summary": _describe_exception(e), "traceback": traceback.format_exc()})
                             done += 1
@@ -1289,6 +1300,7 @@ if run_clicked:
                 "elapsed_seconds": elapsed_seconds,
                 "cache_hits": cache_hits,
                 "fresh_calls": fresh_calls,
+                "forced_leads": forced_leads,
                 "errors": errors,
             }
 
@@ -1414,6 +1426,17 @@ if diag:
                 st.markdown(f"**{err['label']}** — {err['summary']}")
                 with st.expander("Full traceback", expanded=False):
                     st.code(err["traceback"])
+    if diag.get("forced_leads"):
+        # Local-only (ALLOW_FORCE_REFRESH=true) - visible every time "Ignore
+        # cache" actually forced real, billable API calls on leads that were
+        # already cached, so this can never happen silently. Cost basis is
+        # the measured ~$0.0698/lead figure used elsewhere this session.
+        _n_forced = len(diag["forced_leads"])
+        _est_cost = _n_forced * 0.0698
+        st.warning(
+            f"⚠️ **Ignore cache** was ON: {_n_forced} lead(s) were force re-analyzed even though already cached "
+            f"(~$0.0698/lead ≈ ${_est_cost:.2f}) — {', '.join(diag['forced_leads'])}"
+        )
 elif not api_key:
     st.warning("No Anthropic API key detected yet (checked `.env` and the field at the top of the page). Analysis tabs will stay empty until one is provided.")
 
