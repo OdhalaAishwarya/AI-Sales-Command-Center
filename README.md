@@ -37,7 +37,7 @@ See [APP_README.md](APP_README.md) for full setup, run instructions, and archite
    Product requirements for the chosen solution, including a dedicated North Star and Metrics section.
 
 4. **Cost estimation**<br>
-   [Cost_Estimation.xlsx](Project%20Docs/Cost_Estimation.xlsx) (+ [PDF companion](Project%20Docs/Cost_Estimation.pdf))<br>
+   [AtliQ_Cost_Estimation.xlsx](Project%20Docs/AtliQ_Cost_Estimation.xlsx) (+ [PDF companion](Project%20Docs/AtliQ_Cost_Estimation.pdf))<br>
    Model(s) used, expected token usage per interaction, expected volumes, and infrastructure costs.
 
 5. **Working AI prototype**<br>
