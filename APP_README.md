@@ -10,13 +10,27 @@ the emails, or the notes, and never sends anything.
 
 ## Setup
 
-```
-pip install -r requirements.txt
-```
+1. Clone the repo and enter it:
+   ```
+   git clone https://github.com/OdhalaAishwarya/AI-Sales-Command-Center.git
+   cd AI-Sales-Command-Center
+   ```
+2. Requires **Python 3.11+** (the pandas dependency's own floor; developed and tested on 3.14). A virtual environment is recommended:
+   ```
+   python -m venv .venv
+   .venv\Scripts\activate       # Windows
+   source .venv/bin/activate    # macOS/Linux
+   ```
+3. Install dependencies:
+   ```
+   pip install -r requirements.txt
+   ```
 
 Provide your Anthropic API key one of two ways:
 - Copy `.env.example` to `.env` and fill in `ANTHROPIC_API_KEY=...`, **or**
-- Leave `.env` unset and paste the key into the sidebar's password field when the app is running (kept only in that session's memory, never written to disk).
+- Leave `.env` unset and paste the key into the password field in the app's **main header** (top-right) when it's running (kept only in that session's memory, never written to disk).
+
+Optional, local dev only: to enable the "Ignore cache" checkbox (see below), also set `ALLOW_FORCE_REFRESH=true` in `.env`. Leave it unset and the checkbox stays visible but permanently disabled — the same as everyone sees on the public deployment.
 
 ## Run
 
@@ -24,10 +38,11 @@ Provide your Anthropic API key one of two ways:
 streamlit run app.py
 ```
 
-Open the local URL Streamlit prints (default `http://localhost:8501`). Click
-**"Run / Refresh analysis"** in the sidebar to analyze every lead that has at
-least one linked email or meeting note (leads with zero linked documents are
-skipped — there's no evidence to compare against).
+Open the local URL Streamlit prints (default `http://localhost:8501`). In the
+**main page header** (top-right, not the sidebar — the sidebar is just the
+tab-navigation icon rail on the left), click **"Refresh"** to analyze every
+lead that has at least one linked email or meeting note (leads with zero
+linked documents are skipped — there's no evidence to compare against).
 
 ## How it works
 
@@ -53,8 +68,8 @@ skipped — there's no evidence to compare against).
    alphabetically or by CRM status.
 6. `src/cache.py` caches each lead's analysis JSON in `.cache/analysis_cache.json`
    (hashed by lead + linked-document text), so re-opening the app doesn't re-bill
-   the API for unchanged data. Use the sidebar's "Ignore cache" checkbox to force
-   a fresh analysis.
+   the API for unchanged data. The main header's "Ignore cache" checkbox can force
+   a fresh analysis, but it's disabled by default — see `ALLOW_FORCE_REFRESH` above.
 
 ## Guardrails
 
